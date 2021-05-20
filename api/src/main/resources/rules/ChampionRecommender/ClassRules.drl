@@ -1,0 +1,116 @@
+package rules.ChampionRecommender;
+dialect  "mvel"
+
+import com.example.demo.Model.Champion;
+import com.example.demo.Model.ChampionRecommendSession;
+import com.example.demo.Model.Enums.*;
+
+// kada taj heroj ima primary class MID dajemo mu 10 poena, ako mu je secondary dajemo mu 5 poena, ako je nista dajemo mu 0 poena
+rule "Recommend champion based on Class preference, primary ASSASSIN CLASS"
+agenda-group "assassin"
+    when
+        $champion: Champion($name: name, primaryClass == ChampionClass.ASSASSIN)
+        $session: ChampionRecommendSession($championList: championList)
+    then
+        modify($session){ updateScore($champion, 10)}
+end
+
+rule "Recommend champion based on Class preference, secondary ASSASSIN CLASS"
+agenda-group "assassin"
+    when
+        $champion: Champion($name: name, secondaryClass == ChampionClass.ASSASSIN)
+        $session: ChampionRecommendSession($championList: championList)
+    then
+        modify($session){ updateScore($champion, 5)}
+end
+
+rule "Recommend champion based on Class preference, primary BRUISER CLASS"
+agenda-group "bruiser"
+    when
+        $champion: Champion($name: name, primaryClass == ChampionClass.BRUISER)
+        $session: ChampionRecommendSession($championList: championList)
+    then
+        modify($session){ updateScore($champion, 10)}
+end
+
+rule "Recommend champion based on Class preference, secondary BRUISER CLASS"
+agenda-group "bruiser"
+    when
+        $champion: Champion($name: name, secondaryClass == ChampionClass.BRUISER)
+        $session: ChampionRecommendSession($championList: championList)
+    then
+        modify($session){ updateScore($champion, 5)}
+end
+
+rule "Recommend champion based on Class preference, primary MAGE CLASS"
+agenda-group "bruiser"
+    when
+        $champion: Champion($name: name, primaryClass == ChampionClass.MAGE)
+        $session: ChampionRecommendSession($championList: championList)
+    then
+        modify($session){ updateScore($champion, 10)}
+end
+
+rule "Recommend champion based on Class preference, secondary MAGE CLASS"
+agenda-group "bruiser"
+    when
+        $champion: Champion($name: name, secondaryClass == ChampionClass.MAGE)
+        $session: ChampionRecommendSession($championList: championList)
+    then
+        modify($session){ updateScore($champion, 5)}
+end
+
+rule "Recommend champion based on Class preference, primary MARKSMAN CLASS"
+agenda-group "bruiser"
+    when
+        $champion: Champion($name: name, primaryClass == ChampionClass.MARKSMAN)
+        $session: ChampionRecommendSession($championList: championList)
+    then
+        modify($session){ updateScore($champion, 10)}
+end
+
+rule "Recommend champion based on Class preference, secondary MARKSMAN CLASS"
+agenda-group "bruiser"
+    when
+        $champion: Champion($name: name, secondaryClass == ChampionClass.MARKSMAN)
+        $session: ChampionRecommendSession($championList: championList)
+    then
+        modify($session){ updateScore($champion, 5)}
+end
+
+rule "Recommend champion based on Class preference, primary SUPPORT CLASS"
+agenda-group "bruiser"
+    when
+        $champion: Champion($name: name, primaryClass == ChampionClass.SUPPORT)
+        $session: ChampionRecommendSession($championList: championList)
+    then
+        modify($session){ updateScore($champion, 10)}
+end
+
+rule "Recommend champion based on Class preference, secondary SUPPORT CLASS"
+agenda-group "bruiser"
+    when
+        $champion: Champion($name: name, secondaryClass == ChampionClass.SUPPORT)
+        $session: ChampionRecommendSession($championList: championList)
+    then
+        modify($session){ updateScore($champion, 5)}
+end
+
+rule "Recommend champion based on Class preference, primary TANK CLASS"
+agenda-group "bruiser"
+    when
+        $champion: Champion($name: name, primaryClass == ChampionClass.TANK)
+        $session: ChampionRecommendSession($championList: championList)
+    then
+        modify($session){ updateScore($champion, 10)}
+end
+
+rule "Recommend champion based on Class preference, secondary TANK CLASS"
+agenda-group "bruiser"
+    when
+        $champion: Champion($name: name, secondaryClass == ChampionClass.TANK)
+        $session: ChampionRecommendSession($championList: championList)
+    then
+        modify($session){ updateScore($champion, 5)}
+end
+

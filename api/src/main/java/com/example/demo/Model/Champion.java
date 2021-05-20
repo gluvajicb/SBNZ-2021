@@ -1,7 +1,7 @@
 package com.example.demo.Model;
 
 import com.example.demo.Model.Enums.*;
-import com.example.demo.Model.Enums.Class;
+import com.example.demo.Model.Enums.ChampionClass;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,9 +20,9 @@ public class Champion {
 
     private String name;
 
-    private Class primaryClass;
+    private ChampionClass primaryClass;
 
-    private Class secondaryClass;
+    private ChampionClass secondaryClass;
 
     private Lane primaryLane;
 
