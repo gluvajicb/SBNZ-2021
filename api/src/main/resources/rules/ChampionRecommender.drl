@@ -2,11 +2,25 @@ package rules;
 dialect  "mvel"
 import com.example.demo.Model.Champion;
 import com.example.demo.Model.Session;
+import com.example.demo.Model.Enums.*;
 
-rule "Recommend champion based on Lane preference"
+// kada taj heroj ima primary lane MID dajemo mu 10 poena, ako mu je secondary dajemo mu 5 poena, ako je nista dajemo mu 0 poena
+rule "Recommend champion based on Lane preference, primary MID LANE"
+agenda-group "midlane"
     when
-        $champion: Champion($name: name, $primaryLane: primaryLane == , $secondaryLane: secondaryLane)
+        $champion: Champion($name: name, primaryLane == Lane.MID)
         $session: Session($championList: championList)
-
     then
+        modify($session){ updateScore($champion, 10)}
+
+end
+
+rule "Recommend champion based on Lane preference, secondaru MID LANE"
+agenda-group "midlane"
+    when
+        $champion: Champion($name: name, secondaryLane == Lane.MID)
+        $session: Session($championList: championList)
+    then
+        modify($session){ updateScore($champion, 5)}
+
 end
