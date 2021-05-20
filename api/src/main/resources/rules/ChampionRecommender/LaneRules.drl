@@ -1,7 +1,7 @@
 package rules;
 dialect  "mvel"
 import com.example.demo.Model.Champion;
-import com.example.demo.Model.Session;
+import com.example.demo.Model.ChampionRecommendSession;
 import com.example.demo.Model.Enums.*;
 
 // kada taj heroj ima primary lane MID dajemo mu 10 poena, ako mu je secondary dajemo mu 5 poena, ako je nista dajemo mu 0 poena
@@ -9,17 +9,101 @@ rule "Recommend champion based on Lane preference, primary MID LANE"
 agenda-group "midlane"
     when
         $champion: Champion($name: name, primaryLane == Lane.MID)
-        $session: Session($championList: championList)
+        $session: ChampionRecommendSession($championList: championList)
     then
         modify($session){ updateScore($champion, 10)}
 
 end
 
-rule "Recommend champion based on Lane preference, secondaru MID LANE"
+rule "Recommend champion based on Lane preference, secondary MID LANE"
 agenda-group "midlane"
     when
         $champion: Champion($name: name, secondaryLane == Lane.MID)
-        $session: Session($championList: championList)
+        $session: ChampionRecommendSession($championList: championList)
+    then
+        modify($session){ updateScore($champion, 5)}
+
+end
+
+// kada taj heroj ima primary lane JUNGLE dajemo mu 10 poena, ako mu je secondary dajemo mu 5 poena, ako je nista dajemo mu 0 poena
+rule "Recommend champion based on Lane preference, primary JUNGLE"
+agenda-group "jungle"
+    when
+        $champion: Champion($name: name, primaryLane == Lane.JUNGLE)
+        $session: ChampionRecommendSession($championList: championList)
+    then
+        modify($session){ updateScore($champion, 10)}
+
+end
+
+rule "Recommend champion based on Lane preference, secondary JUNGLE"
+agenda-group "jungle"
+    when
+        $champion: Champion($name: name, secondaryLane == Lane.JUNGLE)
+        $session: ChampionRecommendSession($championList: championList)
+    then
+        modify($session){ updateScore($champion, 5)}
+
+end
+
+// kada taj heroj ima primary lane JUNGLE dajemo mu 10 poena, ako mu je secondary dajemo mu 5 poena, ako je nista dajemo mu 0 poena
+rule "Recommend champion based on Lane preference, primary TOP"
+agenda-group "top"
+    when
+        $champion: Champion($name: name, primaryLane == Lane.TOP)
+        $session: ChampionRecommendSession($championList: championList)
+    then
+        modify($session){ updateScore($champion, 10)}
+
+end
+
+rule "Recommend champion based on Lane preference, secondary TOP"
+agenda-group "top"
+    when
+        $champion: Champion($name: name, secondaryLane == Lane.TOP)
+        $session: ChampionRecommendSession($championList: championList)
+    then
+        modify($session){ updateScore($champion, 5)}
+
+end
+
+// kada taj heroj ima primary lane BOT dajemo mu 10 poena, ako mu je secondary dajemo mu 5 poena, ako je nista dajemo mu 0 poena
+rule "Recommend champion based on Lane preference, primary BOT"
+agenda-group "bot"
+    when
+        $champion: Champion($name: name, primaryLane == Lane.BOT)
+        $session: ChampionRecommendSession($championList: championList)
+    then
+        modify($session){ updateScore($champion, 10)}
+
+end
+
+rule "Recommend champion based on Lane preference, secondary BOT"
+agenda-group "bot"
+    when
+        $champion: Champion($name: name, secondaryLane == Lane.BOT)
+        $session: ChampionRecommendSession($championList: championList)
+    then
+        modify($session){ updateScore($champion, 5)}
+
+end
+
+// kada taj heroj ima primary lane SUPPORT dajemo mu 10 poena, ako mu je secondary dajemo mu 5 poena, ako je nista dajemo mu 0 poena
+rule "Recommend champion based on Lane preference, primary SUPPORT"
+agenda-group "support"
+    when
+        $champion: Champion($name: name, primaryLane == Lane.SUPPORT)
+        $session: ChampionRecommendSession($championList: championList)
+    then
+        modify($session){ updateScore($champion, 10)}
+
+end
+
+rule "Recommend champion based on Lane preference, secondary SUPPORT"
+agenda-group "support"
+    when
+        $champion: Champion($name: name, secondaryLane == Lane.SUPPORT)
+        $session: ChampionRecommendSession($championList: championList)
     then
         modify($session){ updateScore($champion, 5)}
 

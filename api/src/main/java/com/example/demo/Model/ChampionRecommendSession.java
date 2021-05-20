@@ -9,7 +9,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Session {
+public class ChampionRecommendSession {
 
     private List<ChampionScore> championList;
 

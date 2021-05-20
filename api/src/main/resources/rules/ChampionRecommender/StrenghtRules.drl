@@ -1,0 +1,37 @@
+package rules.ChampionRecommender;
+dialect  "mvel"
+
+import com.example.demo.Model.*;
+import com.example.demo.Model.Enums.*;
+
+
+rule "Recommend champion based on Strenght preference by early game"
+agenda-group "earlygame"
+    when
+        $champion: Champion($name: name, strenght == Strenght.EARLY_GAME )
+        $session: ChampionRecommendSession($championList: championList)
+    then
+        modify($session){ updateScore($champion, 10)}
+
+end
+
+rule "Recommend champion based on Strenght preference by early game"
+agenda-group "midgame"
+    when
+        $champion: Champion($name: name, strenght == Strenght.MID_GAME )
+        $session: ChampionRecommendSession($championList: championList)
+    then
+        modify($session){ updateScore($champion, 10)}
+
+end
+
+rule "Recommend champion based on Strenght preference by early game"
+agenda-group "lategame"
+    when
+        $champion: Champion($name: name, strenght == Strenght.LATE_GAME )
+        $session: ChampionRecommendSession($championList: championList)
+    then
+        modify($session){ updateScore($champion, 10)}
+
+end
+
