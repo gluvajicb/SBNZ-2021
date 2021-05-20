@@ -1,0 +1,12 @@
+package rules;
+dialect  "mvel"
+import com.example.demo.Model.Champion;
+import com.example.demo.Model.Session;
+
+rule "Recommend champion based on Lane preference"
+    when
+        $champion: Champion($name: name, $primaryLane: primaryLane == , $secondaryLane: secondaryLane)
+        $session: Session($championList: championList)
+
+    then
+end

@@ -18,9 +18,14 @@ public class Champion {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String name;
+
+
     private Class championClass;
 
-    private Lane lane;
+    private Lane primaryLane;
+
+    private Lane secondaryLane;
 
     @ManyToOne
     private DamageType damageType;
