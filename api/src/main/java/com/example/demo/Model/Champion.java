@@ -20,8 +20,9 @@ public class Champion {
 
     private String name;
 
+    private Class primaryClass;
 
-    private Class championClass;
+    private Class secondaryClass;
 
     private Lane primaryLane;
 
