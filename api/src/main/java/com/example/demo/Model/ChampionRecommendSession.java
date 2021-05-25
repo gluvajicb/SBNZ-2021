@@ -17,6 +17,11 @@ public class ChampionRecommendSession {
         for(ChampionScore ch: this.championList) {
             if(ch.getChampion().getName().equalsIgnoreCase(champion.getName())){
                 ch.updateScore(points);
+                System.out.println("==========================================================");
+                System.out.println("Points for champion " + champion.getName() + " updated!" );
+                System.out.println("New points: " + ch.getScore());
+                System.out.println("==========================================================");
+
             }
         }
     }

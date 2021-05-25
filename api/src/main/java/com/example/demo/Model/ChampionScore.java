@@ -13,6 +13,10 @@ public class ChampionScore {
 
     private int score;
 
+    public ChampionScore(Champion ch){
+        this.champion = ch;
+        this.score = 0;
+    }
     public void updateScore(int points) {
         this.score += points;
     }

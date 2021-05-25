@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<kmodule xmlns="http://jboss.org/kie/6.0.0/kmodule">
+
+    <kbase name="build-rules" packages="BuildRecommender">
+        <ksession name="BuildRecommender"/>
+    </kbase>
+    <kbase name="play-style-rules" packages="ChampionRecommender.PlaystyleRules">
+        <ksession name="play-style-recommend-rules"/>
+    </kbase>
+</kmodule>

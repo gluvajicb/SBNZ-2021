@@ -1,0 +1,38 @@
+package ChampionRecommender.PlaystyleRules;
+dialect  "mvel"
+
+import com.example.demo.Model.Champion;
+import com.example.demo.Model.ChampionRecommendSession;
+import com.example.demo.Model.Enums.*;
+
+rule "Recommend champion based on Playstyle preference, ROAMING"
+agenda-group "roaming"
+    when
+        $champion: Champion($name: name, playstyle == Playstyle.ROAMING)
+        $session: ChampionRecommendSession($championList: championList)
+    then
+        modify($session){ updateScore($champion, 10)}
+
+end
+
+rule "Recommend champion based on Playstyle preference, SPLITPUSHING"
+agenda-group "splitpushing"
+    when
+        $champion: Champion($name: name, playstyle == Playstyle.SPLITPUSHING)
+        $session: ChampionRecommendSession($championList: championList)
+    then
+        modify($session){ updateScore($champion, 10)}
+
+end
+
+rule "Recommend champion based on Playstyle preference, TEAMFIGHTING"
+agenda-group "teamfighting"
+no-loop
+    when
+        $champion: Champion($name: name, playstyle == Playstyle.TEAMFIGHTING)
+        $session: ChampionRecommendSession($championList: championList)
+    then
+        System.out.println("Rule triggered ! \nUslov je ispunjen, Aatrox je TEAMFIGHER");
+        modify($session){ updateScore($champion, 10)}
+
+end

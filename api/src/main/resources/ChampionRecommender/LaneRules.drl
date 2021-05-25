@@ -1,4 +1,4 @@
-package rules;
+package ChampionRecommender;
 dialect  "mvel"
 import com.example.demo.Model.Champion;
 import com.example.demo.Model.ChampionRecommendSession;

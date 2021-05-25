@@ -52,7 +52,13 @@
 			<artifactId>kie-ci</artifactId>
 			<version>7.54.0.Final</version>
 		</dependency>
-
+		<dependency>
+			<groupId>org.drools</groupId>
+			<artifactId>drools-bom</artifactId>
+			<version>6.2.0.Final</version>
+			<type>pom</type>
+			<scope>import</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -66,6 +72,14 @@
 			<resource>
 				<directory>src/main/resources</directory>
 				<filtering>true</filtering>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>META-INF/kmodule.xml</include>
+					<include>com/site/myapp/checks/departure/Departure.drl</include>
+				</includes>
+				<targetPath>.</targetPath>
 			</resource>
 		</resources>
 	</build>

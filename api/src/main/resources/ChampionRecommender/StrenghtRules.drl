@@ -1,4 +1,4 @@
-package rules.ChampionRecommender;
+package ChampionRecommender;
 dialect  "mvel"
 
 import com.example.demo.Model.*;
@@ -15,7 +15,7 @@ agenda-group "earlygame"
 
 end
 
-rule "Recommend champion based on Strenght preference by early game"
+rule "Recommend champion based on Strenght preference by mid game"
 agenda-group "midgame"
     when
         $champion: Champion($name: name, strenght == Strenght.MID_GAME )
@@ -25,7 +25,7 @@ agenda-group "midgame"
 
 end
 
-rule "Recommend champion based on Strenght preference by early game"
+rule "Recommend champion based on Strenght preference by late game"
 agenda-group "lategame"
     when
         $champion: Champion($name: name, strenght == Strenght.LATE_GAME )

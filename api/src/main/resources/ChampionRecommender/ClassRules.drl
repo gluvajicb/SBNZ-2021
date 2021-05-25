@@ -1,4 +1,4 @@
-package rules.ChampionRecommender;
+package ChampionRecommender;
 dialect  "mvel"
 
 import com.example.demo.Model.Champion;
@@ -97,20 +97,22 @@ agenda-group "bruiser"
 end
 
 rule "Recommend champion based on Class preference, primary TANK CLASS"
-agenda-group "bruiser"
+agenda-group "tank"
     when
         $champion: Champion($name: name, primaryClass == ChampionClass.TANK)
         $session: ChampionRecommendSession($championList: championList)
     then
-        modify($session){ updateScore($champion, 10)}
+
+//        modify($session){ updateScore($champion, 10)}
 end
 
 rule "Recommend champion based on Class preference, secondary TANK CLASS"
-agenda-group "bruiser"
+agenda-group "tank"
     when
         $champion: Champion($name: name, secondaryClass == ChampionClass.TANK)
         $session: ChampionRecommendSession($championList: championList)
     then
-        modify($session){ updateScore($champion, 5)}
+        System.out.println("AATROX JE BRUSER tank");
+//        modify($session){ updateScore($champion, 5)}
 end
 
