@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<kmodule xmlns="http://jboss.org/kie/6.0.0/kmodule">
+    <kbase name="champion-rules" packages="rules.ChampionRecommender">
+        <ksession name="ChampionRecommender"/>
+    </kbase>
+    <kbase name="build-rules" packages="rules.BuildRecommender">
+        <ksession name="BuildRecommender"/>
+    </kbase>
+</kmodule>

@@ -1,6 +1,7 @@
 package com.example.demo.Model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class DamageType {
@@ -14,5 +15,5 @@ public class DamageType {
     private int trueDamage;
 
     @OneToMany
-    private Champion champion;
+    private List<Champion> champion;
 }

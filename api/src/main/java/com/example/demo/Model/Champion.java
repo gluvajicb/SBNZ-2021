@@ -12,6 +12,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "champions")
 public class Champion {
 
     @Id
@@ -20,23 +21,31 @@ public class Champion {
 
     private String name;
 
+    @Column(name = "primary_class")
     private ChampionClass primaryClass;
 
+    @Column(name = "secondary_class")
     private ChampionClass secondaryClass;
 
+    @Column(name = "primary_lane")
     private Lane primaryLane;
 
+    @Column(name = "secondary_lane")
     private Lane secondaryLane;
 
     @ManyToOne
     private DamageType damageType;
 
-    private Range range;
+    @Column(name = "attack_range")
+    private Range attackRange;
 
+    @Column(name = "playstyle")
     private Playstyle playstyle;
 
+    @Column(name = "strenght")
     private Strenght strenght;
 
+    @Column(name = "ability_resource")
     private AbilityResource abilityResource;
 
 }
