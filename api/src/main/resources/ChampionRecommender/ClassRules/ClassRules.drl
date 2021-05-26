@@ -103,7 +103,7 @@ agenda-group "tank"
         $session: ChampionRecommendSession($championList: championList)
     then
 
-//        modify($session){ updateScore($champion, 10)}
+        modify($session){ updateScore($champion, 10)}
 end
 
 rule "Recommend champion based on Class preference, secondary TANK CLASS"
@@ -113,6 +113,6 @@ agenda-group "tank"
         $session: ChampionRecommendSession($championList: championList)
     then
         System.out.println("AATROX JE BRUSER tank");
-//        modify($session){ updateScore($champion, 5)}
+        modify($session){ updateScore($champion, 5)}
 end
 

@@ -42,8 +42,8 @@ public class Champion {
     @Column(name = "playstyle")
     private Playstyle playstyle;
 
-    @Column(name = "strenght")
-    private Strenght strenght;
+    @Column(name = "strength")
+    private Strength strength;
 
     @Column(name = "ability_resource")
     private AbilityResource abilityResource;
