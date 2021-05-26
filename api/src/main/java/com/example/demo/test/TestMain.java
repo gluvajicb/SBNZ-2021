@@ -41,8 +41,6 @@ public class TestMain {
         kSession.insert(aatrox);
         kSession.insert(crSession);
 
-
-
         kSession.fireAllRules();
 
         KieServices ks2 = KieServices.Factory.get();
@@ -54,31 +52,7 @@ public class TestMain {
         kSession2.insert(crSession);
         kSession2.fireAllRules();
     }
-
-    @Order(value = 2)
-    @EventListener(ApplicationReadyEvent.class)
-    public void ruleLaneTest(){
-        Champion aatrox = championService.getChampionByName("Aatrox");
-
-        ChampionRecommendSession crSession = new ChampionRecommendSession();
-        List<ChampionScore> allChampsScores = new ArrayList<>();
-
-        allChampsScores.add(new ChampionScore(aatrox));
-        crSession.setChampionList(allChampsScores);
-
-        KieServices ks = KieServices.Factory.get();
-        KieContainer kContainer = ks.getKieClasspathContainer();
-        KieSession kSession = kContainer.newKieSession("play-style-recommend-rules");
-
-        kSession.getAgenda().getAgendaGroup("teamfighting").setFocus();
-        kSession.insert(aatrox);
-        kSession.insert(crSession);
-
-
-
-        kSession.fireAllRules();
-//        System.out.println(ch);
-    }
+    
 
 
 }

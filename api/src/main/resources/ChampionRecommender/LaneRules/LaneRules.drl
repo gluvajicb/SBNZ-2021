@@ -1,4 +1,4 @@
-package ChampionRecommender;
+package ChampionRecommender.LaneRules;
 dialect  "mvel"
 import com.example.demo.Model.Champion;
 import com.example.demo.Model.ChampionRecommendSession;
@@ -7,22 +7,33 @@ import com.example.demo.Model.Enums.*;
 // kada taj heroj ima primary lane MID dajemo mu 10 poena, ako mu je secondary dajemo mu 5 poena, ako je nista dajemo mu 0 poena
 rule "Recommend champion based on Lane preference, primary MID LANE"
 agenda-group "midlane"
+no-loop
     when
         $champion: Champion($name: name, primaryLane == Lane.MID)
         $session: ChampionRecommendSession($championList: championList)
     then
+        System.out.println("---------------------------------------");
+        System.out.println("Rule for lanes: \n");
+
         System.out.println($champion.getName() + " has primary lane MID and gets 10 points ");
+        System.out.println("---------------------------------------");
+
         modify($session){ updateScore($champion, 10)}
 
 end
 
 rule "Recommend champion based on Lane preference, secondary MID LANE"
 agenda-group "midlane"
+no-loop
     when
         $champion: Champion($name: name, secondaryLane == Lane.MID)
         $session: ChampionRecommendSession($championList: championList)
     then
+        System.out.println("---------------------------------------");
+        System.out.println("Rule for lanes: \n");
+
         System.out.println($champion.getName() + " has secondary lane MID and gets 5 points ");
+        System.out.println("---------------------------------------");
 
         modify($session){ updateScore($champion, 5)}
 
