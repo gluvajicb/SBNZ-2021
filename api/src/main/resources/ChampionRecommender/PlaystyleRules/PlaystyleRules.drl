@@ -32,7 +32,7 @@ no-loop
         $champion: Champion($name: name, playstyle == Playstyle.TEAMFIGHTING)
         $session: ChampionRecommendSession($championList: championList)
     then
-        System.out.println("Rule triggered ! \nUslov je ispunjen, Aatrox je TEAMFIGHER");
+        System.out.println("Rule triggered ! \nCondition fulfilled, Aatrox' playstyle is TEAMFIGHER");
         modify($session){ updateScore($champion, 10)}
 
 end

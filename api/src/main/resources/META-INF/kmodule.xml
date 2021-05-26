@@ -7,4 +7,7 @@
     <kbase name="play-style-rules" packages="ChampionRecommender.PlaystyleRules">
         <ksession name="play-style-recommend-rules"/>
     </kbase>
+    <kbase name="lane-rules" packages="ChampionRecommender.LaneRules">
+        <ksession name="lane-recommend-rules"/>
+    </kbase>
 </kmodule>
