@@ -9,7 +9,7 @@ rule "Recommend champion based on Lane preference, primary MID LANE"
 agenda-group "midlane"
 no-loop
     when
-        $champion: Champion($name: name, primaryLane == Lane.MID)
+        $champion: Champion($name: name, primaryLane == Lane.MID, laneChecked == false)
         $session: ChampionRecommendSession($championList: championList)
     then
         System.out.println("---------------------------------------");
@@ -19,6 +19,7 @@ no-loop
         System.out.println("---------------------------------------");
 
         modify($session){ updateScore($champion, 10)}
+        modify($champion){ setLaneChecked(true)}
 
 end
 
@@ -26,7 +27,7 @@ rule "Recommend champion based on Lane preference, secondary MID LANE"
 agenda-group "midlane"
 no-loop
     when
-        $champion: Champion($name: name, secondaryLane == Lane.MID)
+        $champion: Champion($name: name, secondaryLane == Lane.MID, laneChecked == false)
         $session: ChampionRecommendSession($championList: championList)
     then
         System.out.println("---------------------------------------");
@@ -36,89 +37,106 @@ no-loop
         System.out.println("---------------------------------------");
 
         modify($session){ updateScore($champion, 5)}
+        modify($champion){ setLaneChecked(true)}
 
 end
 
 // kada taj heroj ima primary lane JUNGLE dajemo mu 10 poena, ako mu je secondary dajemo mu 5 poena, ako je nista dajemo mu 0 poena
 rule "Recommend champion based on Lane preference, primary JUNGLE"
+no-loop
 agenda-group "jungle"
     when
-        $champion: Champion($name: name, primaryLane == Lane.JUNGLE)
+        $champion: Champion($name: name, primaryLane == Lane.JUNGLE, laneChecked == false)
         $session: ChampionRecommendSession($championList: championList)
     then
         modify($session){ updateScore($champion, 10)}
+        modify($champion){ setLaneChecked(true)}
 
 end
 
 rule "Recommend champion based on Lane preference, secondary JUNGLE"
 agenda-group "jungle"
+no-loop
     when
-        $champion: Champion($name: name, secondaryLane == Lane.JUNGLE)
+        $champion: Champion($name: name, secondaryLane == Lane.JUNGLE, laneChecked == false)
         $session: ChampionRecommendSession($championList: championList)
     then
         modify($session){ updateScore($champion, 5)}
+        modify($champion){ setLaneChecked(true)}
 
 end
 
 // kada taj heroj ima primary lane JUNGLE dajemo mu 10 poena, ako mu je secondary dajemo mu 5 poena, ako je nista dajemo mu 0 poena
 rule "Recommend champion based on Lane preference, primary TOP"
 agenda-group "top"
+no-loop
     when
-        $champion: Champion($name: name, primaryLane == Lane.TOP)
+        $champion: Champion($name: name, primaryLane == Lane.TOP, laneChecked == false)
         $session: ChampionRecommendSession($championList: championList)
     then
         modify($session){ updateScore($champion, 10)}
+        modify($champion){ setLaneChecked(true)}
 
 end
 
 rule "Recommend champion based on Lane preference, secondary TOP"
 agenda-group "top"
+no-loop
     when
-        $champion: Champion($name: name, secondaryLane == Lane.TOP)
+        $champion: Champion($name: name, secondaryLane == Lane.TOP, laneChecked == false)
         $session: ChampionRecommendSession($championList: championList)
     then
         modify($session){ updateScore($champion, 5)}
+        modify($champion){ setLaneChecked(true)}
 
 end
 
 // kada taj heroj ima primary lane BOT dajemo mu 10 poena, ako mu je secondary dajemo mu 5 poena, ako je nista dajemo mu 0 poena
 rule "Recommend champion based on Lane preference, primary BOT"
 agenda-group "bot"
+no-loop
     when
-        $champion: Champion($name: name, primaryLane == Lane.BOT)
+        $champion: Champion($name: name, primaryLane == Lane.BOT, laneChecked == false)
         $session: ChampionRecommendSession($championList: championList)
     then
         modify($session){ updateScore($champion, 10)}
+        modify($champion){ setLaneChecked(true)}
 
 end
 
 rule "Recommend champion based on Lane preference, secondary BOT"
 agenda-group "bot"
+no-loop
     when
-        $champion: Champion($name: name, secondaryLane == Lane.BOT)
+        $champion: Champion($name: name, secondaryLane == Lane.BOT, laneChecked == false)
         $session: ChampionRecommendSession($championList: championList)
     then
         modify($session){ updateScore($champion, 5)}
+        modify($champion){ setLaneChecked(true)}
 
 end
 
 // kada taj heroj ima primary lane SUPPORT dajemo mu 10 poena, ako mu je secondary dajemo mu 5 poena, ako je nista dajemo mu 0 poena
 rule "Recommend champion based on Lane preference, primary SUPPORT"
 agenda-group "support"
+no-loop
     when
-        $champion: Champion($name: name, primaryLane == Lane.SUPPORT)
+        $champion: Champion($name: name, primaryLane == Lane.SUPPORT, laneChecked == false)
         $session: ChampionRecommendSession($championList: championList)
     then
         modify($session){ updateScore($champion, 10)}
+        modify($champion){ setLaneChecked(true)}
 
 end
 
 rule "Recommend champion based on Lane preference, secondary SUPPORT"
 agenda-group "support"
+no-loop
     when
-        $champion: Champion($name: name, secondaryLane == Lane.SUPPORT)
+        $champion: Champion($name: name, secondaryLane == Lane.SUPPORT, laneChecked == false)
         $session: ChampionRecommendSession($championList: championList)
     then
         modify($session){ updateScore($champion, 5)}
+        modify($champion){ setLaneChecked(true)}
 
 end

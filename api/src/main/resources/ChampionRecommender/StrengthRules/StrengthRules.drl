@@ -7,31 +7,43 @@ import com.example.demo.Model.Enums.*;
 
 rule "Recommend champion based on Strenght preference by early game"
 agenda-group "earlygame"
+no-loop
     when
-        $champion: Champion($name: name, strength == Strength.EARLY_GAME )
+        $champion: Champion($name: name, strength == Strength.EARLY_GAME, strengthChecked == false)
         $session: ChampionRecommendSession($championList: championList)
     then
         modify($session){ updateScore($champion, 10)}
+        modify($champion){ setStrengthChecked(true)}
 
 end
 
 rule "Recommend champion based on Strenght preference by mid game"
 agenda-group "midgame"
+no-loop
     when
-        $champion: Champion($name: name, strength == Strength.MID_GAME )
+        $champion: Champion($name: name, strength == Strength.MID_GAME, strengthChecked == false )
         $session: ChampionRecommendSession($championList: championList)
     then
+        System.out.println("---------------------------------------");
+        System.out.println("Rule for strength: \n");
+
+        System.out.println($champion.getName() + " is the strongest during MID GAME and gets 10 points ");
+        System.out.println("---------------------------------------");
         modify($session){ updateScore($champion, 10)}
+        modify($champion){ setStrengthChecked(true)}
+
 
 end
 
 rule "Recommend champion based on Strenght preference by late game"
 agenda-group "lategame"
+no-loop
     when
-        $champion: Champion($name: name, strength == Strength.LATE_GAME )
+        $champion: Champion($name: name, strength == Strength.LATE_GAME, strengthChecked == false )
         $session: ChampionRecommendSession($championList: championList)
     then
         modify($session){ updateScore($champion, 10)}
+        modify($champion){ setStrengthChecked(true)}
 
 end
 

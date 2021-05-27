@@ -13,6 +13,8 @@ public class ChampionRecommendSession {
 
     private List<ChampionScore> championList;
 
+
+
     public void updateScore(Champion champion, int points) {
         for(ChampionScore ch: this.championList) {
             if(ch.getChampion().getName().equalsIgnoreCase(champion.getName())){

@@ -20,4 +20,12 @@ public class ChampionScore {
     public void updateScore(int points) {
         this.score += points;
     }
+
+    @Override
+    public String toString() {
+        return "ChampionScore{" +
+                "champion=" + champion +
+                ", score=" + score +
+                '}';
+    }
 }

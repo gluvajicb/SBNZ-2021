@@ -7,21 +7,25 @@ import com.example.demo.Model.Enums.*;
 
 rule "Recommend champion based on Playstyle preference, ROAMING"
 agenda-group "roaming"
+no-loop
     when
-        $champion: Champion($name: name, playstyle == Playstyle.ROAMING)
+        $champion: Champion($name: name, playstyle == Playstyle.ROAMING, playstyleChecked == false)
         $session: ChampionRecommendSession($championList: championList)
     then
         modify($session){ updateScore($champion, 10)}
+        modify($champion){ setPlaystyleChecked(true)}
 
 end
 
 rule "Recommend champion based on Playstyle preference, SPLITPUSHING"
 agenda-group "splitpushing"
+no-loop
     when
-        $champion: Champion($name: name, playstyle == Playstyle.SPLITPUSHING)
+        $champion: Champion($name: name, playstyle == Playstyle.SPLITPUSHING, playstyleChecked == false)
         $session: ChampionRecommendSession($championList: championList)
     then
         modify($session){ updateScore($champion, 10)}
+        modify($champion){ setPlaystyleChecked(true)}
 
 end
 
@@ -29,7 +33,7 @@ rule "Recommend champion based on Playstyle preference, TEAMFIGHTING"
 agenda-group "teamfighting"
 no-loop
     when
-        $champion: Champion($name: name, playstyle == Playstyle.TEAMFIGHTING)
+        $champion: Champion($name: name, playstyle == Playstyle.TEAMFIGHTING, playstyleChecked == false)
         $session: ChampionRecommendSession($championList: championList)
     then
         System.out.println("---------------------------------------");
@@ -38,5 +42,6 @@ no-loop
         System.out.println($champion.getName() + " has playstyle TEAMFIGHTING and gets 10 points ");
         System.out.println("---------------------------------------");
         modify($session){ updateScore($champion, 10)}
+        modify($champion){ setPlaystyleChecked(true)}
 
 end

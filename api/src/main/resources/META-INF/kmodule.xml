@@ -13,8 +13,9 @@
     <kbase name="strength-rules" packages="ChampionRecommender.StrengthRules">
         <ksession name="strength-recommend-rules"/>
     </kbase>
-    <kbase name="class-rules" packages="ChampionRecommender.LaneRules">
+    <kbase name="class-rules" packages="ChampionRecommender.ClassRules">
         <ksession name="class-recommend-rules"/>
     </kbase>
+
 
 </kmodule>
