@@ -13,5 +13,11 @@ public class Item {
 
     private boolean isOffensive;
 
+    private boolean isForAP;
+
+    private boolean isForAD;
+
+    private boolean isStartingItem;
+
 
 }

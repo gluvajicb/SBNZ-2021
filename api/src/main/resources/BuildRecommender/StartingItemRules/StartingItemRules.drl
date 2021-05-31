@@ -1,0 +1,44 @@
+package BuildRecommender.StartingItemRules;
+dialect  "mvel"
+
+import com.example.demo.Model.Item
+import com.example.demo.Model.DamageType
+import com.example.demo.Model.ItemRecommendSession
+
+rule "Recommend starting item based on early game playstyle prefference, FARMING / SAFE PLAY"
+no-loop
+    when
+        $item: Item($name: name != "Corruption Potion", isStartingItem == true, isOffensive == false) //dshield
+        $session: ItemRecommendSession($fullBuild: fullBuild)
+    then
+        modify($fullBuild){ setStartingItem($item)}
+end
+
+rule "Recommend starting item based on early game playstyle prefference, OFFENSIVE / KILLING / ROAMING, for ap champions"
+no-loop
+    when
+        $item: Item($name: name, isStartingItem == true, isOffensive != true, isForAP == true)
+        $session: ItemRecommendSession($fullBuild: fullBuild, $pickedChamp: pickedChampion.getDamageType())
+        // kako cemo znati da li je nas izabrani heroj ap???
+
+    then
+        modify($fullBuild){ setStartingItem($item)}
+end
+
+rule "Recommend starting item based on early game playstyle prefference, OFFENSIVE / KILLING / ROAMING, for ad champions"
+no-loop
+    when
+        $item: Item($name: name, isStartingItem == true, isOffensive != true, isForAD == true)
+        $session: ItemRecommendSession($fullBuild: fullBuild)
+    then
+        modify($fullBuild){ setStartingItem($item)}
+end
+
+rule "Recommend starting item based on early game playstyle prefference, OFFENSIVE / TRADING / HEALING, for all champions"
+no-loop
+    when
+        $item: Item($name: name == "Corruption Potion", isStartingItem == true)
+        $session: ItemRecommendSession($fullBuild: fullBuild)
+    then
+        modify($fullBuild){ setStartingItem($item)}
+end
