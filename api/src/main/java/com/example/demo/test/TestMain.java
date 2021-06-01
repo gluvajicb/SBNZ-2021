@@ -23,7 +23,7 @@ public class TestMain {
 
     @Order(value = 1)
     @EventListener(ApplicationReadyEvent.class)
-    public void rulePlaystyleTest(){
+    public void rulesTest(){
 
         System.out.println("\n**************CHAMPION RECOMMENDER **************\n");
 
@@ -111,7 +111,6 @@ public class TestMain {
             }
         }
         System.out.println("\nChampion with highest score and best recommendation: " + highestScoreChamp.getName());
-
 
 
     }

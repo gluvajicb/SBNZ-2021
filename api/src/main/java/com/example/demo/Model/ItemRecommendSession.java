@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -15,6 +17,8 @@ public class ItemRecommendSession {
     private Lane pickedLane;
 
     private Champion enemyChampion;
+
+    private List<Champion> enemyChampions;
 
     private FullBuild fullBuild;
 
