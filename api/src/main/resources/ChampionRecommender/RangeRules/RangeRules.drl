@@ -1,0 +1,36 @@
+package ChampionRecommender.RangeRules;
+dialect  "mvel"
+
+import com.example.demo.Model.Champion;
+import com.example.demo.Model.ChampionRecommendSession;
+import com.example.demo.Model.Enums.*;
+
+rule "Recommend champion based on RANGE, MELEE"
+no-loop
+    when
+        $champion: Champion($name: name, attackRange == Range.MELEE, rangeChecked == false)
+        $session: ChampionRecommendSession($championList: championList)
+    then
+        modify($session){ updateScore($champion, 10)}
+        modify($champion){ setRangeChecked(true)}
+end
+
+rule "Recommend champion based on RANGE, RANGED"
+no-loop
+    when
+        $champion: Champion($name: name, attackRange == Range.RANGED, rangeChecked == false)
+        $session: ChampionRecommendSession($championList: championList)
+    then
+        modify($session){ updateScore($champion, 10)}
+        modify($champion){ setRangeChecked(true)}
+end
+
+rule "Recommend champion based on RANGE, MIDRANGE"
+no-loop
+    when
+        $champion: Champion($name: name, attackRange == Range.MIDRANGE, rangeChecked == false)
+        $session: ChampionRecommendSession($championList: championList)
+    then
+        modify($session){ updateScore($champion, 10)}
+        modify($champion){ setRangeChecked(true)}
+end
