@@ -18,7 +18,7 @@ public class ItemRecommendSession {
 
     private Champion enemyChampion;
 
-    private List<Champion> enemyChampions;
+    private List<Champion> allEnemyChampions;
 
     private FullBuild fullBuild;
 

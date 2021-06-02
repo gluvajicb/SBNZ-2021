@@ -4,6 +4,9 @@ dialect  "mvel"
 import com.example.demo.Model.Item
 import com.example.demo.Model.DamageType
 import com.example.demo.Model.Champion
+import com.example.demo.Model.Enums.ChampionClass
+import com.example.demo.Model.Enums.Lane
+import com.example.demo.Model.Enums.ItemSlot
 import com.example.demo.Model.ItemRecommendSession
 
 
@@ -11,7 +14,7 @@ rule "Recommend starting item based on early game playstyle prefference, FARMING
 agenda-group "defensive"
 no-loop
     when
-        $item: Item(isStartingItem == true, isDefensive) //dshield
+        $item: Item(itemSlot == ItemSlot.STARTING, isDefensive) //dshield
         $session: ItemRecommendSession($fullBuild: fullBuild)
     then
         modify($fullBuild){ setStartingItem($item)}
@@ -22,7 +25,7 @@ rule "Recommend starting item based on early game playstyle prefference, OFFENSI
 agenda-group "offensive"
 no-loop
     when
-        $item: Item($name: name, isStartingItem == true, isOffensive != true, isForAP == true)
+        $item: Item($name: name, itemSlot == ItemSlot.STARTING, isOffensive != true, isForAP == true)
         $session: ItemRecommendSession($fullBuild: fullBuild, pickedChampion.getMagicDamage() > 50)
 
         // kako cemo znati da li je nas izabrani heroj ap???
@@ -36,7 +39,7 @@ rule "Recommend starting item based on early game playstyle prefference, OFFENSI
 agenda-group "offensive"
 no-loop
     when
-        $item: Item($name: name, isStartingItem == true, isOffensive == true, isForAD == true)
+        $item: Item($name: name, itemSlot == ItemSlot.STARTING, isOffensive == true, isForAD == true)
         $session: ItemRecommendSession($fullBuild: fullBuild, pickedChampion.getPhysicalDamage() > 50)
     then
         modify($fullBuild){ setStartingItem($item)}
@@ -47,8 +50,44 @@ rule "Recommend starting item based on early game playstyle prefference, OFFENSI
 agenda-group "sustain"
 no-loop
     when
-        $item: Item($name: name == "Corruption Potion", isStartingItem == true)
+        $item: Item($name: name == "Corruption Potion", itemSlot == ItemSlot.STARTING)
         $session: ItemRecommendSession($fullBuild: fullBuild)
+    then
+        modify($fullBuild){ setStartingItem($item)}
+end
+
+salience 1
+rule "Recommend starting item based on early game for supports that are MAGES AS WELL"
+agenda-group "support"
+no-loop
+    when
+        $item: Item(itemSlot == ItemSlot.STARTING, name.equalsIgnoreCase("onajnekiapsuppitem"))
+        $session: ItemRecommendSession($fullBuild: fullBuild, $pickedChampion: pickedChampion)
+        $checkingClass: Champion(primaryClass == ChampionClass.MAGE || secondaryClass == ChampionClass.MAGE) from $pickedChampion
+    then
+        modify($fullBuild){ setStartingItem($item)}
+end
+
+salience 2
+rule "Recommend starting item based on early game for supports that are TANKS"
+agenda-group "support"
+no-loop
+    when
+        $item: Item(itemSlot == ItemSlot.STARTING, name.equalsIgnoreCase("onejnekisuppitemzaTANGA"))
+        $session: ItemRecommendSession($fullBuild: fullBuild, $pickedChampion: pickedChampion)
+        $checkingClass: Champion(primaryClass == ChampionClass.TANK || secondaryClass == ChampionClass.TANK) from $pickedChampion
+    then
+        modify($fullBuild){ setStartingItem($item)}
+end
+
+salience 10
+rule "Recommend starting item based on early game for supports that are TANKS"
+agenda-group "support"
+no-loop
+    when
+        $item: Item(itemSlot == ItemSlot.STARTING, name.equalsIgnoreCase("onejnekisuppitemzaTANGA"))
+        $session: ItemRecommendSession($fullBuild: fullBuild, $pickedChampion: pickedChampion)
+        $checkingClass: Champion(primaryClass == ChampionClass.TANK || secondaryClass == ChampionClass.TANK) from $pickedChampion
     then
         modify($fullBuild){ setStartingItem($item)}
 end

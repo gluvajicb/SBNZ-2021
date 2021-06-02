@@ -3,16 +3,18 @@ dialect  "mvel"
 
 import com.example.demo.Model.Item
 import com.example.demo.Model.Champion
+import com.example.demo.Model.Enums.ItemSlot
 import com.example.demo.Model.ItemRecommendSession
 import com.example.demo.Model.Enums.ItemSlot
 
 rule "Recommend boots item based on early game starting item option"
 agenda-group "defensive"
+salience 1
 no-loop
     when
-        $item: Item($name: name != "Corruption Potion", itemSlot ==  ItemSlot.STARTING,isDefensive) //dshield
-        $session: ItemRecommendSession($fullBuild: fullBuild(startingItem))
-        $startingItem: Item(isOffensive()) from $session.fullBuild.startingItem;
+        $item: Item($name: name != "Corruption Potion", itemSlot == ItemSlot.SITUATIONAL, isDefensive) //dshield
+        $session: ItemRecommendSession($fullBuild: fullBuild, $enemyChampions: allEnemyChampions)
+//        $startingItem: Item(isOffensive()) from $session.fullBuild.startingItem; accumulate??
     then
         modify($fullBuild){ setBoots($item)}
 end
