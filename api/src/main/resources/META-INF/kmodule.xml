@@ -16,6 +16,9 @@
     <kbase name="class-rules" packages="ChampionRecommender.ClassRules">
         <ksession name="class-recommend-rules"/>
     </kbase>
+    <kbase name="damage-type-rules" packages="ChampionRecommender.DamageTypeRules">
+        <ksession name="damage-type-recommend-rules"/>
+    </kbase>
 
 
 </kmodule>

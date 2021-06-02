@@ -1,0 +1,77 @@
+package ChampionRecommender.DamageTypeRules;
+dialect  "mvel"
+
+import com.example.demo.Model.Champion;
+import com.example.demo.Model.ChampionRecommendSession;
+import com.example.demo.Model.Enums.*;
+import com.example.demo.Model.DamageType;
+
+/* AD */
+
+rule "Recommend champion based on Damage type, AD between 30 and 50"
+no-loop
+    when
+        $champion: Champion($name: name, damageTypeChecked == false)
+        $session: ChampionRecommendSession($championList: championList)
+        $damageType: DamageType(physicalDamage > 30 && physicalDamage < 50) from $champion.damageType
+    then
+        modify($session){ updateScore($champion, 5)}
+        modify($champion){ setDamageTypeChecked(true)}
+end
+
+rule "Recommend champion based on Damage type, AD between 50 and 70"
+no-loop
+    when
+        $champion: Champion($name: name, damageTypeChecked == false)
+        $session: ChampionRecommendSession($championList: championList)
+        $damageType: DamageType(physicalDamage > 50 && physicalDamage < 70) from $champion.damageType
+    then
+        modify($session){ updateScore($champion, 10)}
+        modify($champion){ setDamageTypeChecked(true)}
+end
+
+rule "Recommend champion based on Damage type, AD over 70"
+no-loop
+    when
+        $champion: Champion($name: name, damageTypeChecked == false)
+        $session: ChampionRecommendSession($championList: championList)
+        $damageType: DamageType(physicalDamage > 70) from $champion.damageType
+    then
+        modify($session){ updateScore($champion, 15)}
+        modify($champion){ setDamageTypeChecked(true)}
+end
+
+/* AP */
+
+rule "Recommend champion based on Damage type, AP between 30 and 50"
+no-loop
+    when
+        $champion: Champion($name: name, damageTypeChecked == false)
+        $session: ChampionRecommendSession($championList: championList)
+        $damageType: DamageType(magicDamage > 30 && magicDamage < 50) from $champion.damageType
+    then
+        modify($session){ updateScore($champion, 5)}
+        modify($champion){ setDamageTypeChecked(true)}
+end
+
+rule "Recommend champion based on Damage type, AP between 50 and 70"
+no-loop
+    when
+        $champion: Champion($name: name, damageTypeChecked == false)
+        $session: ChampionRecommendSession($championList: championList)
+        $damageType: DamageType(magicDamage > 50 && magicDamage < 70) from $champion.damageType
+    then
+        modify($session){ updateScore($champion, 10)}
+        modify($champion){ setDamageTypeChecked(true)}
+end
+
+rule "Recommend champion based on Damage type, AP over 70"
+no-loop
+    when
+        $champion: Champion($name: name, damageTypeChecked == false)
+        $session: ChampionRecommendSession($championList: championList)
+        $damageType: DamageType(magicDamage > 70) from $champion.damageType
+    then
+        modify($session){ updateScore($champion, 15)}
+        modify($champion){ setDamageTypeChecked(true)}
+end

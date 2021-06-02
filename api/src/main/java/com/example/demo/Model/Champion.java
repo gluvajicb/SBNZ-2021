@@ -67,6 +67,9 @@ public class Champion {
     @Column(columnDefinition="BOOLEAN DEFAULT false")
     private boolean rangeChecked = false;
 
+    @Column(columnDefinition = "BOOLEAN DEFAULT false")
+    private boolean damageTypeChecked = false;
+
 
     /* Methods */
 

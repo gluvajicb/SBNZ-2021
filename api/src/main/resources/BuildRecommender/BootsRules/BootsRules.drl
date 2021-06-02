@@ -4,12 +4,13 @@ dialect  "mvel"
 import com.example.demo.Model.Item
 import com.example.demo.Model.Champion
 import com.example.demo.Model.ItemRecommendSession
+import com.example.demo.Model.Enums.ItemSlot
 
 rule "Recommend boots item based on early game starting item option"
 agenda-group "defensive"
 no-loop
     when
-        $item: Item($name: name != "Corruption Potion", isStartingItem == true, isDefensive) //dshield
+        $item: Item($name: name != "Corruption Potion", itemSlot ==  ItemSlot.STARTING,isDefensive) //dshield
         $session: ItemRecommendSession($fullBuild: fullBuild(startingItem))
         $startingItem: Item(isOffensive()) from $session.fullBuild.startingItem;
     then
