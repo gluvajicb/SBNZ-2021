@@ -19,7 +19,6 @@ public class DamageType {
 
     private int magicDamage;
     private int physicalDamage;
-    private int trueDamage;
 
     @OneToMany
     private List<Champion> champion;

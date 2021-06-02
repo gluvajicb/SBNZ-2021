@@ -1,14 +1,11 @@
 package com.example.demo.Model;
 
-import com.example.demo.Model.Enums.ChampionClass;
+import com.example.demo.Model.Enums.ItemSlot;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
-import java.util.Collection;
-import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -31,11 +28,18 @@ public class Item {
 
     @Column(name = "is_for_ap")
     private boolean isForAP;
+
     @Column(name = "is_for_ad")
     private boolean isForAD;
 
-    @Column(name = "is_starting_item")
-    private boolean isStartingItem;
+    @Column(name = "is_armor")
+    private boolean isArmor;
+
+    @Column(name = "is_magic_resist")
+    private boolean isMagicResist;
+
+    @Column(name = "item_slot")
+    private ItemSlot itemSlot;
 
     @Column(name = "for_classes")
     private String forClasses; // "ASSASSIN,MARKSMAN"

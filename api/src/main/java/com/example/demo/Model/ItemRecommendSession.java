@@ -23,4 +23,5 @@ public class ItemRecommendSession {
     private FullBuild fullBuild;
 
     private DamageType enemyTeamDamageType;
+
 }

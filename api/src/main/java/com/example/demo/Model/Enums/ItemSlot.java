@@ -1,5 +1,5 @@
 package com.example.demo.Model.Enums;
 
-public enum ItemType {
+public enum ItemSlot {
     OFFENSIVE, DEFENSIVE, MYTHIC, STARTING, BOOTS, SITUATIONAL
 }

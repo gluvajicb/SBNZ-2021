@@ -66,5 +66,16 @@ public class Champion {
 
     @Column(columnDefinition="BOOLEAN DEFAULT false")
     private boolean rangeChecked = false;
+
+
+    /* Methods */
+
+    public int getPhysicalDamage() {
+        return this.damageType.getPhysicalDamage();
+    }
+
+    public int getMagicDamage() {
+        return this.damageType.getMagicDamage();
+    }
 }
 
