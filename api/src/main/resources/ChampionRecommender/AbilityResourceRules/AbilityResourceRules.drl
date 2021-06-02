@@ -1,0 +1,49 @@
+package ChampionRecommender.AbilityResourceRules;
+dialect  "mvel"
+
+import com.example.demo.Model.Champion;
+import com.example.demo.Model.ChampionRecommendSession;
+import com.example.demo.Model.Enums.*;
+
+rule "Recommend champion based on Ability resource, MANA"
+no-loop
+    when
+        $champion: Champion($name: name, abilityResource == AbilityResource.MANA, abilityResourceChecked == false)
+        $session: ChampionRecommendSession($championList: championList)
+    then
+        modify($session){ updateScore($champion, 10)}
+        modify($champion){ setAbilityResourceChecked(true)}
+end
+
+
+rule "Recommend champion based on Ability resource, ENERGY"
+no-loop
+    when
+        $champion: Champion($name: name, abilityResource == AbilityResource.ENERGY, abilityResourceChecked == false)
+        $session: ChampionRecommendSession($championList: championList)
+    then
+        modify($session){ updateScore($champion, 10)}
+        modify($champion){ setAbilityResourceChecked(true)}
+end
+
+
+rule "Recommend champion based on Ability resource, NOTHING"
+no-loop
+    when
+        $champion: Champion($name: name, abilityResource == AbilityResource.NOTHING, abilityResourceChecked == false)
+        $session: ChampionRecommendSession($championList: championList)
+    then
+        modify($session){ updateScore($champion, 10)}
+        modify($champion){ setAbilityResourceChecked(true)}
+end
+
+
+rule "Recommend champion based on Ability resource, OTHER"
+no-loop
+    when
+        $champion: Champion($name: name, abilityResource == AbilityResource.OTHER, abilityResourceChecked == false)
+        $session: ChampionRecommendSession($championList: championList)
+    then
+        modify($session){ updateScore($champion, 10)}
+        modify($champion){ setAbilityResourceChecked(true)}
+end
