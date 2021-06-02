@@ -1,7 +1,17 @@
 package BuildRecommender.BootsRules;
 dialect  "mvel"
 
-rule "BootsRules"
+import com.example.demo.Model.Item
+import com.example.demo.Model.Champion
+import com.example.demo.Model.ItemRecommendSession
+
+rule "Recommend boots item based on early game starting item option"
+agenda-group "defensive"
+no-loop
     when
+        $item: Item($name: name != "Corruption Potion", isStartingItem == true, isDefensive) //dshield
+        $session: ItemRecommendSession($fullBuild: fullBuild(startingItem))
+        $startingItem: Item(isOffensive()) from $session.fullBuild.startingItem;
     then
+        modify($fullBuild){ setBoots($item)}
 end

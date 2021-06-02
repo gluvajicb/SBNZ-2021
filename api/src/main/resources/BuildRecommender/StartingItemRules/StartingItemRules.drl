@@ -6,21 +6,24 @@ import com.example.demo.Model.DamageType
 import com.example.demo.Model.Champion
 import com.example.demo.Model.ItemRecommendSession
 
+
 rule "Recommend starting item based on early game playstyle prefference, FARMING / SAFE PLAY"
+agenda-group "defensive"
 no-loop
     when
-        $champion: Champion($damageType: damageType)
-        $item: Item($name: name != "Corruption Potion", isStartingItem == true, isOffensive == false) //dshield
+        $item: Item(isStartingItem == true, isDefensive) //dshield
         $session: ItemRecommendSession($fullBuild: fullBuild)
     then
         modify($fullBuild){ setStartingItem($item)}
 end
 
+
 rule "Recommend starting item based on early game playstyle prefference, OFFENSIVE / KILLING / ROAMING, for ap champions"
+agenda-group "offensive"
 no-loop
     when
         $item: Item($name: name, isStartingItem == true, isOffensive != true, isForAP == true)
-        $session: ItemRecommendSession($fullBuild: fullBuild, $pickedChamp: pickedChampion.getDamageType())
+        $session: ItemRecommendSession($fullBuild: fullBuild, pickedChampion.getMagicDamage() > 50)
 
         // kako cemo znati da li je nas izabrani heroj ap???
 
@@ -28,16 +31,20 @@ no-loop
         modify($fullBuild){ setStartingItem($item)}
 end
 
+
 rule "Recommend starting item based on early game playstyle prefference, OFFENSIVE / KILLING / ROAMING, for ad champions"
+agenda-group "offensive"
 no-loop
     when
-        $item: Item($name: name, isStartingItem == true, isOffensive != true, isForAD == true)
-        $session: ItemRecommendSession($fullBuild: fullBuild)
+        $item: Item($name: name, isStartingItem == true, isOffensive == true, isForAD == true)
+        $session: ItemRecommendSession($fullBuild: fullBuild, pickedChampion.getPhysicalDamage() > 50)
     then
         modify($fullBuild){ setStartingItem($item)}
 end
 
+
 rule "Recommend starting item based on early game playstyle prefference, OFFENSIVE / TRADING / HEALING, for all champions"
+agenda-group "sustain"
 no-loop
     when
         $item: Item($name: name == "Corruption Potion", isStartingItem == true)
