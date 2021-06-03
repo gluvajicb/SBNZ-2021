@@ -6,6 +6,7 @@ import com.example.demo.Model.ChampionRecommendSession;
 import com.example.demo.Model.Enums.*;
 
 rule "Recommend champion based on Ability resource, MANA"
+agenda-group "mana"
 no-loop
     when
         $champion: Champion($name: name, abilityResource == AbilityResource.MANA, abilityResourceChecked == false)
@@ -17,6 +18,7 @@ end
 
 
 rule "Recommend champion based on Ability resource, ENERGY"
+agenda-group "energy"
 no-loop
     when
         $champion: Champion($name: name, abilityResource == AbilityResource.ENERGY, abilityResourceChecked == false)
@@ -28,6 +30,7 @@ end
 
 
 rule "Recommend champion based on Ability resource, NOTHING"
+agenda-group "nothing"
 no-loop
     when
         $champion: Champion($name: name, abilityResource == AbilityResource.NOTHING, abilityResourceChecked == false)
@@ -39,6 +42,7 @@ end
 
 
 rule "Recommend champion based on Ability resource, OTHER"
+agenda-group "other"
 no-loop
     when
         $champion: Champion($name: name, abilityResource == AbilityResource.OTHER, abilityResourceChecked == false)

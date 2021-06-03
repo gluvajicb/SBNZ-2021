@@ -1,0 +1,125 @@
+package com.example.demo.ChampionRecommendTests;
+
+import com.example.demo.Model.Champion;
+import com.example.demo.Model.ChampionRecommendSession;
+import com.example.demo.Model.ChampionScore;
+import com.example.demo.Model.DamageType;
+import com.example.demo.Service.ChampionService;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.kie.api.KieServices;
+import org.kie.api.runtime.KieContainer;
+import org.kie.api.runtime.KieSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest(webEnvironment= SpringBootTest.WebEnvironment.RANDOM_PORT)
+public class DamageTypeRulesTests {
+
+    @Autowired
+    private ChampionService championService;
+
+    @Test
+    public void damageTypePhysicalLowRules() {
+        Champion zed = championService.getChampionByName("zed");
+
+        DamageType damageType = new DamageType();
+        damageType.setPhysicalDamage(35);
+        zed.setDamageType(damageType);
+
+        ChampionRecommendSession crSession = new ChampionRecommendSession();
+        List<ChampionScore> allChampsScores = new ArrayList<>();
+
+        allChampsScores.add(new ChampionScore(zed));
+        crSession.setChampionList(allChampsScores);
+
+
+        KieServices ks = KieServices.Factory.get();
+        KieContainer kContainer = ks.getKieClasspathContainer();
+        KieSession kSession = kContainer.newKieSession("damage-type-recommend-rules");
+
+        kSession.insert(zed);
+        kSession.insert(crSession);
+        kSession.fireAllRules();
+
+        int finalScore = 0;
+        for(ChampionScore cs: crSession.getChampionList()){
+            if(cs.getChampion().getName().equalsIgnoreCase("zed")){
+                finalScore = cs.getScore();
+            }
+        }
+        assertEquals(5, finalScore);
+    }
+
+    @Test
+    public void damageTypePhysicalMidRules() {
+        Champion zed = championService.getChampionByName("zed");
+
+        DamageType damageType = new DamageType();
+        damageType.setPhysicalDamage(60);
+        zed.setDamageType(damageType);
+
+        ChampionRecommendSession crSession = new ChampionRecommendSession();
+        List<ChampionScore> allChampsScores = new ArrayList<>();
+
+        allChampsScores.add(new ChampionScore(zed));
+        crSession.setChampionList(allChampsScores);
+
+
+        KieServices ks = KieServices.Factory.get();
+        KieContainer kContainer = ks.getKieClasspathContainer();
+        KieSession kSession = kContainer.newKieSession("damage-type-recommend-rules");
+
+        kSession.insert(zed);
+        kSession.insert(crSession);
+        kSession.fireAllRules();
+
+        int finalScore = 0;
+        for(ChampionScore cs: crSession.getChampionList()){
+            if(cs.getChampion().getName().equalsIgnoreCase("zed")){
+                finalScore = cs.getScore();
+            }
+        }
+        assertEquals(10, finalScore);
+    }
+
+    @Test
+    public void damageTypePhysicalHighRules() {
+        Champion zed = championService.getChampionByName("zed");
+
+        DamageType damageType = new DamageType();
+        damageType.setPhysicalDamage(100);
+        zed.setDamageType(damageType);
+
+        ChampionRecommendSession crSession = new ChampionRecommendSession();
+        List<ChampionScore> allChampsScores = new ArrayList<>();
+
+        allChampsScores.add(new ChampionScore(zed));
+        crSession.setChampionList(allChampsScores);
+
+
+        KieServices ks = KieServices.Factory.get();
+        KieContainer kContainer = ks.getKieClasspathContainer();
+        KieSession kSession = kContainer.newKieSession("damage-type-recommend-rules");
+
+        kSession.insert(zed);
+        kSession.insert(crSession);
+        kSession.fireAllRules();
+
+        int finalScore = 0;
+        for(ChampionScore cs: crSession.getChampionList()){
+            if(cs.getChampion().getName().equalsIgnoreCase("zed")){
+                finalScore = cs.getScore();
+            }
+        }
+        assertEquals(15, finalScore);
+    }
+
+}

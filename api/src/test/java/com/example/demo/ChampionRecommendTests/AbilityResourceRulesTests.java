@@ -20,27 +20,29 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment= SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class ClassRulesTests {
+public class AbilityResourceRulesTests {
 
     @Autowired
     private ChampionService championService;
 
     @Test
-    public void classAssassinTest() {
-        Champion zed = championService.getChampionByName("Zed");
+    public void abilityResourceEnergyRules() {
+        Champion nidalee = championService.getChampionByName("zed");
 
         ChampionRecommendSession crSession = new ChampionRecommendSession();
         List<ChampionScore> allChampsScores = new ArrayList<>();
 
-        allChampsScores.add(new ChampionScore(zed));
+        allChampsScores.add(new ChampionScore(nidalee));
         crSession.setChampionList(allChampsScores);
+
 
         KieServices ks = KieServices.Factory.get();
         KieContainer kContainer = ks.getKieClasspathContainer();
-        KieSession kSession = kContainer.newKieSession("class-recommend-rules");
-        kSession.getAgenda().getAgendaGroup("assassin").setFocus();
+        KieSession kSession = kContainer.newKieSession("ability-resource-recommend-rules");
+        kSession.getAgenda().getAgendaGroup("energy").setFocus();
 
-        kSession.insert(zed);
+
+        kSession.insert(nidalee);
         kSession.insert(crSession);
         kSession.fireAllRules();
 
@@ -52,4 +54,5 @@ public class ClassRulesTests {
         }
         assertEquals(10, finalScore);
     }
+
 }

@@ -17,6 +17,13 @@
     <kbase name="damage-type-rules" packages="ChampionRecommender.DamageTypeRules">
         <ksession name="damage-type-recommend-rules"/>
     </kbase>
+    <kbase name="ability-resource-rules" packages="ChampionRecommender.AbilityResourceRules">
+        <ksession name="ability-resource-recommend-rules"/>
+    </kbase>
+    <kbase name="range-rules" packages="ChampionRecommender.RangeRules">
+        <ksession name="range-recommend-rules"/>
+    </kbase>
+
 <!-- build recommender rules -->
     <kbase name="starting-item-rules" packages="BuildRecommender.StartingItemRules">
         <ksession name="starting-item-recommend-rules"/>
@@ -36,6 +43,7 @@
     <kbase name="offensive-item-rules" packages="BuildRecommender.OffensiveItemRules">
         <ksession name="offensive-item-recommend-rules"/>
     </kbase>
+
 
 
 </kmodule>
