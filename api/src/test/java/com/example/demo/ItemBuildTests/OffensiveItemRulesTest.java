@@ -59,7 +59,7 @@ public class OffensiveItemRulesTest {
         kSession.insert(irs);
         kSession.fireAllRules();
 
-        // Rabadon's Deathcap is the mythic item that should be recommended because our picked champion is an AD assassin
+        // Void Staff is the mythic item that should be recommended because our picked champion is a Mage
 
         assertEquals("Void Staff", irs.getFullBuild().getOffensiveItem().getName());
     }

@@ -28,7 +28,7 @@ public class MythicItemRulesTest {
     private ChampionService championService;
 
     @Test
-    public void testMythicItemForAssassinAD() {
+    public void testMythicItemForAssassinPhysical() {
         //get all mythic items
         List<Item> items = itemService.findAllItemsByItemSlot(ItemSlot.MYTHIC);
 
@@ -59,13 +59,13 @@ public class MythicItemRulesTest {
         kSession.insert(irs);
         kSession.fireAllRules();
 
-        // Duskblade of Draktharr is the mythic item that should be recommended because our picked champion is an AD assassin
+        // Duskblade of Draktharr is the mythic item that should be recommended because our picked champion is an physical damage assassin
 
         assertEquals("Duskblade of Draktharr", irs.getFullBuild().getMythicItem().getName());
     }
 
     @Test
-    public void testMythicItemForSupportAP() {
+    public void testMythicItemForSupportMagic() {
         //get all mythic items
         List<Item> items = itemService.findAllItemsByItemSlot(ItemSlot.MYTHIC);
 
@@ -96,7 +96,7 @@ public class MythicItemRulesTest {
         kSession.insert(irs);
         kSession.fireAllRules();
 
-        // Locket of the Iron Solari is the mythic item that should be recommended because our picked champion an ap support
+        // Locket of the Iron Solari is the mythic item that should be recommended because our picked champion is a magic damage based support
 
         assertEquals("Locket of the Iron Solari", irs.getFullBuild().getMythicItem().getName());
     }

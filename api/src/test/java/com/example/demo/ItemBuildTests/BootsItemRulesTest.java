@@ -30,12 +30,13 @@ public class BootsItemRulesTest {
     private ChampionService championService;
 
     @Test
-    public void testBootsEnemyHeavyAD() {
+    public void testBootsEnemyHeavyPhysical() {
        //get all boots items
         List<Item> items = itemService.findAllItemsByItemSlot(ItemSlot.BOOTS);
+
+        // set up our picked champion
         Champion pickedChamp = championService.getChampionByName("Zed");
         DamageType dt = new DamageType();
-        //
         dt.setMagicDamage(1);
         dt.setPhysicalDamage(99);
         pickedChamp.setDamageType(dt);
@@ -96,7 +97,7 @@ public class BootsItemRulesTest {
 
         kSession.fireAllRules();
 
-        // Plated Steelcaps is the item that should be recommended
+        // Plated Steelcaps is the item that should be recommended because enemy is heavy Physical damage
 
         assertEquals("Plated Steelcaps", irs.getFullBuild().getBoots().getName());
     }
@@ -138,7 +139,7 @@ public class BootsItemRulesTest {
     }
 
     @Test
-    public void testBootsPickedChampionAD() {
+    public void testBootsPickedChampionPhysical() {
         List<Item> items = itemService.findAllItemsByItemSlot(ItemSlot.BOOTS);
         Champion pickedChamp = championService.getChampionByName("Zed");
         DamageType dt = new DamageType();

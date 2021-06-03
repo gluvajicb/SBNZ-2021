@@ -71,9 +71,10 @@ public class StartingItemRulesTest {
     public void testStartingItemOffensiveAD() {
         //get all starting items
         List<Item> items = itemService.findAllItemsByItemSlot(ItemSlot.STARTING);
+
         Champion pickedChamp = championService.getChampionByName("Zed");
         DamageType dt = new DamageType();
-        //setujem dmg type jer jos nemamo damage type u bazi
+
         dt.setMagicDamage(1);
         dt.setPhysicalDamage(99);
         pickedChamp.setDamageType(dt);
@@ -112,7 +113,7 @@ public class StartingItemRulesTest {
         List<Item> items = itemService.findAllItemsByItemSlot(ItemSlot.STARTING);
         Champion pickedChamp = championService.getChampionByName("Soraka");
         DamageType dt = new DamageType();
-        //setujem dmg type jer jos nemamo damage type u bazi
+
         dt.setMagicDamage(90);
         dt.setPhysicalDamage(10);
         pickedChamp.setDamageType(dt);

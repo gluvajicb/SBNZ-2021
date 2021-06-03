@@ -30,7 +30,10 @@ public class SituationalItemRulesTest {
 
     @Test
     public void testSituationalEnemyAssassin() {
-        //get all boots items
+        ItemRecommendSession irs = new ItemRecommendSession();
+        FullBuild fb = new FullBuild();
+
+        //load all situational items
         List<Item> items = itemService.findAllItemsByItemSlot(ItemSlot.SITUATIONAL);
         Champion pickedChamp = championService.getChampionByName("Malzahar");
         DamageType dt = new DamageType();
@@ -39,20 +42,16 @@ public class SituationalItemRulesTest {
         dt.setPhysicalDamage(10);
         pickedChamp.setDamageType(dt);
 
-        // set up enemy champions
+        // set up enemy champion
         Champion enemyChampMain = championService.getChampionByName("Zed");
         DamageType dt1 = new DamageType();
         dt1.setPhysicalDamage(90); dt1.setMagicDamage(10);
         enemyChampMain.setDamageType(dt1);
+        irs.setEnemyChampion(enemyChampMain);
 
         // set up an item recommending session and its parameters
-        ItemRecommendSession irs = new ItemRecommendSession();
-        FullBuild fb = new FullBuild();
         irs.setFullBuild(fb);
-
         irs.setPickedChampion(pickedChamp);
-        // set up a champion we are playing directly against
-        irs.setEnemyChampion(enemyChampMain);
 
         KieServices ks = KieServices.Factory.get();
         KieContainer kc = ks.getKieClasspathContainer();
@@ -64,11 +63,12 @@ public class SituationalItemRulesTest {
 
             kSession.insert(i);
         }
+        // insert item recommending session in which we track already recommended items
         kSession.insert(irs);
 
         kSession.fireAllRules();
 
-        // Frozen Heart is the item that should be recommended because the enemy is mostly Physical Damage and Frozen Heart is good against Physical Damage
+        // Zhonya's Hourglass is the item that should be recommended because its good against selected enemy champion
         assertEquals("Zhonya's Hourglass", irs.getFullBuild().getSituationalItem().getName());
     }
 
@@ -112,7 +112,7 @@ public class SituationalItemRulesTest {
 
         kSession.fireAllRules();
 
-        // Frozen Heart is the item that should be recommended because the enemy is mostly Physical Damage and Frozen Heart is good against Physical Damage
+        // Lord Dominik's Regards is the item that should be recommended because its good in countering the enemy champion
         assertEquals("Lord Dominik's Regards", irs.getFullBuild().getSituationalItem().getName());
     }
 }

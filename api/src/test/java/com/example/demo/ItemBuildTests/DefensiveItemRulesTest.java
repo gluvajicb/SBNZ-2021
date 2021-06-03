@@ -95,7 +95,7 @@ public class DefensiveItemRulesTest {
 
         kSession.fireAllRules();
 
-        // Thornmail is the item that should be recommended because the enemy is mostly Physical Damage and Thornmail is good against Physical Damage
+        // Thornmail is the item that should be recommended because the enemy is mostly Physical Damage and Thornmail is good against a lot Physical Damage
         assertEquals("Thornmail", irs.getFullBuild().getDefensiveItem().getName());
     }
 }
