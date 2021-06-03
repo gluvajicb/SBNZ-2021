@@ -31,7 +31,7 @@ public class BootsItemRulesTest {
 
     @Test
     public void testBootsEnemyHeavyAD() {
-//get all starting items
+       //get all boots items
         List<Item> items = itemService.findAllItemsByItemSlot(ItemSlot.BOOTS);
         Champion pickedChamp = championService.getChampionByName("Zed");
         DamageType dt = new DamageType();
@@ -40,9 +40,7 @@ public class BootsItemRulesTest {
         dt.setPhysicalDamage(99);
         pickedChamp.setDamageType(dt);
 
-
-
-// set enemy champions
+        // set up enemy champions
         Champion enemyChampMain = championService.getChampionByName("Zed");
         DamageType dt1 = new DamageType();
         dt1.setPhysicalDamage(90); dt1.setMagicDamage(10);
@@ -67,7 +65,8 @@ public class BootsItemRulesTest {
         DamageType dt5 = new DamageType();
         dt5.setMagicDamage(10); dt5.setPhysicalDamage(90);
         enemyChampion5.setDamageType(dt5);
-//start a session for starting items
+
+        // set up an item recommending session and its parameters
         ItemRecommendSession irs = new ItemRecommendSession();
         FullBuild fb = new FullBuild();
         irs.setFullBuild(fb);
@@ -83,8 +82,6 @@ public class BootsItemRulesTest {
 
         irs.setAllEnemyChampions(enemyChamps);
 
-
-
         KieServices ks = KieServices.Factory.get();
         KieContainer kc = ks.getKieClasspathContainer();
         KieSession kSession = kc.newKieSession("boots-recommend-rules");
@@ -95,19 +92,18 @@ public class BootsItemRulesTest {
 
             kSession.insert(i);
         }
-        //insert our current item recommend session
         kSession.insert(irs);
 
         kSession.fireAllRules();
 
-        // Dorans Ring is the item that should be recommended
+        // Plated Steelcaps is the item that should be recommended
 
         assertEquals("Plated Steelcaps", irs.getFullBuild().getBoots().getName());
     }
 
     @Test
     public void testBootsPickedLaneSupport() {
-//get all starting items
+        //get all boots items
         List<Item> items = itemService.findAllItemsByItemSlot(ItemSlot.BOOTS);
         Champion pickedChamp = championService.getChampionByName("Soraka");
         DamageType dt = new DamageType();
@@ -116,7 +112,7 @@ public class BootsItemRulesTest {
         dt.setPhysicalDamage(10);
         pickedChamp.setDamageType(dt);
 
-//start a session for starting items
+        //start a session for boots
         ItemRecommendSession irs = new ItemRecommendSession();
         FullBuild fb = new FullBuild();
         irs.setFullBuild(fb);
@@ -133,18 +129,16 @@ public class BootsItemRulesTest {
         for(Item i: items) {
             kSession.insert(i);
         }
-        //insert our current item recommend session
         kSession.insert(irs);
         kSession.fireAllRules();
 
-        // Dorans Ring is the item that should be recommended
+        // Mobility Boots is the item that should be recommended for our setup
 
         assertEquals("Mobility Boots", irs.getFullBuild().getBoots().getName());
     }
 
     @Test
     public void testBootsPickedChampionAD() {
-//get all starting items
         List<Item> items = itemService.findAllItemsByItemSlot(ItemSlot.BOOTS);
         Champion pickedChamp = championService.getChampionByName("Zed");
         DamageType dt = new DamageType();
@@ -153,7 +147,6 @@ public class BootsItemRulesTest {
         dt.setPhysicalDamage(99);
         pickedChamp.setDamageType(dt);
 
-//start a session for starting items
         ItemRecommendSession irs = new ItemRecommendSession();
         FullBuild fb = new FullBuild();
         irs.setFullBuild(fb);
@@ -168,11 +161,10 @@ public class BootsItemRulesTest {
         for(Item i: items) {
             kSession.insert(i);
         }
-        //insert our current item recommend session
         kSession.insert(irs);
         kSession.fireAllRules();
 
-        // Dorans Ring is the item that should be recommended
+        // Berserker's Greaves is the item that should be recommended
 
         assertEquals("Berserker's Greaves", irs.getFullBuild().getBoots().getName());
     }

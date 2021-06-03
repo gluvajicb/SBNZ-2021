@@ -12,9 +12,9 @@ import com.example.demo.Model.Enums.Lane
 rule "Recomending offensive item that is good for picked champion's class , for AD champions"
 no-loop
      when
-            $item: Item(itemSlot == ItemSlot.OFFENSIVE, forClass == $championClass, isForAD) // dobar item za klasu i za AD dmg type champione
-            $session: ItemRecommendSession($fullBuild: fullBuild, $enemyChampion: enemyChampion, $pickedChampion: pickedChampion, isSituationalItemGiven == false)
-            Champion(damageType.getPhysicalDamage() > 50, $championClass: primaryClass) from $pickedChampion
+            $item: Item(itemSlot == ItemSlot.OFFENSIVE, $forClass: forClass, isForAD()) // dobar item za klasu i za AD dmg type champione
+            $session: ItemRecommendSession($fullBuild: fullBuild, $enemyChampion: enemyChampion, $pickedChampion: pickedChampion, situationalItemGiven == false)
+            Champion(damageType.getPhysicalDamage() > 50, $championClass: primaryClass == $forClass) from $pickedChampion
         then
             modify($session){ fullBuild.setOffensiveItem($item)}
             modify($session){ setOffensiveItemGiven(true)}
@@ -23,9 +23,9 @@ end
 rule "Recomending offensive item that is good for picked champion's class , for AP champions"
 no-loop
      when
-            $item: Item(itemSlot == ItemSlot.OFFENSIVE, forClass == $championClass, isForAP) // dobar protiv protivnicke klase ali za AD champione
-            $session: ItemRecommendSession($fullBuild: fullBuild, $enemyChampion: enemyChampion, $pickedChampion: pickedChampion, isSituationalItemGiven == false)
-            Champion(damageType.getMagicDamage() > 50, $championClass: primaryClass) from $pickedChampion
+            $item: Item(itemSlot == ItemSlot.OFFENSIVE, $forClass: forClass, isForAP()) // dobar item za klasu i za AP dmg type champione
+            $session: ItemRecommendSession($fullBuild: fullBuild, $enemyChampion: enemyChampion, $pickedChampion: pickedChampion, situationalItemGiven == false)
+            Champion(damageType.getMagicDamage() > 50, $championClass: primaryClass == $forClass) from $pickedChampion
         then
             modify($session){ fullBuild.setOffensiveItem($item)}
             modify($session){ setOffensiveItemGiven(true)}
