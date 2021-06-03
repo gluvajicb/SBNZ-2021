@@ -20,14 +20,14 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment= SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class ClassRulesTests {
+public class RangeRulesTests {
 
     @Autowired
     private ChampionService championService;
 
     @Test
-    public void classAssassinTest() {
-        Champion zed = championService.getChampionByName("Zed");
+    public void rangeMeleeRulesTest() {
+        Champion zed = championService.getChampionByName("zed");
 
         ChampionRecommendSession crSession = new ChampionRecommendSession();
         List<ChampionScore> allChampsScores = new ArrayList<>();
@@ -35,10 +35,12 @@ public class ClassRulesTests {
         allChampsScores.add(new ChampionScore(zed));
         crSession.setChampionList(allChampsScores);
 
+
         KieServices ks = KieServices.Factory.get();
         KieContainer kContainer = ks.getKieClasspathContainer();
-        KieSession kSession = kContainer.newKieSession("class-recommend-rules");
-        kSession.getAgenda().getAgendaGroup("assassin").setFocus();
+        KieSession kSession = kContainer.newKieSession("range-recommend-rules");
+        kSession.getAgenda().getAgendaGroup("melee").setFocus();
+
 
         kSession.insert(zed);
         kSession.insert(crSession);

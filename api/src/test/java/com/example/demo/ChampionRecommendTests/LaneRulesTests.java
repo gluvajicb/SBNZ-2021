@@ -20,14 +20,14 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment= SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class ClassRulesTests {
+public class LaneRulesTests {
 
     @Autowired
     private ChampionService championService;
 
     @Test
-    public void classAssassinTest() {
-        Champion zed = championService.getChampionByName("Zed");
+    public void primaryLaneMidlaneRulesTest() {
+        Champion zed = championService.getChampionByName("zed");
 
         ChampionRecommendSession crSession = new ChampionRecommendSession();
         List<ChampionScore> allChampsScores = new ArrayList<>();
@@ -35,10 +35,12 @@ public class ClassRulesTests {
         allChampsScores.add(new ChampionScore(zed));
         crSession.setChampionList(allChampsScores);
 
+
         KieServices ks = KieServices.Factory.get();
         KieContainer kContainer = ks.getKieClasspathContainer();
-        KieSession kSession = kContainer.newKieSession("class-recommend-rules");
-        kSession.getAgenda().getAgendaGroup("assassin").setFocus();
+        KieSession kSession = kContainer.newKieSession("lane-recommend-rules");
+        kSession.getAgenda().getAgendaGroup("midlane").setFocus();
+
 
         kSession.insert(zed);
         kSession.insert(crSession);
@@ -52,4 +54,35 @@ public class ClassRulesTests {
         }
         assertEquals(10, finalScore);
     }
+
+    @Test
+    public void secondaryLaneMidlaneRulesTest() {
+        Champion aatrox = championService.getChampionByName("aatrox");
+
+        ChampionRecommendSession crSession = new ChampionRecommendSession();
+        List<ChampionScore> allChampsScores = new ArrayList<>();
+
+        allChampsScores.add(new ChampionScore(aatrox));
+        crSession.setChampionList(allChampsScores);
+
+
+        KieServices ks = KieServices.Factory.get();
+        KieContainer kContainer = ks.getKieClasspathContainer();
+        KieSession kSession = kContainer.newKieSession("lane-recommend-rules");
+        kSession.getAgenda().getAgendaGroup("midlane").setFocus();
+
+
+        kSession.insert(aatrox);
+        kSession.insert(crSession);
+        kSession.fireAllRules();
+
+        int finalScore = 0;
+        for(ChampionScore cs: crSession.getChampionList()){
+            if(cs.getChampion().getName().equalsIgnoreCase("aatrox")){
+                finalScore = cs.getScore();
+            }
+        }
+        assertEquals(5, finalScore);
+    }
+
 }

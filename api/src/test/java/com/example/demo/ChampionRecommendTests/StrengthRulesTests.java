@@ -20,14 +20,14 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment= SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class ClassRulesTests {
+public class StrengthRulesTests {
 
     @Autowired
     private ChampionService championService;
 
     @Test
-    public void classAssassinTest() {
-        Champion zed = championService.getChampionByName("Zed");
+    public void strengthEarlygameRulesTest() {
+        Champion zed = championService.getChampionByName("zed");
 
         ChampionRecommendSession crSession = new ChampionRecommendSession();
         List<ChampionScore> allChampsScores = new ArrayList<>();
@@ -35,10 +35,12 @@ public class ClassRulesTests {
         allChampsScores.add(new ChampionScore(zed));
         crSession.setChampionList(allChampsScores);
 
+
         KieServices ks = KieServices.Factory.get();
         KieContainer kContainer = ks.getKieClasspathContainer();
-        KieSession kSession = kContainer.newKieSession("class-recommend-rules");
-        kSession.getAgenda().getAgendaGroup("assassin").setFocus();
+        KieSession kSession = kContainer.newKieSession("strength-recommend-rules");
+        kSession.getAgenda().getAgendaGroup("earlygame").setFocus();
+
 
         kSession.insert(zed);
         kSession.insert(crSession);
@@ -52,4 +54,5 @@ public class ClassRulesTests {
         }
         assertEquals(10, finalScore);
     }
+
 }
