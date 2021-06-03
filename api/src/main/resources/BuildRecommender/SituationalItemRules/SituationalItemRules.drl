@@ -11,9 +11,9 @@ import com.example.demo.Model.Enums.Lane
 rule "Recomending situational item that is good against enemy champion's class , for AD champions"
 no-loop
      when
-            $item: Item(itemSlot == ItemSlot.SITUATIONAL, goodAgainstClass == $enemyClass, isForAD) // dobar protiv protivnicke klase ali za AD champione
-            $session: ItemRecommendSession($fullBuild: fullBuild, $enemyChampion: enemyChampion, $pickedChampion: pickedChampion, isSituationalItemGiven == false)
-            Champion($enemyClass: primaryClass) from $enemyChampion
+            $item: Item(itemSlot == ItemSlot.SITUATIONAL, $goodAgainstClass:goodAgainstClass, isForAD()) // dobar protiv protivnicke klase ali za AD champione
+            $session: ItemRecommendSession($fullBuild: fullBuild, $enemyChampion: enemyChampion, $pickedChampion: pickedChampion, situationalItemGiven == false)
+            Champion($enemyClass: primaryClass  == $goodAgainstClass) from $enemyChampion
             Champion(damageType.getPhysicalDamage() > 50) from $pickedChampion
         then
             modify($session){ fullBuild.setSituationalItem($item)}
@@ -23,9 +23,9 @@ end
 rule "Recomending situational item that is good against enemy champion's class , for AP champions"
 no-loop
      when
-            $item: Item(itemSlot == ItemSlot.SITUATIONAL, goodAgainstClass == $enemyClass, isForAD) // dobar protiv protivnicke klase ali za AP champione
-            $session: ItemRecommendSession($fullBuild: fullBuild, $enemyChampion: enemyChampion, $pickedChampion: pickedChampion, isSituationalItemGiven == false)
-            Champion($enemyClass: primaryClass) from $enemyChampion
+            $item: Item(itemSlot == ItemSlot.SITUATIONAL, $goodAgainstClass: goodAgainstClass , isForAP()) // dobar protiv protivnicke klase ali za AP champione
+            $session: ItemRecommendSession($fullBuild: fullBuild, $enemyChampion: enemyChampion, $pickedChampion: pickedChampion, situationalItemGiven == false)
+            Champion($enemyClass: primaryClass == $goodAgainstClass) from $enemyChampion
             Champion(damageType.getMagicDamage() > 50) from $pickedChampion
         then
             modify($session){ fullBuild.setSituationalItem($item)}

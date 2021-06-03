@@ -11,8 +11,8 @@ import com.example.demo.Model.Enums.Lane
 rule "Recommend defansive item based enemy Champions Damage total ARMOR"
 no-loop
     when
-        $item: Item( itemSlot == ItemSlot.DEFENSIVE, isDefensive, isArmor, forClass == $class) // def item protiv heavy ad teama
-        $session: ItemRecommendSession($fullBuild: fullBuild, $enemyChampions: allEnemyChampions, $class: pickedChampion.getPrimaryClass(), isDefensiveItemGiven == false)
+        $item: Item( itemSlot == ItemSlot.DEFENSIVE, isDefensive(), isArmor(), $forClass: forClass) // def item protiv heavy ad teama
+        $session: ItemRecommendSession($fullBuild: fullBuild, $enemyChampions: allEnemyChampions, pickedChampion.getPrimaryClass()  == $forClass, defensiveItemGiven == false)
         Number($sumDamage: intValue >= 250) from accumulate(
             Champion($physDmg: damageType.getPhysicalDamage()) from $enemyChampions,
             sum($physDmg)
@@ -25,8 +25,8 @@ end
 rule "Recommend defansive item based enemy Champions Damage total MAGIC RESIST"
 no-loop
     when
-        $item: Item( itemSlot == ItemSlot.DEFENSIVE, isDefensive, isMagicResist, forClass == $class)  //  def item protiv heavy ap teama
-        $session: ItemRecommendSession($fullBuild: fullBuild, $enemyChampions: allEnemyChampions, $class: pickedChampion.getPrimaryClass(), isDefensiveItemGiven == false)
+        $item: Item( itemSlot == ItemSlot.DEFENSIVE, isDefensive(), isMagicResist(), $forClass: forClass)  //  def item protiv heavy ap teama
+        $session: ItemRecommendSession($fullBuild: fullBuild, $enemyChampions: allEnemyChampions, pickedChampion.getPrimaryClass()  == $forClass, defensiveItemGiven == false)
         Number($sumDamage: intValue >= 250) from accumulate(
             Champion($magicalDmg: damageType.getMagicDamage()) from $enemyChampions,
             sum($magicalDmg)

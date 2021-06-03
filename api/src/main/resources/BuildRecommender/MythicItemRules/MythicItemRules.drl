@@ -8,21 +8,21 @@ import com.example.demo.Model.ItemRecommendSession
 import com.example.demo.Model.Enums.ItemSlot
 import com.example.demo.Model.Enums.Lane
 
-rule "Recomending mythic item based on picked champion class and damage type class + AD"
+rule "Recomending mythic item based on picked champion class and damage type, class + AD"
      when
-            $item: Item(itemSlot == ItemSlot.MYTHIC, forClass == $class, isForAD) // za tu klasu ali AD
-            $session: ItemRecommendSession($fullBuild: fullBuild, $pickedChampion: pickedChampion, isMythicItemGiven == false)
-            Champion($class: primaryClass, damageType.getPhysicalDamage() > 50) from $pickedChampion
+            $item: Item(itemSlot == ItemSlot.MYTHIC, $forClass: forClass, isForAD()) // za tu klasu ali AD
+            $session: ItemRecommendSession($fullBuild: fullBuild, $pickedChampion: pickedChampion, mythicItemGiven == false)
+            Champion(primaryClass == $forClass, damageType.getPhysicalDamage() > 50) from $pickedChampion
         then
             modify($session){ fullBuild.setMythicItem($item)}
             modify($session){ setMythicItemGiven(true)}
 end
 
-rule "Recomending mythic item based on picked champion class and damage type class + AP"
+rule "Recomending mythic item based on picked champion class and damage type, class + AP"
      when
-            $item: Item(itemSlot == ItemSlot.MYTHIC, forClass == $class, isForAP) // za tu klasu ali AD
-            $session: ItemRecommendSession($fullBuild: fullBuild, $pickedChampion: pickedChampion, isMythicItemGiven == false)
-            Champion($class: primaryClass, damageType.getMagicDamage() > 50) from $pickedChampion
+            $item: Item(itemSlot == ItemSlot.MYTHIC, $forClass: forClass, isForAP()) // za tu klasu ali AD
+            $session: ItemRecommendSession($fullBuild: fullBuild, $pickedChampion: pickedChampion, mythicItemGiven == false)
+            Champion(primaryClass == $forClass, damageType.getMagicDamage() > 50) from $pickedChampion
         then
             modify($session){ fullBuild.setMythicItem($item)}
             modify($session){ setMythicItemGiven(true)}
