@@ -14,7 +14,8 @@ insert into champions (id, name, primary_class, secondary_class, primary_lane, s
     values (332, 'Katarina', 0, 1, 2, 4, 1, 1, 2, 0);
 insert into champions (id, name, primary_class, secondary_class, primary_lane, secondary_lane, attack_range, playstyle, strength, ability_resource)
     values (12, 'Jhin', 5, 1, 2, 4, 1, 1, 2, 0);
-
+insert into champions (id, name, primary_class, secondary_class, primary_lane, secondary_lane, attack_range, playstyle, strength, ability_resource)
+    values (192, 'Kindred', 5, 1, 2, 4, 1, 1, 2, 0);
 
 
 /* ITEMS */

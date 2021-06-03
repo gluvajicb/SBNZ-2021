@@ -9,12 +9,12 @@ import com.example.demo.Model.Enums.ItemSlot
 import com.example.demo.Model.Enums.Lane
 
 rule "Recommend boots item based enemy Champions ARMOR"
-salience 1
+salience 100
 no-loop
     when
-        $item: Item($name: name == "Plated Steelcaps", itemSlot == ItemSlot.BOOTS, isDefensive, isArmor) // protiv heavy ad teama idemo ninja tabi
+        $item: Item($name: name == "Plated Steelcaps", itemSlot == ItemSlot.BOOTS, isDefensive(), isArmor()) // protiv heavy ad teama idemo ninja tabi
         $session: ItemRecommendSession($fullBuild: fullBuild, $enemyChampions: allEnemyChampions, bootsItemGiven == false)
-        Number($sumDamage: intValue >= 350) from accumulate(
+        Number($sumDamage: intValue >= 300) from accumulate(
             Champion($physDmg: damageType.getPhysicalDamage()) from $enemyChampions,
             sum($physDmg)
         )
@@ -26,10 +26,10 @@ no-loop
 end
 
 rule "Recommend boots item based on enemy champions MR"
-salience 1
+salience 100
 no-loop
     when
-        $item: Item($name: name == "Mercury's Treads", itemSlot == ItemSlot.BOOTS, isDefensive, isMagicResist) // protiv heavy ad teama idemo mercury treads
+        $item: Item($name: name == "Mercury's Treads", itemSlot == ItemSlot.BOOTS, isDefensive(), isMagicResist()) // protiv heavy ad teama idemo mercury treads
         $session: ItemRecommendSession($fullBuild: fullBuild, $enemyChampions: allEnemyChampions, bootsItemGiven == false)
         Number($sumDamage: intValue >= 350) from accumulate(
             Champion($magicDmg: damageType.getMagicDamage()) from $enemyChampions,
@@ -44,7 +44,7 @@ rule "Recommend boots item based damage type of picked champion AP"
 salience 10
 no-loop
     when
-        $item: Item(itemSlot == ItemSlot.BOOTS, isOffensive, isForAP) // za ap champione dajemo sorceres shoes
+        $item: Item(itemSlot == ItemSlot.BOOTS, isOffensive(), isForAP()) // za ap champione dajemo sorceres shoes
         $session: ItemRecommendSession($fullBuild: fullBuild, $enemyChampions: allEnemyChampions, $pickedChampion: pickedChampion, bootsItemGiven == false)
         $champion: Champion(damageType.getMagicDamage() > 50) from $pickedChampion
     then
@@ -56,7 +56,7 @@ rule "Recommend boots item based damage type of picked champion AD"
 salience 10
 no-loop
     when
-        $item: Item(itemSlot == ItemSlot.BOOTS, isOffensive, isForAD) // za ad champione dajemo berserkers greaves
+        $item: Item(itemSlot == ItemSlot.BOOTS, isOffensive(), isForAD()) // za ad champione dajemo berserkers greaves
         $session: ItemRecommendSession($fullBuild: fullBuild, $enemyChampions: allEnemyChampions, $pickedChampion: pickedChampion, bootsItemGiven == false)
         $champion: Champion(damageType.getPhysicalDamage() > 50) from $pickedChampion
     then
@@ -65,7 +65,8 @@ no-loop
 end
 //support boots
 rule "Recommend boots item for supports"
-salience 100
+salience 1
+agenda-group "support"
 no-loop
     when
         $item: Item(itemSlot == ItemSlot.BOOTS, $name: name == "Mobility Boots") // za sup champione dajemo mobility boots
