@@ -21,8 +21,8 @@ public class TestMain {
     @Autowired
     private ChampionService championService;
 
-    @Order(value = 1)
-    @EventListener(ApplicationReadyEvent.class)
+//    @Order(value = 1)
+//    @EventListener(ApplicationReadyEvent.class)
     public void rulesTest(){
 
         System.out.println("\n**************CHAMPION RECOMMENDER **************\n");

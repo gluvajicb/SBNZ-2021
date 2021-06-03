@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <kmodule xmlns="http://jboss.org/kie/6.0.0/kmodule">
 
-    <kbase name="build-rules" packages="BuildRecommender">
-        <ksession name="BuildRecommender"/>
-    </kbase>
+<!-- champion recommender rules-->
     <kbase name="play-style-rules" packages="ChampionRecommender.PlaystyleRules">
         <ksession name="play-style-recommend-rules"/>
     </kbase>
@@ -18,6 +16,25 @@
     </kbase>
     <kbase name="damage-type-rules" packages="ChampionRecommender.DamageTypeRules">
         <ksession name="damage-type-recommend-rules"/>
+    </kbase>
+<!-- build recommender rules -->
+    <kbase name="starting-item-rules" packages="BuildRecommender.StartingItemRules">
+        <ksession name="starting-item-recommend-rules"/>
+    </kbase>
+    <kbase name="boots-rules" packages="BuildRecommender.BootsRules">
+        <ksession name="boots-recommend-rules"/>
+    </kbase>
+    <kbase name="mythic-item-rules" packages="BuildRecommender.MythicItemRules">
+        <ksession name="mythic-item-recommend-rules"/>
+    </kbase>
+    <kbase name="situational-item-rules" packages="BuildRecommender.SituationalItemRules">
+        <ksession name="situational-item-recommend-rules"/>
+    </kbase>
+    <kbase name="defensive-item-rules" packages="BuildRecommender.DefensiveItemRules">
+        <ksession name="defensive-item-recommend-rules"/>
+    </kbase>
+    <kbase name="offensive-item-rules" packages="BuildRecommender.OffensiveItemRules">
+        <ksession name="offensive-item-recommend-rules"/>
     </kbase>
 
 

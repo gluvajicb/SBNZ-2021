@@ -1,0 +1,37 @@
+package BuildRecommender.DefensiveItemRules;
+dialect  "mvel"
+
+import com.example.demo.Model.Item
+import com.example.demo.Model.Champion
+import com.example.demo.Model.Enums.ItemSlot
+import com.example.demo.Model.ItemRecommendSession
+import com.example.demo.Model.Enums.ItemSlot
+import com.example.demo.Model.Enums.Lane
+
+rule "Recommend defansive item based enemy Champions Damage total ARMOR"
+no-loop
+    when
+        $item: Item( itemSlot == ItemSlot.DEFENSIVE, isDefensive, isArmor, forClass == $class) // def item protiv heavy ad teama
+        $session: ItemRecommendSession($fullBuild: fullBuild, $enemyChampions: allEnemyChampions, $class: pickedChampion.getPrimaryClass(), isDefensiveItemGiven == false)
+        Number($sumDamage: intValue >= 250) from accumulate(
+            Champion($physDmg: damageType.getPhysicalDamage()) from $enemyChampions,
+            sum($physDmg)
+        )
+    then
+        modify($session){ fullBuild.setDefensiveItem($item)}
+        modify($session){ setDefensiveItemGiven(true)}
+end
+
+rule "Recommend defansive item based enemy Champions Damage total MAGIC RESIST"
+no-loop
+    when
+        $item: Item( itemSlot == ItemSlot.DEFENSIVE, isDefensive, isMagicResist, forClass == $class)  //  def item protiv heavy ap teama
+        $session: ItemRecommendSession($fullBuild: fullBuild, $enemyChampions: allEnemyChampions, $class: pickedChampion.getPrimaryClass(), isDefensiveItemGiven == false)
+        Number($sumDamage: intValue >= 250) from accumulate(
+            Champion($magicalDmg: damageType.getMagicDamage()) from $enemyChampions,
+            sum($magicalDmg)
+        )
+    then
+        modify($session){ fullBuild.setDefensiveItem($item)}
+        modify($session){ setDefensiveItemGiven(true)}
+end

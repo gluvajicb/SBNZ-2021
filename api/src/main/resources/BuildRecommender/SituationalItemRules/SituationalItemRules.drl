@@ -1,0 +1,33 @@
+package BuildRecommender.SituationalItemRules;
+dialect  "mvel"
+
+import com.example.demo.Model.Item
+import com.example.demo.Model.Champion
+import com.example.demo.Model.Enums.ItemSlot
+import com.example.demo.Model.ItemRecommendSession
+import com.example.demo.Model.Enums.ItemSlot
+import com.example.demo.Model.Enums.Lane
+
+rule "Recomending situational item that is good against enemy champion's class , for AD champions"
+no-loop
+     when
+            $item: Item(itemSlot == ItemSlot.SITUATIONAL, goodAgainstClass == $enemyClass, isForAD) // dobar protiv protivnicke klase ali za AD champione
+            $session: ItemRecommendSession($fullBuild: fullBuild, $enemyChampion: enemyChampion, $pickedChampion: pickedChampion, isSituationalItemGiven == false)
+            Champion($enemyClass: primaryClass) from $enemyChampion
+            Champion(damageType.getPhysicalDamage() > 50) from $pickedChampion
+        then
+            modify($session){ fullBuild.setSituationalItem($item)}
+            modify($session){ setSituationalItemGiven(true)}
+end
+
+rule "Recomending situational item that is good against enemy champion's class , for AP champions"
+no-loop
+     when
+            $item: Item(itemSlot == ItemSlot.SITUATIONAL, goodAgainstClass == $enemyClass, isForAD) // dobar protiv protivnicke klase ali za AP champione
+            $session: ItemRecommendSession($fullBuild: fullBuild, $enemyChampion: enemyChampion, $pickedChampion: pickedChampion, isSituationalItemGiven == false)
+            Champion($enemyClass: primaryClass) from $enemyChampion
+            Champion(damageType.getMagicDamage() > 50) from $pickedChampion
+        then
+            modify($session){ fullBuild.setSituationalItem($item)}
+            modify($session){ setSituationalItemGiven(true)}
+end

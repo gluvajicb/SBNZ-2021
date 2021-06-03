@@ -6,15 +6,71 @@ import com.example.demo.Model.Champion
 import com.example.demo.Model.Enums.ItemSlot
 import com.example.demo.Model.ItemRecommendSession
 import com.example.demo.Model.Enums.ItemSlot
+import com.example.demo.Model.Enums.Lane
 
-rule "Recommend boots item based on early game starting item option"
-agenda-group "defensive"
+rule "Recommend boots item based enemy Champions ARMOR"
 salience 1
 no-loop
     when
-        $item: Item($name: name != "Corruption Potion", itemSlot == ItemSlot.SITUATIONAL, isDefensive) //dshield
-        $session: ItemRecommendSession($fullBuild: fullBuild, $enemyChampions: allEnemyChampions)
-//        $startingItem: Item(isOffensive()) from $session.fullBuild.startingItem; accumulate??
+        $item: Item($name: name == "Plated Steelcaps", itemSlot == ItemSlot.BOOTS, isDefensive, isArmor) // protiv heavy ad teama idemo ninja tabi
+        $session: ItemRecommendSession($fullBuild: fullBuild, $enemyChampions: allEnemyChampions, bootsItemGiven == false)
+        Number($sumDamage: intValue >= 350) from accumulate(
+            Champion($physDmg: damageType.getPhysicalDamage()) from $enemyChampions,
+            sum($physDmg)
+        )
     then
-        modify($fullBuild){ setBoots($item)}
+        modify($session){ fullBuild.setBoots($item)}
+        modify($session){ setBootsItemGiven(true)}
+
+
+end
+
+rule "Recommend boots item based on enemy champions MR"
+salience 1
+no-loop
+    when
+        $item: Item($name: name == "Mercury's Treads", itemSlot == ItemSlot.BOOTS, isDefensive, isMagicResist) // protiv heavy ad teama idemo mercury treads
+        $session: ItemRecommendSession($fullBuild: fullBuild, $enemyChampions: allEnemyChampions, bootsItemGiven == false)
+        Number($sumDamage: intValue >= 350) from accumulate(
+            Champion($magicDmg: damageType.getMagicDamage()) from $enemyChampions,
+            sum($magicDmg)
+        )
+    then
+        modify($session){ fullBuild.setBoots($item)}
+        modify($session){ setBootsItemGiven(true)}
+end
+//u slucaju da nemamo previse ad heavy ili ap heavy team uzimamo ofanzivne bootse
+rule "Recommend boots item based damage type of picked champion AP"
+salience 10
+no-loop
+    when
+        $item: Item(itemSlot == ItemSlot.BOOTS, isOffensive, isForAP) // za ap champione dajemo sorceres shoes
+        $session: ItemRecommendSession($fullBuild: fullBuild, $enemyChampions: allEnemyChampions, $pickedChampion: pickedChampion, bootsItemGiven == false)
+        $champion: Champion(damageType.getMagicDamage() > 50) from $pickedChampion
+    then
+        modify($session){ fullBuild.setBoots($item)}
+        modify($session){ setBootsItemGiven(true)}
+end
+
+rule "Recommend boots item based damage type of picked champion AD"
+salience 10
+no-loop
+    when
+        $item: Item(itemSlot == ItemSlot.BOOTS, isOffensive, isForAD) // za ad champione dajemo berserkers greaves
+        $session: ItemRecommendSession($fullBuild: fullBuild, $enemyChampions: allEnemyChampions, $pickedChampion: pickedChampion, bootsItemGiven == false)
+        $champion: Champion(damageType.getPhysicalDamage() > 50) from $pickedChampion
+    then
+        modify($session){ fullBuild.setBoots($item)}
+        modify($session){ setBootsItemGiven(true)}
+end
+//support boots
+rule "Recommend boots item for supports"
+salience 100
+no-loop
+    when
+        $item: Item(itemSlot == ItemSlot.BOOTS, $name: name == "Mobility Boots") // za sup champione dajemo mobility boots
+        $session: ItemRecommendSession($fullBuild: fullBuild, $enemyChampions: allEnemyChampions, $pickedLane: pickedLane == Lane.SUPPORT, bootsItemGiven == false)
+    then
+        modify($session){ fullBuild.setBoots($item)}
+        modify($session){ setBootsItemGiven(true)}
 end

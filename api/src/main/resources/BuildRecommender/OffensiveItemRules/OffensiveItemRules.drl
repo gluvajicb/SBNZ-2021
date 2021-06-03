@@ -1,0 +1,33 @@
+package BuildRecommender.OffensiveItemRules;
+dialect  "mvel"
+
+import com.example.demo.Model.Item
+import com.example.demo.Model.Champion
+import com.example.demo.Model.Enums.ItemSlot
+import com.example.demo.Model.ItemRecommendSession
+import com.example.demo.Model.Enums.ItemSlot
+import com.example.demo.Model.Enums.Lane
+
+
+rule "Recomending offensive item that is good for picked champion's class , for AD champions"
+no-loop
+     when
+            $item: Item(itemSlot == ItemSlot.OFFENSIVE, forClass == $championClass, isForAD) // dobar item za klasu i za AD dmg type champione
+            $session: ItemRecommendSession($fullBuild: fullBuild, $enemyChampion: enemyChampion, $pickedChampion: pickedChampion, isSituationalItemGiven == false)
+            Champion(damageType.getPhysicalDamage() > 50, $championClass: primaryClass) from $pickedChampion
+        then
+            modify($session){ fullBuild.setOffensiveItem($item)}
+            modify($session){ setOffensiveItemGiven(true)}
+end
+
+rule "Recomending offensive item that is good for picked champion's class , for AP champions"
+no-loop
+     when
+            $item: Item(itemSlot == ItemSlot.OFFENSIVE, forClass == $championClass, isForAP) // dobar protiv protivnicke klase ali za AD champione
+            $session: ItemRecommendSession($fullBuild: fullBuild, $enemyChampion: enemyChampion, $pickedChampion: pickedChampion, isSituationalItemGiven == false)
+            Champion(damageType.getMagicDamage() > 50, $championClass: primaryClass) from $pickedChampion
+        then
+            modify($session){ fullBuild.setOffensiveItem($item)}
+            modify($session){ setOffensiveItemGiven(true)}
+end
+

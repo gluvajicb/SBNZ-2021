@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
 import java.util.List;
 
 @Data
@@ -23,5 +24,23 @@ public class ItemRecommendSession {
     private FullBuild fullBuild;
 
     private DamageType enemyTeamDamageType;
+
+    @Column(columnDefinition="BOOLEAN DEFAULT false")
+    private boolean startingItemGiven = false;
+
+    @Column(columnDefinition="BOOLEAN DEFAULT false")
+    private boolean bootsItemGiven = false;
+
+    @Column(columnDefinition="BOOLEAN DEFAULT false")
+    private boolean mythicItemGiven = false;
+
+    @Column(columnDefinition="BOOLEAN DEFAULT false")
+    private boolean situationalItemGiven = false;
+
+    @Column(columnDefinition="BOOLEAN DEFAULT false")
+    private boolean defensiveItemGiven = false;
+
+    @Column(columnDefinition="BOOLEAN DEFAULT false")
+    private boolean offensiveItemGiven = false;
 
 }

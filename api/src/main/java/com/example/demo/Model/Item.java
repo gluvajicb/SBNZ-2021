@@ -1,5 +1,6 @@
 package com.example.demo.Model;
 
+import com.example.demo.Model.Enums.ChampionClass;
 import com.example.demo.Model.Enums.ItemSlot;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -41,11 +42,11 @@ public class Item {
     @Column(name = "item_slot")
     private ItemSlot itemSlot;
 
-    @Column(name = "for_classes")
-    private String forClasses; // "ASSASSIN,MARKSMAN"
+    @Column(name = "for_class")
+    private ChampionClass forClass; // "ASSASSIN,MARKSMAN"
 
-    @Column(name = "good_against_classes")
-    private String goodAgainstClasses; // "ASSASSIN,MARKSMAN"
+    @Column(name = "good_against_class")
+    private ChampionClass goodAgainstClass; // "ASSASSIN,MARKSMAN"
 
 
 
