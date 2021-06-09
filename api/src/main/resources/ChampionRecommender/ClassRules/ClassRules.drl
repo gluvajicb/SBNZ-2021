@@ -52,11 +52,7 @@ no-loop
         $champion: Champion($name: name, secondaryClass == ChampionClass.BRUISER, classChecked == false)
         $session: ChampionRecommendSession($championList: championList)
     then
-        System.out.println("---------------------------------------");
-        System.out.println("Rule for class: \n");
 
-        System.out.println($champion.getName() + " has secondary class BRUISER and gets 5 points ");
-        System.out.println("---------------------------------------");
         modify($session){ updateScore($champion, 5)}
         modify($champion){ setClassChecked(true)}
 end

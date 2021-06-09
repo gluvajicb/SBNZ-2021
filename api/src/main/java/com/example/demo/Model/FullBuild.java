@@ -15,9 +15,9 @@ public class FullBuild {
 
     private Item boots;
 
-    private Item offensiveItem; //
-                                // ova dva itema idu jedan za drugim, ako imaju puno ad uzima se def item
-    private Item defensiveItem; //
+    private Item offensiveItem;
 
-    private Item situationalItem; // dobar protiv protivnickog heroja na lejnu
+    private Item defensiveItem;
+
+    private Item situationalItem;
 }

@@ -9,7 +9,6 @@ import javax.persistence.Column;
 import java.util.List;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
 public class ItemRecommendSession {
 
@@ -42,5 +41,9 @@ public class ItemRecommendSession {
 
     @Column(columnDefinition="BOOLEAN DEFAULT false")
     private boolean offensiveItemGiven = false;
+
+    public ItemRecommendSession() {
+        this.fullBuild = new FullBuild();
+    }
 
 }

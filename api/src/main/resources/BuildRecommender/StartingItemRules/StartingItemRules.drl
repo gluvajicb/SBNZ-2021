@@ -14,11 +14,11 @@ rule "Recommend starting item based on early game playstyle prefference, FARMING
 agenda-group "defensive"
 no-loop
     when
-        $item: Item(itemSlot == ItemSlot.STARTING, isDefensive()) //dshield
+        $item: Item(itemSlot == ItemSlot.STARTING, defensive == true) //dshield
         $session: ItemRecommendSession($fullBuild: fullBuild, isStartingItemGiven() == false)
     then
-        modify($session){ setStartingItemGiven(true)}
         modify($session){ fullBuild.setStartingItem($item)}
+        modify($session){ setStartingItemGiven(true)}
 end
 
 
@@ -26,12 +26,13 @@ rule "Recommend starting item based on early game playstyle prefference, OFFENSI
 agenda-group "offensive"
 no-loop
     when
-        $item: Item($name: name, itemSlot == ItemSlot.STARTING, offensive == true, forAP == true)
-        $session: ItemRecommendSession($fullBuild: fullBuild, pickedChampion.getMagicDamage() > 50, isStartingItemGiven() == false)
-
+        $item: Item($name: name, itemSlot == ItemSlot.STARTING, isOffensive(), isForAP())
+        $session: ItemRecommendSession($fullBuild: fullBuild, $pickedChampion: pickedChampion, isStartingItemGiven() == false)
+        $checkingDmg: Champion(damageType.getMagicDamage() > 50) from $pickedChampion
     then
-        modify($session){ setStartingItemGiven(true)}
+
         modify($session){ fullBuild.setStartingItem($item)}
+        modify($session){ setStartingItemGiven(true)}
 
 end
 
@@ -40,11 +41,13 @@ rule "Recommend starting item based on early game playstyle prefference, OFFENSI
 agenda-group "offensive"
 no-loop
     when
-        $item: Item($name: name, itemSlot == ItemSlot.STARTING, isOffensive() == true, isForAD() == true)
-        $session: ItemRecommendSession($fullBuild: fullBuild, pickedChampion.getPhysicalDamage() > 50, startingItemGiven == false)
+        $item: Item($name: name, itemSlot == ItemSlot.STARTING, isOffensive(), isForAD())
+        $session: ItemRecommendSession($fullBuild: fullBuild, $pickedChampion: pickedChampion, isStartingItemGiven() == false)
+        $checkingDmg: Champion(damageType.getMagicDamage() > 50) from $pickedChampion
     then
-        modify($session){ setStartingItemGiven(true)}
+
         modify($session){ fullBuild.setStartingItem($item)}
+        modify($session){ setStartingItemGiven(true)}
 
 end
 
@@ -54,28 +57,30 @@ agenda-group "sustain"
 no-loop
     when
         $item: Item($name: name == "Corrupting Potion", itemSlot == ItemSlot.STARTING)
-        $session: ItemRecommendSession($fullBuild: fullBuild, startingItemGiven == false)
+        $session: ItemRecommendSession($fullBuild: fullBuild, isStartingItemGiven() == false)
     then
-        modify($session){ setStartingItemGiven(true)}
+
         modify($session){ fullBuild.setStartingItem($item)}
+        modify($session){ setStartingItemGiven(true)}
 
 end
 
-salience 1
+
 rule "Recommend starting item based on early game for supports that are MAGES AS WELL"
 agenda-group "support"
 no-loop
     when
         $item: Item(itemSlot == ItemSlot.STARTING, $name: name == "Spellthief's Edge")
         $session: ItemRecommendSession($fullBuild: fullBuild, $pickedChampion: pickedChampion, startingItemGiven == false)
-        $checkingClass: Champion(damageType.getMagicDamage() > 50) from $pickedChampion
+        $checkingDmg: Champion(damageType.getMagicDamage() > 50, $class: primaryClass == ChampionClass.SUPPORT) from $pickedChampion
     then
+
         modify($session){ fullBuild.setStartingItem($item)}
         modify($session){ setStartingItemGiven(true)}
 
+
 end
 
-salience 2
 rule "Recommend starting item based on early game for supports that are TANKS"
 agenda-group "support"
 no-loop
@@ -84,19 +89,20 @@ no-loop
         $session: ItemRecommendSession($fullBuild: fullBuild, $pickedChampion: pickedChampion, startingItemGiven == false)
         $checkingClass: Champion(primaryClass == ChampionClass.TANK || secondaryClass == ChampionClass.TANK) from $pickedChampion
     then
-        modify($session){ setStartingItemGiven(true)}
+
         modify($session){ fullBuild.setStartingItem($item)}
+        modify($session){ setStartingItemGiven(true)}
 end
 
-salience 3
 rule "Recommend starting item based on early game for all other supports"
 agenda-group "support"
 no-loop
     when
         $item: Item(itemSlot == ItemSlot.STARTING, name == "Spectral Sickle")
         $session: ItemRecommendSession($fullBuild: fullBuild, $pickedChampion: pickedChampion, startingItemGiven == false)
-        $checkingClass: Champion(damageType.getPhysicalDamage() > 50) from $pickedChampion
+        $checkingDmg: Champion(damageType.getPhysicalDamage() > 50, $class: primaryClass == ChampionClass.SUPPORT) from $pickedChampion
     then
-        modify($session){ setStartingItemGiven(true)}
+
         modify($session){ fullBuild.setStartingItem($item)}
+        modify($session){ setStartingItemGiven(true)}
 end

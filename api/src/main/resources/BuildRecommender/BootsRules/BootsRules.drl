@@ -12,7 +12,7 @@ rule "Recommend boots item based enemy Champions ARMOR"
 salience 100
 no-loop
     when
-        $item: Item($name: name == "Plated Steelcaps", itemSlot == ItemSlot.BOOTS, isDefensive(), isArmor()) // protiv heavy ad teama idemo ninja tabi
+        $item: Item(itemSlot == ItemSlot.BOOTS, isDefensive(), isArmor()) // protiv heavy ad teama Uzimamo plated steelcaps
         $session: ItemRecommendSession($fullBuild: fullBuild, $enemyChampions: allEnemyChampions, bootsItemGiven == false)
         Number($sumDamage: intValue >= 300) from accumulate(
             Champion($physDmg: damageType.getPhysicalDamage()) from $enemyChampions,
@@ -29,7 +29,7 @@ rule "Recommend boots item based on enemy champions MR"
 salience 100
 no-loop
     when
-        $item: Item($name: name == "Mercury's Treads", itemSlot == ItemSlot.BOOTS, isDefensive(), isMagicResist()) // protiv heavy ad teama idemo mercury treads
+        $item: Item(itemSlot == ItemSlot.BOOTS, isDefensive(), isMagicResist()) // protiv heavy ad teama idemo mercury treads
         $session: ItemRecommendSession($fullBuild: fullBuild, $enemyChampions: allEnemyChampions, bootsItemGiven == false)
         Number($sumDamage: intValue >= 350) from accumulate(
             Champion($magicDmg: damageType.getMagicDamage()) from $enemyChampions,

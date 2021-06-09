@@ -5,6 +5,8 @@ import com.example.demo.Repository.ChampionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ChampionService {
 
@@ -13,5 +15,9 @@ public class ChampionService {
 
     public Champion getChampionByName(String name) {
         return championRepository.getChampionByName(name);
+    }
+
+    public List<Champion> getAllChampions() {
+        return championRepository.findAll();
     }
 }

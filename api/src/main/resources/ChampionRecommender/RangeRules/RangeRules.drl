@@ -6,6 +6,7 @@ import com.example.demo.Model.ChampionRecommendSession;
 import com.example.demo.Model.Enums.*;
 
 rule "Recommend champion based on RANGE, MELEE"
+agenda-group "melee"
 no-loop
     when
         $champion: Champion($name: name, attackRange == Range.MELEE, rangeChecked == false)
@@ -16,6 +17,7 @@ no-loop
 end
 
 rule "Recommend champion based on RANGE, RANGED"
+agenda-group "ranged"
 no-loop
     when
         $champion: Champion($name: name, attackRange == Range.RANGED, rangeChecked == false)
@@ -26,6 +28,7 @@ no-loop
 end
 
 rule "Recommend champion based on RANGE, MIDRANGE"
+agenda-group "midrange"
 no-loop
     when
         $champion: Champion($name: name, attackRange == Range.MIDRANGE, rangeChecked == false)

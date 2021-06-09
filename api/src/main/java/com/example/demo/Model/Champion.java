@@ -71,14 +71,5 @@ public class Champion {
     private boolean damageTypeChecked = false;
 
 
-    /* Methods */
-
-    public int getPhysicalDamage() {
-        return this.damageType.getPhysicalDamage();
-    }
-
-    public int getMagicDamage() {
-        return this.damageType.getMagicDamage();
-    }
 }
 

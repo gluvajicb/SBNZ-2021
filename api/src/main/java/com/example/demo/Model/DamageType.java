@@ -10,7 +10,6 @@ import java.util.List;
 @Entity
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class DamageType {
 
     @Id
@@ -22,4 +21,9 @@ public class DamageType {
 
     @OneToMany
     private List<Champion> champion;
+
+    public DamageType(int magicDamage, int physicalDamage) {
+        this.magicDamage = magicDamage;
+        this.physicalDamage = physicalDamage;
+    }
 }

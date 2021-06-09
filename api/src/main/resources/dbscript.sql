@@ -7,11 +7,11 @@ insert into champions (id, name, primary_class, secondary_class, primary_lane, s
 insert into champions (id, name, primary_class, secondary_class, primary_lane, secondary_lane, attack_range, playstyle, strength, ability_resource)
     values (312, 'Soraka', 5, 1, 2, 4, 1, 1, 2, 0);
 insert into champions (id, name, primary_class, secondary_class, primary_lane, secondary_lane, attack_range, playstyle, strength, ability_resource)
-    values (382, 'Sion', 4, 3, 2, 4, 1, 1, 2, 0);
+    values (382, 'Sion', 4, 3, 0, 4, 0, 1, 2, 0);
 insert into champions (id, name, primary_class, secondary_class, primary_lane, secondary_lane, attack_range, playstyle, strength, ability_resource)
     values (322, 'Nidalee', 5, 1, 2, 4, 1, 1, 2, 0);
 insert into champions (id, name, primary_class, secondary_class, primary_lane, secondary_lane, attack_range, playstyle, strength, ability_resource)
-    values (332, 'Katarina', 0, 1, 2, 4, 1, 1, 2, 0);
+    values (332, 'Katarina', 0, 1, 2, 0, 0, 1, 2, 2);
 insert into champions (id, name, primary_class, secondary_class, primary_lane, secondary_lane, attack_range, playstyle, strength, ability_resource)
     values (12, 'Jhin', 5, 1, 2, 4, 1, 1, 2, 0);
 insert into champions (id, name, primary_class, secondary_class, primary_lane, secondary_lane, attack_range, playstyle, strength, ability_resource)
@@ -33,11 +33,11 @@ insert into items (id, name, is_offensive, is_defensive, is_for_ap, is_for_ad, i
     values (4, "Corrupting Potion", false, false, false, false, false, false, 0, 0, 0);
 
 insert into items (id, name, is_offensive, is_defensive, is_for_ap, is_for_ad, is_armor, is_magic_resist, item_slot, for_class, good_against_class)
-    values (5, "Spellthief's Edge", true, false, true, false, false, false, 0, 0, 0);
+    values (5, "Spellthief's Edge", false, false, false, false, false, false, 0, 5, 0);
 insert into items (id, name, is_offensive, is_defensive, is_for_ap, is_for_ad, is_armor, is_magic_resist, item_slot, for_class, good_against_class)
-    values (6, "Steel Shoulderguards", false, true, false, true, false, false, 0, 0, 0);
+    values (6, "Steel Shoulderguards", false, true, false, true, false, false, 0, 5, 0);
 insert into items (id, name, is_offensive, is_defensive, is_for_ap, is_for_ad, is_armor, is_magic_resist, item_slot, for_class, good_against_class)
-    values (8, "Spectral Sickle", true, false, false, true, false, false, 0, 0, 0);
+    values (8, "Spectral Sickle", false, false, false, false, false, false, 0, 5, 0);
 
 /* boots */
 

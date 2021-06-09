@@ -9,6 +9,7 @@ import com.example.demo.Model.DamageType;
 /* AD */
 
 rule "Recommend champion based on Damage type, AD between 30 and 50"
+agenda-group "physical"
 no-loop
     when
         $champion: Champion($name: name, damageTypeChecked == false)
@@ -20,6 +21,7 @@ no-loop
 end
 
 rule "Recommend champion based on Damage type, AD between 50 and 70"
+agenda-group "physical"
 no-loop
     when
         $champion: Champion($name: name, damageTypeChecked == false)
@@ -31,6 +33,7 @@ no-loop
 end
 
 rule "Recommend champion based on Damage type, AD over 70"
+agenda-group "physical"
 no-loop
     when
         $champion: Champion($name: name, damageTypeChecked == false)
@@ -44,6 +47,7 @@ end
 /* AP */
 
 rule "Recommend champion based on Damage type, AP between 30 and 50"
+agenda-group "magical"
 no-loop
     when
         $champion: Champion($name: name, damageTypeChecked == false)
@@ -55,6 +59,7 @@ no-loop
 end
 
 rule "Recommend champion based on Damage type, AP between 50 and 70"
+agenda-group "magical"
 no-loop
     when
         $champion: Champion($name: name, damageTypeChecked == false)
@@ -66,6 +71,7 @@ no-loop
 end
 
 rule "Recommend champion based on Damage type, AP over 70"
+agenda-group "magical"
 no-loop
     when
         $champion: Champion($name: name, damageTypeChecked == false)
