@@ -1,0 +1,1743 @@
+[
+	{
+		"name" : "Aatrox",
+		"primaryClass" : "BRUISER",
+		"secondaryClass" : "TANK",
+		"primaryLane" : "TOP",
+		"secondaryLane" : "MID",
+		"damageType" : {
+			"physicalDamage" : 90,
+			"magicDamage" : 10
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "SPLITPUSHING",
+		"strength" : "MID_GAME",
+		"abilityResource" : "NOTHING"
+	},
+	{
+		"name" : "Ahri",
+		"primaryClass" : "MAGE",
+		"secondaryClass" : "ASSASSIN",
+		"primaryLane" : "MID",
+		"secondaryLane" : "TOP",
+		"damageType" : {
+			"physicalDamage" : 0,
+			"magicDamage" : 100
+		},
+		"attackRange" : "RANGED",
+		"playstyle" : "ROAMING",
+		"strength" : "LATE_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Akali",
+		"primaryClass" : "ASSASSIN",
+		"secondaryClass" : "BRUISER",
+		"primaryLane" : "MID",
+		"secondaryLane" : "TOP",
+		"damageType" : {
+			"physicalDamage" : 30,
+			"magicDamage" : 70
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "ROAMING",
+		"strength" : "MID_GAME",
+		"abilityResource" : "ENERGY"
+	},
+	{
+		"name" : "Alistar",
+		"primaryClass" : "SUPPORT",
+		"secondaryClass" : "TANK",
+		"primaryLane" : "SUPPORT",
+		"secondaryLane" : "MID",
+		"damageType" : {
+			"physicalDamage" : 30,
+			"magicDamage" : 70
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "MID_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Amumu",
+		"primaryClass" : "TANK",
+		"secondaryClass" : "BRUISER",
+		"primaryLane" : "JUNGLE",
+		"secondaryLane" : "TOP",
+		"damageType" : {
+			"physicalDamage" : 10,
+			"magicDamage" : 90
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "ROAMING",
+		"strength" : "LATE_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Anivia",
+		"primaryClass" : "MAGE",
+		"secondaryClass" : "SUPPORT",
+		"primaryLane" : "MID",
+		"secondaryLane" : "TOP",
+		"damageType" : {
+			"physicalDamage" : 0,
+			"magicDamage" : 100
+		},
+		"attackRange" : "RANGED",
+		"playstyle" : "ROAMING",
+		"strength" : "LATE_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Annie",
+		"primaryClass" : "MAGE",
+		"secondaryClass" : "SUPPORT",
+		"primaryLane" : "MID",
+		"secondaryLane" : "TOP",
+		"damageType" : {
+			"physicalDamage" : 0,
+			"magicDamage" : 100
+		},
+		"attackRange" : "RANGED",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "MID_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Aphelios",
+		"primaryClass" : "MARKSMAN",
+		"secondaryClass" : "BRUISER",
+		"primaryLane" : "BOT",
+		"secondaryLane" : "TOP",
+		"damageType" : {
+			"physicalDamage" : 85,
+			"magicDamage" : 15
+		},
+		"attackRange" : "RANGED",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "LATE_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Ashe",
+		"primaryClass" : "MARKSMAN",
+		"secondaryClass" : "SUPPORT",
+		"primaryLane" : "BOT",
+		"secondaryLane" : "SUPPORT",
+		"damageType" : {
+			"physicalDamage" : 85,
+			"magicDamage" : 15
+		},
+		"attackRange" : "RANGED",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "LATE_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Aurelion Sol",
+		"primaryClass" : "MAGE",
+		"secondaryClass" : "SUPPORT",
+		"primaryLane" : "MID",
+		"secondaryLane" : "TOP",
+		"damageType" : {
+			"physicalDamage" : 0,
+			"magicDamage" : 100
+		},
+		"attackRange" : "RANGED",
+		"playstyle" : "ROAMING",
+		"strength" : "LATE_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Azir",
+		"primaryClass" : "MAGE",
+		"secondaryClass" : "BRUISER",
+		"primaryLane" : "MID",
+		"secondaryLane" : "TOP",
+		"damageType" : {
+			"physicalDamage" : 45,
+			"magicDamage" : 55
+		},
+		"attackRange" : "MIDRANGE",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "LATE_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Bard",
+		"primaryClass" : "SUPPORT",
+		"secondaryClass" : "MAGE",
+		"primaryLane" : "SUPPORT",
+		"secondaryLane" : "TOP",
+		"damageType" : {
+			"physicalDamage" : 35,
+			"magicDamage" : 65
+		},
+		"attackRange" : "MIDRANGE",
+		"playstyle" : "ROAMING",
+		"strength" : "MID_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Blitzcrank",
+		"primaryClass" : "SUPPORT",
+		"secondaryClass" : "TANK",
+		"primaryLane" : "SUPPORT",
+		"secondaryLane" : "TOP",
+		"damageType" : {
+			"physicalDamage" : 5,
+			"magicDamage" : 95
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "ROAMING",
+		"strength" : "EARLY_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Brand",
+		"primaryClass" : "SUPPORT",
+		"secondaryClass" : "MAGE",
+		"primaryLane" : "SUPPORT",
+		"secondaryLane" : "MID",
+		"damageType" : {
+			"physicalDamage" : 0,
+			"magicDamage" : 100
+		},
+		"attackRange" : "RANGED",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "MID_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Braum",
+		"primaryClass" : "SUPPORT",
+		"secondaryClass" : "TANK",
+		"primaryLane" : "SUPPORT",
+		"secondaryLane" : "JUNGLE",
+		"damageType" : {
+			"physicalDamage" : 10,
+			"magicDamage" : 90
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "MID_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Caitlyn",
+		"primaryClass" : "MARKSMAN",
+		"secondaryClass" : null,
+		"primaryLane" : "BOT",
+		"secondaryLane" : "MID",
+		"damageType" : {
+			"physicalDamage" : 95,
+			"magicDamage" : 5
+		},
+		"attackRange" : "RANGED",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "LATE_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Camille",
+		"primaryClass" : "BRUISER",
+		"secondaryClass" : "ASSASSIN",
+		"primaryLane" : "TOP",
+		"secondaryLane" : "JUNGLE",
+		"damageType" : {
+			"physicalDamage" : 60,
+			"magicDamage" : 40
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "SPLITPUSHING",
+		"strength" : "LATE_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Cassiopeia",
+		"primaryClass" : "MAGE",
+		"secondaryClass" : null,
+		"primaryLane" : "MID",
+		"secondaryLane" : "TOP",
+		"damageType" : {
+			"physicalDamage" : 0,
+			"magicDamage" : 100
+		},
+		"attackRange" : "MIDRANGE",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "LATE_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Cho'Gath",
+		"primaryClass" : "TANK",
+		"secondaryClass" : "MAGE",
+		"primaryLane" : "TOP",
+		"secondaryLane" : "MID",
+		"damageType" : {
+			"physicalDamage" : 40,
+			"magicDamage" : 60
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "MID_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Corki",
+		"primaryClass" : "MARKSMAN",
+		"secondaryClass" : "MAGE",
+		"primaryLane" : "MID",
+		"secondaryLane" : "BOT",
+		"damageType" : {
+			"physicalDamage" : 60,
+			"magicDamage" : 40
+		},
+		"attackRange" : "RANGED",
+		"playstyle" : "ROAMING",
+		"strength" : "MID_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Darius",
+		"primaryClass" : "BRUISER",
+		"secondaryClass" : "TANK",
+		"primaryLane" : "TOP",
+		"secondaryLane" : "JUNGLE",
+		"damageType" : {
+			"physicalDamage" : 50,
+			"magicDamage" : 50
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "SPLITPUSHING",
+		"strength" : "EARLY_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Diana",
+		"primaryClass" : "ASSASSIN",
+		"secondaryClass" : "MAGE",
+		"primaryLane" : "MID",
+		"secondaryLane" : "JUNGLE",
+		"damageType" : {
+			"physicalDamage" : 30,
+			"magicDamage" : 70
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "ROAMING",
+		"strength" : "MID_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Dr.Mundo",
+		"primaryClass" : "TANK",
+		"secondaryClass" : "BRUISER",
+		"primaryLane" : "TOP",
+		"secondaryLane" : "JUNGLE",
+		"damageType" : {
+			"physicalDamage" : 50,
+			"magicDamage" : 50
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "SPLITPUSHING",
+		"strength" : "LATE_GAME",
+		"abilityResource" : "NOTHING"
+	},
+	{
+		"name" : "Draven",
+		"primaryClass" : "MARKSMAN",
+		"secondaryClass" : null,
+		"primaryLane" : "BOT",
+		"secondaryLane" : null,
+		"damageType" : {
+			"physicalDamage" : 100,
+			"magicDamage" : 0
+		},
+		"attackRange" : "RANGED",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "LATE_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Ekko",
+		"primaryClass" : "ASSASSIN",
+		"secondaryClass" : "MAGE",
+		"primaryLane" : "MID",
+		"secondaryLane" : "JUNGLE",
+		"damageType" : {
+			"physicalDamage" : 20,
+			"magicDamage" : 80
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "ROAMING",
+		"strength" : "LATE_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Elise",
+		"primaryClass" : "MAGE",
+		"secondaryClass" : "ASSASSIN",
+		"primaryLane" : "JUNGLE",
+		"secondaryLane" : null,
+		"damageType" : {
+			"physicalDamage" : 30,
+			"magicDamage" : 70
+		},
+		"attackRange" : "MIDRANGE",
+		"playstyle" : "ROAMING",
+		"strength" : "MID_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Evelynn",
+		"primaryClass" : "ASSASSIN",
+		"secondaryClass" : "MAGE",
+		"primaryLane" : "JUNGLE",
+		"secondaryLane" : null,
+		"damageType" : {
+			"physicalDamage" : 20,
+			"magicDamage" : 80
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "ROAMING",
+		"strength" : "MID_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Ezreal",
+		"primaryClass" : "MARKSMAN",
+		"secondaryClass" : "MAGE",
+		"primaryLane" : "BOT",
+		"secondaryLane" : "MID",
+		"damageType" : {
+			"physicalDamage" : 55,
+			"magicDamage" : 45
+		},
+		"attackRange" : "RANGED",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "LATE_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Fiddlesticks",
+		"primaryClass" : "MAGE",
+		"secondaryClass" : "SUPPORT",
+		"primaryLane" : "JUNGLE",
+		"secondaryLane" : "SUPPORT",
+		"damageType" : {
+			"physicalDamage" : 0,
+			"magicDamage" : 100
+		},
+		"attackRange" : "RANGED",
+		"playstyle" : "ROAMING",
+		"strength" : "MID_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Fiora",
+		"primaryClass" : "BRUISER",
+		"secondaryClass" : null,
+		"primaryLane" : "TOP",
+		"secondaryLane" : "MID",
+		"damageType" : {
+			"physicalDamage" : 80,
+			"magicDamage" : 20
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "SPLITPUSHING",
+		"strength" : "EARLY_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Fizz",
+		"primaryClass" : "ASSASSIN",
+		"secondaryClass" : "MAGE",
+		"primaryLane" : "MID",
+		"secondaryLane" : "JUNGLE",
+		"damageType" : {
+			"physicalDamage" : 10,
+			"magicDamage" : 90
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "ROAMING",
+		"strength" : "MID_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Galio",
+		"primaryClass" : "TANK",
+		"secondaryClass" : "MAGE",
+		"primaryLane" : "MID",
+		"secondaryLane" : "TOP",
+		"damageType" : {
+			"physicalDamage" : 0,
+			"magicDamage" : 100
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "LATE_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Gangplank",
+		"primaryClass" : "BRUISER",
+		"secondaryClass" : "ASSASSIN",
+		"primaryLane" : "TOP",
+		"secondaryLane" : "MID",
+		"damageType" : {
+			"physicalDamage" : 25,
+			"magicDamage" : 75
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "LATE_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Garen",
+		"primaryClass" : "BRUISER",
+		"secondaryClass" : "TANK",
+		"primaryLane" : "TOP",
+		"secondaryLane" : "JUNGLE",
+		"damageType" : {
+			"physicalDamage" : 20,
+			"magicDamage" : 80
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "SPLITPUSHING",
+		"strength" : "EARLY_GAME",
+		"abilityResource" : "NOTHING"
+	},
+	{
+		"name" : "Gnar",
+		"primaryClass" : "BRUISER",
+		"secondaryClass" : "TANK",
+		"primaryLane" : "TOP",
+		"secondaryLane" : null,
+		"damageType" : {
+			"physicalDamage" : 60,
+			"magicDamage" : 40
+		},
+		"attackRange" : "MIDRANGE",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "LATE_GAME",
+		"abilityResource" : "NOTHING"
+	},
+	{
+		"name" : "Gragas",
+		"primaryClass" : "TANK",
+		"secondaryClass" : "MAGE",
+		"primaryLane" : "JUNGLE",
+		"secondaryLane" : "TOP",
+		"damageType" : {
+			"physicalDamage" : 5,
+			"magicDamage" : 95
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "MID_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Graves",
+		"primaryClass" : "MARKSMAN",
+		"secondaryClass" : "BRUISER",
+		"primaryLane" : "JUNGLE",
+		"secondaryLane" : null,
+		"damageType" : {
+			"physicalDamage" : 85,
+			"magicDamage" : 15
+		},
+		"attackRange" : "MIDRANGE",
+		"playstyle" : "SPLITPUSHING",
+		"strength" : "LATE_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Gwen",
+		"primaryClass" : "BRUISER",
+		"secondaryClass" : "ASSASSIN",
+		"primaryLane" : "TOP",
+		"secondaryLane" : "MID",
+		"damageType" : {
+			"physicalDamage" : 50,
+			"magicDamage" : 50
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "SPLITPUSHING",
+		"strength" : "MID_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Hecarim",
+		"primaryClass" : "BRUISER",
+		"secondaryClass" : "TANK",
+		"primaryLane" : "JUNGLE",
+		"secondaryLane" : "TOP",
+		"damageType" : {
+			"physicalDamage" : 30,
+			"magicDamage" : 70
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "ROAMING",
+		"strength" : "MID_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Heimerdinger",
+		"primaryClass" : "MAGE",
+		"secondaryClass" : "SUPPORT",
+		"primaryLane" : "MID",
+		"secondaryLane" : "SUPPORT",
+		"damageType" : {
+			"physicalDamage" : 0,
+			"magicDamage" : 100
+		},
+		"attackRange" : "RANGED",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "EARLY_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Illaoi",
+		"primaryClass" : "BRUISER",
+		"secondaryClass" : "TANK",
+		"primaryLane" : "TOP",
+		"secondaryLane" : "MID",
+		"damageType" : {
+			"physicalDamage" : 35,
+			"magicDamage" : 65
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "SPLITPUSHING",
+		"strength" : "LATE_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Irelia",
+		"primaryClass" : "BRUISER",
+		"secondaryClass" : null,
+		"primaryLane" : "TOP",
+		"secondaryLane" : "MID",
+		"damageType" : {
+			"physicalDamage" : 70,
+			"magicDamage" : 30
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "SPLITPUSHING",
+		"strength" : "LATE_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Ivern",
+		"primaryClass" : "SUPPORT",
+		"secondaryClass" : "MAGE",
+		"primaryLane" : "JUNGLE",
+		"secondaryLane" : null,
+		"damageType" : {
+			"physicalDamage" : 95,
+			"magicDamage" : 5
+		},
+		"attackRange" : "RANGED",
+		"playstyle" : "ROAMING",
+		"strength" : "MID_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Janna",
+		"primaryClass" : "SUPPORT",
+		"secondaryClass" : "MAGE",
+		"primaryLane" : "SUPPORT",
+		"secondaryLane" : null,
+		"damageType" : {
+			"physicalDamage" : 0,
+			"magicDamage" : 100
+		},
+		"attackRange" : "RANGED",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "LATE_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Jarvan IV",
+		"primaryClass" : "BRUISER",
+		"secondaryClass" : "TANK",
+		"primaryLane" : "JUNGLE",
+		"secondaryLane" : "TOP",
+		"damageType" : {
+			"physicalDamage" : 60,
+			"magicDamage" : 40
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "MID_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Jax",
+		"primaryClass" : "BRUISER",
+		"secondaryClass" : null,
+		"primaryLane" : "TOP",
+		"secondaryLane" : "JUNGLE",
+		"damageType" : {
+			"physicalDamage" : 95,
+			"magicDamage" : 5
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "SPLITPUSHING",
+		"strength" : "LATE_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Jayce",
+		"primaryClass" : "BRUISER",
+		"secondaryClass" : "ASSASSIN",
+		"primaryLane" : "MID",
+		"secondaryLane" : "TOP",
+		"damageType" : {
+			"physicalDamage" : 60,
+			"magicDamage" : 40
+		},
+		"attackRange" : "MIDRANGE",
+		"playstyle" : "SPLITPUSHING",
+		"strength" : "EARLY_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Jhin",
+		"primaryClass" : "MARKSMAN",
+		"secondaryClass" : null,
+		"primaryLane" : "BOT",
+		"secondaryLane" : "MID",
+		"damageType" : {
+			"physicalDamage" : 90,
+			"magicDamage" : 10
+		},
+		"attackRange" : "RANGED",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "LATE_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Jinx",
+		"primaryClass" : "MARKSMAN",
+		"secondaryClass" : null,
+		"primaryLane" : "BOT",
+		"secondaryLane" : null,
+		"damageType" : {
+			"physicalDamage" : 90,
+			"magicDamage" : 10
+		},
+		"attackRange" : "RANGED",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "LATE_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Kai'sa",
+		"primaryClass" : "MARKSMAN",
+		"secondaryClass" : null,
+		"primaryLane" : "BOT",
+		"secondaryLane" : null,
+		"damageType" : {
+			"physicalDamage" : 90,
+			"magicDamage" : 10
+		},
+		"attackRange" : "RANGED",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "LATE_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Kalista",
+		"primaryClass" : "MARKSMAN",
+		"secondaryClass" : null,
+		"primaryLane" : "BOT",
+		"secondaryLane" : "TOP",
+		"damageType" : {
+			"physicalDamage" : 90,
+			"magicDamage" : 10
+		},
+		"attackRange" : "RANGED",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "LATE_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Karma",
+		"primaryClass" : "SUPPORT",
+		"secondaryClass" : "MAGE",
+		"primaryLane" : "SUPPORT",
+		"secondaryLane" : "MID",
+		"damageType" : {
+			"physicalDamage" : 0,
+			"magicDamage" : 100
+		},
+		"attackRange" : "RANGED",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "MID_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Karthus",
+		"primaryClass" : "MAGE",
+		"secondaryClass" : null,
+		"primaryLane" : "JUNGLE",
+		"secondaryLane" : "MID",
+		"damageType" : {
+			"physicalDamage" : 0,
+			"magicDamage" : 100
+		},
+		"attackRange" : "RANGED",
+		"playstyle" : "ROAMING",
+		"strength" : "MID_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Kassadin",
+		"primaryClass" : "ASSASSIN",
+		"secondaryClass" : null,
+		"primaryLane" : "MID",
+		"secondaryLane" : "TOP",
+		"damageType" : {
+			"physicalDamage" : 10,
+			"magicDamage" : 90
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "SPLITPUSHING",
+		"strength" : "LATE_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Katarina",
+		"primaryClass" : "ASSASSIN",
+		"secondaryClass" : null,
+		"primaryLane" : "MID",
+		"secondaryLane" : null,
+		"damageType" : {
+			"physicalDamage" : 10,
+			"magicDamage" : 90
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "ROAMING",
+		"strength" : "MID_GAME",
+		"abilityResource" : "NOTHING"
+	},
+	{
+		"name" : "Kayle",
+		"primaryClass" : "BRUISER",
+		"secondaryClass" : "MARKSMAN",
+		"primaryLane" : "TOP",
+		"secondaryLane" : "MID",
+		"damageType" : {
+			"physicalDamage" : 80,
+			"magicDamage" : 20
+		},
+		"attackRange" : "MIDRANGE",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "LATE_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Kayn",
+		"primaryClass" : "BRUISER",
+		"secondaryClass" : "TANK",
+		"primaryLane" : "JUNGLE",
+		"secondaryLane" : null,
+		"damageType" : {
+			"physicalDamage" : 100,
+			"magicDamage" : 0
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "ROAMING",
+		"strength" : "LATE_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Kennen",
+		"primaryClass" : "MAGE",
+		"secondaryClass" : "MARKSMAN",
+		"primaryLane" : "TOP",
+		"secondaryLane" : "MID",
+		"damageType" : {
+			"physicalDamage" : 30,
+			"magicDamage" : 70
+		},
+		"attackRange" : "RANGED",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "LATE_GAME",
+		"abilityResource" : "ENERGY"
+	},
+	{
+		"name" : "Kha'Zix",
+		"primaryClass" : "ASSASSIN",
+		"secondaryClass" : null,
+		"primaryLane" : "JUNGLE",
+		"secondaryLane" : "MID",
+		"damageType" : {
+			"physicalDamage" : 90,
+			"magicDamage" : 10
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "ROAMING",
+		"strength" : "MID_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Kindred",
+		"primaryClass" : "MARKSMAN",
+		"secondaryClass" : null,
+		"primaryLane" : "JUNGLE",
+		"secondaryLane" : "BOT",
+		"damageType" : {
+			"physicalDamage" : 90,
+			"magicDamage" : 10
+		},
+		"attackRange" : "RANGED",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "LATE_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Kled",
+		"primaryClass" : "BRUISER",
+		"secondaryClass" : "TANK",
+		"primaryLane" : "TOP",
+		"secondaryLane" : "MID",
+		"damageType" : {
+			"physicalDamage" : 100,
+			"magicDamage" : 0
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "SPLITPUSHING",
+		"strength" : "EARLY_GAME",
+		"abilityResource" : "NOTHING"
+	},
+	{
+		"name" : "Kog'Maw",
+		"primaryClass" : "MARKSMAN",
+		"secondaryClass" : "MAGE",
+		"primaryLane" : "BOT",
+		"secondaryLane" : "MID",
+		"damageType" : {
+			"physicalDamage" : 90,
+			"magicDamage" : 10
+		},
+		"attackRange" : "RANGED",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "LATE_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "LeBlanc",
+		"primaryClass" : "ASSASSIN",
+		"secondaryClass" : "MAGE",
+		"primaryLane" : "MID",
+		"secondaryLane" : "TOP",
+		"damageType" : {
+			"physicalDamage" : 0,
+			"magicDamage" : 100
+		},
+		"attackRange" : "RANGED",
+		"playstyle" : "ROAMING",
+		"strength" : "MID_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Lee Sin",
+		"primaryClass" : "BRUISER",
+		"secondaryClass" : "TANK",
+		"primaryLane" : "JUNGLE",
+		"secondaryLane" : "TOP",
+		"damageType" : {
+			"physicalDamage" : 70,
+			"magicDamage" : 30
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "ROAMING",
+		"strength" : "EARLY_GAME",
+		"abilityResource" : "ENERGY"
+	},
+	{
+		"name" : "Leona",
+		"primaryClass" : "SUPPORT",
+		"secondaryClass" : "TANK",
+		"primaryLane" : "SUPPORT",
+		"secondaryLane" : null,
+		"damageType" : {
+			"physicalDamage" : 10,
+			"magicDamage" : 90
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "EARLY_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Lillia",
+		"primaryClass" : "MAGE",
+		"secondaryClass" : null,
+		"primaryLane" : "JUNGLE",
+		"secondaryLane" : null,
+		"damageType" : {
+			"physicalDamage" : 10,
+			"magicDamage" : 90
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "ROAMING",
+		"strength" : "MID_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Lissandra",
+		"primaryClass" : "MAGE",
+		"secondaryClass" : null,
+		"primaryLane" : "MID",
+		"secondaryLane" : "TOP",
+		"damageType" : {
+			"physicalDamage" : 0,
+			"magicDamage" : 100
+		},
+		"attackRange" : "RANGED",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "MID_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Lucian",
+		"primaryClass" : "MARKSMAN",
+		"secondaryClass" : null,
+		"primaryLane" : "BOT",
+		"secondaryLane" : "MID",
+		"damageType" : {
+			"physicalDamage" : 100,
+			"magicDamage" : 0
+		},
+		"attackRange" : "RANGED",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "MID_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Lulu",
+		"primaryClass" : "SUPPORT",
+		"secondaryClass" : "MAGE",
+		"primaryLane" : "SUPPORT",
+		"secondaryLane" : "MID",
+		"damageType" : {
+			"physicalDamage" : 0,
+			"magicDamage" : 100
+		},
+		"attackRange" : "RANGED",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "LATE_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Lux",
+		"primaryClass" : "MAGE",
+		"secondaryClass" : "SUPPORT",
+		"primaryLane" : "MID",
+		"secondaryLane" : "SUPPORT",
+		"damageType" : {
+			"physicalDamage" : 0,
+			"magicDamage" : 100
+		},
+		"attackRange" : "RANGED",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "MID_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Malphite",
+		"primaryClass" : "TANK",
+		"secondaryClass" : "MAGE",
+		"primaryLane" : "TOP",
+		"secondaryLane" : "JUNGLE",
+		"damageType" : {
+			"physicalDamage" : 30,
+			"magicDamage" : 70
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "MID_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Malzahar",
+		"primaryClass" : "MAGE",
+		"secondaryClass" : null,
+		"primaryLane" : "MID",
+		"secondaryLane" : "TOP",
+		"damageType" : {
+			"physicalDamage" : 0,
+			"magicDamage" : 100
+		},
+		"attackRange" : "RANGED",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "MID_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Maokai",
+		"primaryClass" : "TANK",
+		"secondaryClass" : null,
+		"primaryLane" : "TOP",
+		"secondaryLane" : "JUNGLE",
+		"damageType" : {
+			"physicalDamage" : 30,
+			"magicDamage" : 70
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "LATE_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Master Yi",
+		"primaryClass" : "ASSASSIN",
+		"secondaryClass" : "BRUISER",
+		"primaryLane" : "JUNGLE",
+		"secondaryLane" : "TOP",
+		"damageType" : {
+			"physicalDamage" : 100,
+			"magicDamage" : 0
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "SPLITPUSHING",
+		"strength" : "LATE_GAME",
+		"abilityResource" : "ENERGY"
+	},
+	{
+		"name" : "Miss Fortune",
+		"primaryClass" : "MARKSMAN",
+		"secondaryClass" : null,
+		"primaryLane" : "BOT",
+		"secondaryLane" : null,
+		"damageType" : {
+			"physicalDamage" : 80,
+			"magicDamage" : 20
+		},
+		"attackRange" : "RANGED",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "MID_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Mordekaiser",
+		"primaryClass" : "BRUISER",
+		"secondaryClass" : "MAGE",
+		"primaryLane" : "TOP",
+		"secondaryLane" : "MID",
+		"damageType" : {
+			"physicalDamage" : 20,
+			"magicDamage" : 80
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "MID_GAME",
+		"abilityResource" : "NOTHING"
+	},
+	{
+		"name" : "Morgana",
+		"primaryClass" : "SUPPORT",
+		"secondaryClass" : "MAGE",
+		"primaryLane" : "SUPPORT",
+		"secondaryLane" : "MID",
+		"damageType" : {
+			"physicalDamage" : 0,
+			"magicDamage" : 100
+		},
+		"attackRange" : "RANGED",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "LATE_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Nami",
+		"primaryClass" : "SUPPORT",
+		"secondaryClass" : "MAGE",
+		"primaryLane" : "SUPPORT",
+		"secondaryLane" : null,
+		"damageType" : {
+			"physicalDamage" : 0,
+			"magicDamage" : 100
+		},
+		"attackRange" : "RANGED",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "MID_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Nasus",
+		"primaryClass" : "TANK",
+		"secondaryClass" : null,
+		"primaryLane" : "TOP",
+		"secondaryLane" : "JUNGLE",
+		"damageType" : {
+			"physicalDamage" : 80,
+			"magicDamage" : 20
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "SPLITPUSHING",
+		"strength" : "LATE_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Nautilus",
+		"primaryClass" : "SUPPORT",
+		"secondaryClass" : "TANK",
+		"primaryLane" : "SUPPORT",
+		"secondaryLane" : "JUNGLE",
+		"damageType" : {
+			"physicalDamage" : 20,
+			"magicDamage" : 80
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "MID_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Neeko",
+		"primaryClass" : "MAGE",
+		"secondaryClass" : null,
+		"primaryLane" : "MID",
+		"secondaryLane" : "BOT",
+		"damageType" : {
+			"physicalDamage" : 20,
+			"magicDamage" : 80
+		},
+		"attackRange" : "RANGED",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "LATE_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Nidalee",
+		"primaryClass" : "ASSASSIN",
+		"secondaryClass" : "MAGE",
+		"primaryLane" : "JUNGLE",
+		"secondaryLane" : "MID",
+		"damageType" : {
+			"physicalDamage" : 30,
+			"magicDamage" : 70
+		},
+		"attackRange" : "MIDRANGE",
+		"playstyle" : "ROAMING",
+		"strength" : "MID_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Nocturne",
+		"primaryClass" : "ASSASSIN",
+		"secondaryClass" : "BRUISER",
+		"primaryLane" : "JUNGLE",
+		"secondaryLane" : "MID",
+		"damageType" : {
+			"physicalDamage" : 90,
+			"magicDamage" : 10
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "ROAMING",
+		"strength" : "MID_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Nunu & Willump",
+		"primaryClass" : "TANK",
+		"secondaryClass" : "MAGE",
+		"primaryLane" : "JUNGLE",
+		"secondaryLane" : null,
+		"damageType" : {
+			"physicalDamage" : 20,
+			"magicDamage" : 80
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "ROAMING",
+		"strength" : "LATE_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Olaf",
+		"primaryClass" : "BRUISER",
+		"secondaryClass" : null,
+		"primaryLane" : "JUNGLE",
+		"secondaryLane" : "TOP",
+		"damageType" : {
+			"physicalDamage" : 90,
+			"magicDamage" : 10
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "SPLITPUSHING",
+		"strength" : "EARLY_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Orianna",
+		"primaryClass" : "MAGE",
+		"secondaryClass" : "SUPPORT",
+		"primaryLane" : "MID",
+		"secondaryLane" : "TOP",
+		"damageType" : {
+			"physicalDamage" : 0,
+			"magicDamage" : 100
+		},
+		"attackRange" : "RANGED",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "LATE_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Ornn",
+		"primaryClass" : "TANK",
+		"secondaryClass" : null,
+		"primaryLane" : "TOP",
+		"secondaryLane" : "JUNGLE",
+		"damageType" : {
+			"physicalDamage" : 50,
+			"magicDamage" : 50
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "LATE_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Pantheon",
+		"primaryClass" : "BRUISER",
+		"secondaryClass" : "TANK",
+		"primaryLane" : "TOP",
+		"secondaryLane" : "MID",
+		"damageType" : {
+			"physicalDamage" : 80,
+			"magicDamage" : 20
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "ROAMING",
+		"strength" : "EARLY_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Poppy",
+		"primaryClass" : "TANK",
+		"secondaryClass" : "BRUISER",
+		"primaryLane" : "TOP",
+		"secondaryLane" : "JUNGLE",
+		"damageType" : {
+			"physicalDamage" : 30,
+			"magicDamage" : 70
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "LATE_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Pyke",
+		"primaryClass" : "ASSASSIN",
+		"secondaryClass" : "SUPPORT",
+		"primaryLane" : "SUPPORT",
+		"secondaryLane" : "MID",
+		"damageType" : {
+			"physicalDamage" : 50,
+			"magicDamage" : 50
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "ROAMING",
+		"strength" : "EARLY_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Qiyana",
+		"primaryClass" : "ASSASSIN",
+		"secondaryClass" : null,
+		"primaryLane" : "MID",
+		"secondaryLane" : "TOP",
+		"damageType" : {
+			"physicalDamage" : 80,
+			"magicDamage" : 20
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "ROAMING",
+		"strength" : "MID_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Rakan",
+		"primaryClass" : "SUPPORT",
+		"secondaryClass" : null,
+		"primaryLane" : "SUPPORT",
+		"secondaryLane" : null,
+		"damageType" : {
+			"physicalDamage" : 10,
+			"magicDamage" : 90
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "LATE_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Rammus",
+		"primaryClass" : "TANK",
+		"secondaryClass" : "BRUISER",
+		"primaryLane" : "JUNGLE",
+		"secondaryLane" : "TOP",
+		"damageType" : {
+			"physicalDamage" : 40,
+			"magicDamage" : 60
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "ROAMING",
+		"strength" : "LATE_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Rell",
+		"primaryClass" : "SUPPORT",
+		"secondaryClass" : "TANK",
+		"primaryLane" : "SUPPORT",
+		"secondaryLane" : null,
+		"damageType" : {
+			"physicalDamage" : 30,
+			"magicDamage" : 70
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "EARLY_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Renekton",
+		"primaryClass" : "BRUISER",
+		"secondaryClass" : "TANK",
+		"primaryLane" : "TOP",
+		"secondaryLane" : "JUNGLE",
+		"damageType" : {
+			"physicalDamage" : 100,
+			"magicDamage" : 0
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "SPLITPUSHING",
+		"strength" : "EARLY_GAME",
+		"abilityResource" : "OTHER"
+	},
+	{
+		"name" : "Rengar",
+		"primaryClass" : "ASSASSIN",
+		"secondaryClass" : "BRUISER",
+		"primaryLane" : "JUNGLE",
+		"secondaryLane" : "TOP",
+		"damageType" : {
+			"physicalDamage" : 100,
+			"magicDamage" : 0
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "ROAMING",
+		"strength" : "MID_GAME",
+		"abilityResource" : "OTHER"
+	},
+	{
+		"name" : "Riven",
+		"primaryClass" : "BRUISER",
+		"secondaryClass" : "ASSASSIN",
+		"primaryLane" : "TOP",
+		"secondaryLane" : "MID",
+		"damageType" : {
+			"physicalDamage" : 100,
+			"magicDamage" : 0
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "SPLITPUSHING",
+		"strength" : "EARLY_GAME",
+		"abilityResource" : "NOTHING"
+	},
+	{
+		"name" : "Rumble",
+		"primaryClass" : "MAGE",
+		"secondaryClass" : "BRUISER",
+		"primaryLane" : "TOP",
+		"secondaryLane" : "MID",
+		"damageType" : {
+			"physicalDamage" : 0,
+			"magicDamage" : 100
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "LATE_GAME",
+		"abilityResource" : "OTHER"
+	},
+	{
+		"name" : "Ryze",
+		"primaryClass" : "MAGE",
+		"secondaryClass" : "TANK",
+		"primaryLane" : "TOP",
+		"secondaryLane" : "MID",
+		"damageType" : {
+			"physicalDamage" : 0,
+			"magicDamage" : 100
+		},
+		"attackRange" : "RANGED",
+		"playstyle" : "ROAMING",
+		"strength" : "LATE_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Samira",
+		"primaryClass" : "MARKSMAN",
+		"secondaryClass" : null,
+		"primaryLane" : "BOT",
+		"secondaryLane" : null,
+		"damageType" : {
+			"physicalDamage" : 100,
+			"magicDamage" : 0
+		},
+		"attackRange" : "MIDRANGE",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "MID_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Sejuani",
+		"primaryClass" : "TANK",
+		"secondaryClass" : null,
+		"primaryLane" : "JUNGLE",
+		"secondaryLane" : "TOP",
+		"damageType" : {
+			"physicalDamage" : 20,
+			"magicDamage" : 80
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "MID_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Senna",
+		"primaryClass" : "MARKSMAN",
+		"secondaryClass" : "SUPPORT",
+		"primaryLane" : "BOT",
+		"secondaryLane" : "SUPPORT",
+		"damageType" : {
+			"physicalDamage" : 100,
+			"magicDamage" : 0
+		},
+		"attackRange" : "RANGED",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "LATE_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Seraphine",
+		"primaryClass" : "MAGE",
+		"secondaryClass" : "SUPPORT",
+		"primaryLane" : "MID",
+		"secondaryLane" : "SUPPORT",
+		"damageType" : {
+			"physicalDamage" : 0,
+			"magicDamage" : 100
+		},
+		"attackRange" : "RANGED",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "MID_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Sett",
+		"primaryClass" : "BRUISER",
+		"secondaryClass" : "TANK",
+		"primaryLane" : "TOP",
+		"secondaryLane" : "SUPPORT",
+		"damageType" : {
+			"physicalDamage" : 100,
+			"magicDamage" : 0
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "SPLITPUSHING",
+		"strength" : "EARLY_GAME",
+		"abilityResource" : "OTHER"
+	},
+	{
+		"name" : "Shaco",
+		"primaryClass" : "ASSASSIN",
+		"secondaryClass" : "MAGE",
+		"primaryLane" : "JUNGLE",
+		"secondaryLane" : "SUPPORT",
+		"damageType" : {
+			"physicalDamage" : 50,
+			"magicDamage" : 50
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "ROAMING",
+		"strength" : "EARLY_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Shen",
+		"primaryClass" : "TANK",
+		"secondaryClass" : "SUPPORT",
+		"primaryLane" : "TOP",
+		"secondaryLane" : "SUPPORT",
+		"damageType" : {
+			"physicalDamage" : 100,
+			"magicDamage" : 0
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "MID_GAME",
+		"abilityResource" : "ENERGY"
+	},
+	{
+		"name" : "Shyvana",
+		"primaryClass" : "BRUISER",
+		"secondaryClass" : "MAGE",
+		"primaryLane" : "JUNGLE",
+		"secondaryLane" : null,
+		"damageType" : {
+			"physicalDamage" : 20,
+			"magicDamage" : 80
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "ROAMING",
+		"strength" : "MID_GAME",
+		"abilityResource" : "OTHER"
+	},
+	{
+		"name" : "Singed",
+		"primaryClass" : "MAGE",
+		"secondaryClass" : "TANK",
+		"primaryLane" : "TOP",
+		"secondaryLane" : null,
+		"damageType" : {
+			"physicalDamage" : 0,
+			"magicDamage" : 100
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "SPLITPUSHING",
+		"strength" : "LATE_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Sion",
+		"primaryClass" : "TANK",
+		"secondaryClass" : "BRUISER",
+		"primaryLane" : "TOP",
+		"secondaryLane" : "SUPPORT",
+		"damageType" : {
+			"physicalDamage" : 100,
+			"magicDamage" : 0
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "LATE_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Sivir",
+		"primaryClass" : "MARKSMAN",
+		"secondaryClass" : null,
+		"primaryLane" : "BOT",
+		"secondaryLane" : "MID",
+		"damageType" : {
+			"physicalDamage" : 100,
+			"magicDamage" : 0
+		},
+		"attackRange" : "RANGED",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "LATE_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Skarner",
+		"primaryClass" : "TANK",
+		"secondaryClass" : null,
+		"primaryLane" : "JUNGLE",
+		"secondaryLane" : null,
+		"damageType" : {
+			"physicalDamage" : 40,
+			"magicDamage" : 60
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "ROAMING",
+		"strength" : "MID_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Sona",
+		"primaryClass" : "SUPPORT",
+		"secondaryClass" : "MAGE",
+		"primaryLane" : "SUPPORT",
+		"secondaryLane" : "TOP",
+		"damageType" : {
+			"physicalDamage" : 0,
+			"magicDamage" : 100
+		},
+		"attackRange" : "RANGED",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "EARLY_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Soraka",
+		"primaryClass" : "SUPPORT",
+		"secondaryClass" : "MAGE",
+		"primaryLane" : "SUPPORT",
+		"secondaryLane" : null,
+		"damageType" : {
+			"physicalDamage" : 0,
+			"magicDamage" : 100
+		},
+		"attackRange" : "RANGED",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "EARLY_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Swain",
+		"primaryClass" : "MAGE",
+		"secondaryClass" : "TANK",
+		"primaryLane" : "MID",
+		"secondaryLane" : "TOP",
+		"damageType" : {
+			"physicalDamage" : 0,
+			"magicDamage" : 100
+		},
+		"attackRange" : "RANGED",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "MID_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Sylas",
+		"primaryClass" : "MAGE",
+		"secondaryClass" : "TANK",
+		"primaryLane" : "MID",
+		"secondaryLane" : "TOP",
+		"damageType" : {
+			"physicalDamage" : 10,
+			"magicDamage" : 90
+		},
+		"attackRange" : "MELEE",
+		"playstyle" : "ROAMING",
+		"strength" : "LATE_GAME",
+		"abilityResource" : "MANA"
+	},
+	{
+		"name" : "Syndra",
+		"primaryClass" : "MAGE",
+		"secondaryClass" : null,
+		"primaryLane" : "MID",
+		"secondaryLane" : "TOP",
+		"damageType" : {
+			"physicalDamage" : 0,
+			"magicDamage" : 100
+		},
+		"attackRange" : "RANGED",
+		"playstyle" : "TEAMFIGHTING",
+		"strength" : "LATE_GAME",
+		"abilityResource" : "MANA"
+	}
+	
+]

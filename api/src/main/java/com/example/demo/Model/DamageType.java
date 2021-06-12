@@ -19,8 +19,6 @@ public class DamageType {
     private int magicDamage;
     private int physicalDamage;
 
-    @OneToMany
-    private List<Champion> champion;
 
     public DamageType(int magicDamage, int physicalDamage) {
         this.magicDamage = magicDamage;

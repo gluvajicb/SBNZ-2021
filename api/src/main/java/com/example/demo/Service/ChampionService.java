@@ -20,4 +20,7 @@ public class ChampionService {
     public List<Champion> getAllChampions() {
         return championRepository.findAll();
     }
+    public void save(Champion ch){
+        championRepository.save(ch);
+    }
 }

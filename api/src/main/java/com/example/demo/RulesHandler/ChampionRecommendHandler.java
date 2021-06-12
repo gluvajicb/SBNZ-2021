@@ -56,6 +56,7 @@ public class ChampionRecommendHandler {
         kSession.insert(championRecommendSession);
 
         kSession.fireAllRules();
+        kSession.dispose();
     }
 
     public void classRules(ChampionClass preferredClass, List<Champion> allChampions, ChampionRecommendSession championRecommendSession) {
@@ -85,6 +86,7 @@ public class ChampionRecommendHandler {
         kSession.insert(championRecommendSession);
 
         kSession.fireAllRules();
+        kSession.dispose();
     }
 
     public void strengthRules(Strength prefStrength, List<Champion> allChampions, ChampionRecommendSession championRecommendSession) {
@@ -109,6 +111,7 @@ public class ChampionRecommendHandler {
         kSession.insert(championRecommendSession);
 
         kSession.fireAllRules();
+        kSession.dispose();
     }
 
     public void rangeRules(Range prefRange, List<Champion> allChampions, ChampionRecommendSession championRecommendSession) {
@@ -133,6 +136,7 @@ public class ChampionRecommendHandler {
         kSession.insert(championRecommendSession);
 
         kSession.fireAllRules();
+        kSession.dispose();
     }
 
     public void playstyleRules(Playstyle prefStyle, List<Champion> allChampions, ChampionRecommendSession championRecommendSession) {
@@ -156,6 +160,7 @@ public class ChampionRecommendHandler {
         kSession.insert(championRecommendSession);
 
         kSession.fireAllRules();
+        kSession.dispose();
     }
 
     public void abilityResourceRules(AbilityResource prefResource, List<Champion> allChampions, ChampionRecommendSession championRecommendSession) {
@@ -181,6 +186,7 @@ public class ChampionRecommendHandler {
         kSession.insert(championRecommendSession);
 
         kSession.fireAllRules();
+        kSession.dispose();
     }
 
     public void damageTypeRules(String damageTypeName, List<Champion> allChampions, ChampionRecommendSession championRecommendSession) {
@@ -202,6 +208,7 @@ public class ChampionRecommendHandler {
         kSession.insert(championRecommendSession);
 
         kSession.fireAllRules();
+        kSession.dispose();
     }
 
 

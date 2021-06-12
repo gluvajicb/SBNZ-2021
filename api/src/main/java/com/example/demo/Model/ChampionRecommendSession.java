@@ -10,7 +10,6 @@ import java.util.List;
 
 @Data
 @NoArgsConstructor
-@Component
 public class ChampionRecommendSession {
 
     private List<ChampionScore> championList;

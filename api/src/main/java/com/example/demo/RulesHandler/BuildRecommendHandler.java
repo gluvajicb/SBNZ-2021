@@ -90,6 +90,7 @@ public class BuildRecommendHandler {
         }
         kSession.insert(irs);
         kSession.fireAllRules();
+        kSession.dispose();
     }
 
     public void bootsRules(List<Item> bootItems, ItemRecommendSession irs) {
@@ -103,6 +104,7 @@ public class BuildRecommendHandler {
         }
         kSession.insert(irs);
         kSession.fireAllRules();
+        kSession.dispose();
     }
 
     public void mythicItemRules(List<Item> mythicItems, ItemRecommendSession irs) {
@@ -116,6 +118,7 @@ public class BuildRecommendHandler {
         }
         kSession.insert(irs);
         kSession.fireAllRules();
+        kSession.dispose();
     }
 
     public void situationalItemRules(List<Item> situationalItems, ItemRecommendSession irs) {
@@ -129,6 +132,7 @@ public class BuildRecommendHandler {
         }
         kSession.insert(irs);
         kSession.fireAllRules();
+        kSession.dispose();
     }
 
     public void offensiveItemRules(List<Item> offensiveItems, ItemRecommendSession irs) {
@@ -142,6 +146,7 @@ public class BuildRecommendHandler {
         }
         kSession.insert(irs);
         kSession.fireAllRules();
+        kSession.dispose();
     }
 
     public void defensiveItemRules(List<Item> defensiveItems, ItemRecommendSession irs) {
@@ -155,5 +160,6 @@ public class BuildRecommendHandler {
         }
         kSession.insert(irs);
         kSession.fireAllRules();
+        kSession.dispose();
     }
 }

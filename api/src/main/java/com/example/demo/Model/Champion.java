@@ -34,7 +34,7 @@ public class Champion {
     @Column(name = "secondary_lane")
     private Lane secondaryLane;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private DamageType damageType;
 
     @Column(name = "attack_range")
