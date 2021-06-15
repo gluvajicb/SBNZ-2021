@@ -2,11 +2,11 @@
         <div class="main">
             <div class="wrapper">
 
-                <div class="champ item">
+                <div @click="handleChampions()" class="champ item">
                     <h1 class="font">Champions</h1>
                 </div>
 
-                <div class="build item">
+                <div @click="handleBuild()" class="build item">
                     <h1 class="font">Item Build</h1>
                 </div>
 
@@ -18,6 +18,16 @@
 
     export default {
         name: 'Home',
+
+        methods: {
+          handleChampions() {
+            this.$router.push('/recommend-champions')
+          },
+
+          handleBuild() {
+            this.$router.push('/recommend-build')
+          }
+        }
     }
 
 </script>
