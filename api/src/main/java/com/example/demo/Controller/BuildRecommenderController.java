@@ -7,6 +7,7 @@ import com.example.demo.Model.ItemRecommendSession;
 import com.example.demo.RulesHandler.BuildRecommendHandler;
 import com.example.demo.Service.ChampionService;
 import com.example.demo.Service.ItemService;
+import com.example.demo.dto.BuildRecommenderDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,16 +27,16 @@ public class BuildRecommenderController {
     }
 
     @PostMapping(value = "/build-recommender")
-    public ResponseEntity<String[]> recommendBuild(@RequestBody BuildRecommendAnswers answers) {
+    public ResponseEntity<BuildRecommenderDTO> recommendBuild(@RequestBody BuildRecommendAnswers answers) {
         ItemRecommendSession irs = new ItemRecommendSession();
         buildRecommendHandler.buildRecommendRules(answers, irs);
 
-        String[] fullBuildItems = { irs.getFullBuild().getStartingItem().getName(),
+        BuildRecommenderDTO fullBuildItems = new BuildRecommenderDTO(irs.getFullBuild().getStartingItem().getName(),
                                     irs.getFullBuild().getBoots().getName(),
                                     irs.getFullBuild().getMythicItem().getName(),
                                     irs.getFullBuild().getSituationalItem().getName(),
                                     irs.getFullBuild().getOffensiveItem().getName(),
-                                    irs.getFullBuild().getDefensiveItem().getName() };
+                                    irs.getFullBuild().getDefensiveItem().getName());
 
         return new ResponseEntity<>(fullBuildItems, HttpStatus.OK);
     }
