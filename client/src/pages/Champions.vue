@@ -1,11 +1,13 @@
 <template>
 <div>
-
-    <v-select
-          :items="questions"
+      
+        <v-select
+          class="test"
+          :items="items"
           label="Solo field"
           solo
-    ></v-select>
+        ></v-select>
+
     
 </div>
 </template>
@@ -14,9 +16,11 @@
 
     export default {
         name: 'Champions',
+
         
         data: () => ({
-            questions: ['Foo', 'Bar']
+            questions: ['Foo', 'Bar'],
+            items: ['Foo', 'Bar', 'Fizz', 'Buzz'],
         })
     }
 
@@ -24,5 +28,11 @@
 
 
 <style>
+
+.test{
+    max-width: 400px;
+    max-height: 300px;
+    background-color: red;
+}
 
 </style>
