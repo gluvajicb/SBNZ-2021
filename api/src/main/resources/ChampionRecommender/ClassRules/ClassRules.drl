@@ -4,6 +4,7 @@ dialect  "mvel"
 import com.example.demo.Model.Champion;
 import com.example.demo.Model.ChampionRecommendSession;
 import com.example.demo.Model.Enums.*;
+import com.example.demo.Model.ChampionRecommendAnswers;
 
 // kada taj heroj ima primary class MID dajemo mu 10 poena, ako mu je secondary dajemo mu 5 poena, ako je nista dajemo mu 0 poena
 rule "Recommend champion based on Class preference, primary ASSASSIN CLASS"
@@ -12,8 +13,9 @@ no-loop
     when
         $champion: Champion($name: name, primaryClass == ChampionClass.ASSASSIN, classChecked == false)
         $session: ChampionRecommendSession($championList: championList)
+        $answers: ChampionRecommendAnswers(prefClass == ChampionClass.ASSASSIN)
     then
-        modify($session){ updateScore($champion, 10)}
+        modify($session){ updateScore($champion, 20)}
         modify($champion){ setClassChecked(true)}
 end
 
@@ -23,8 +25,10 @@ no-loop
     when
         $champion: Champion($name: name, secondaryClass == ChampionClass.ASSASSIN, classChecked == false)
         $session: ChampionRecommendSession($championList: championList)
+        $answers: ChampionRecommendAnswers(prefClass == ChampionClass.ASSASSIN)
     then
-        modify($session){ updateScore($champion, 5)}
+
+        modify($session){ updateScore($champion, 10)}
         modify($champion){ setClassChecked(true)}
 
 end
@@ -35,13 +39,10 @@ no-loop
     when
         $champion: Champion($name: name, primaryClass == ChampionClass.BRUISER, classChecked == false)
         $session: ChampionRecommendSession($championList: championList)
+        $answers: ChampionRecommendAnswers(prefClass == ChampionClass.BRUISER)
     then
-             System.out.println("---------------------------------------");
-            System.out.println("Rule for class: \n");
 
-            System.out.println($champion.getName() + " has primary class BRUISER and gets 10 points ");
-            System.out.println("---------------------------------------");
-        modify($session){ updateScore($champion, 10)}
+        modify($session){ updateScore($champion, 20)}
         modify($champion){ setClassChecked(true)}
 end
 
@@ -51,75 +52,88 @@ no-loop
     when
         $champion: Champion($name: name, secondaryClass == ChampionClass.BRUISER, classChecked == false)
         $session: ChampionRecommendSession($championList: championList)
+                $answers: ChampionRecommendAnswers(prefClass == ChampionClass.BRUISER)
+
     then
 
-        modify($session){ updateScore($champion, 5)}
+        modify($session){ updateScore($champion, 10)}
         modify($champion){ setClassChecked(true)}
 end
 
 rule "Recommend champion based on Class preference, primary MAGE CLASS"
-agenda-group "bruiser"
+agenda-group "mage"
 no-loop
     when
         $champion: Champion($name: name, primaryClass == ChampionClass.MAGE, classChecked == false)
         $session: ChampionRecommendSession($championList: championList)
+                $answers: ChampionRecommendAnswers(prefClass == ChampionClass.MAGE)
+
     then
-        modify($session){ updateScore($champion, 10)}
+
+        modify($session){ updateScore($champion, 20)}
         modify($champion){ setClassChecked(true)}
 end
 
 rule "Recommend champion based on Class preference, secondary MAGE CLASS"
-agenda-group "bruiser"
+agenda-group "mage"
 no-loop
     when
         $champion: Champion($name: name, secondaryClass == ChampionClass.MAGE, classChecked == false)
         $session: ChampionRecommendSession($championList: championList)
+        $answers: ChampionRecommendAnswers(prefClass == ChampionClass.MAGE)
+
     then
-        modify($session){ updateScore($champion, 5)}
+
+        modify($session){ updateScore($champion, 10)}
         modify($champion){ setClassChecked(true)}
 end
 
 rule "Recommend champion based on Class preference, primary MARKSMAN CLASS"
-agenda-group "bruiser"
+agenda-group "marksman"
 no-loop
     when
         $champion: Champion($name: name, primaryClass == ChampionClass.MARKSMAN, classChecked == false)
         $session: ChampionRecommendSession($championList: championList)
+        $answers: ChampionRecommendAnswers(prefClass == ChampionClass.MARKSMAN)
     then
-        modify($session){ updateScore($champion, 10)}
+
+        modify($session){ updateScore($champion, 20)}
         modify($champion){ setClassChecked(true)}
 end
 
 rule "Recommend champion based on Class preference, secondary MARKSMAN CLASS"
-agenda-group "bruiser"
+agenda-group "marksman"
 no-loop
     when
         $champion: Champion($name: name, secondaryClass == ChampionClass.MARKSMAN, classChecked == false)
         $session: ChampionRecommendSession($championList: championList)
-    then
-        modify($session){ updateScore($champion, 5)}
-        modify($champion){ setClassChecked(true)}
-end
-
-rule "Recommend champion based on Class preference, primary SUPPORT CLASS"
-agenda-group "bruiser"
-no-loop
-    when
-        $champion: Champion($name: name, primaryClass == ChampionClass.SUPPORT, classChecked == false)
-        $session: ChampionRecommendSession($championList: championList)
+        $answers: ChampionRecommendAnswers(prefClass == ChampionClass.MARKSMAN)
     then
         modify($session){ updateScore($champion, 10)}
         modify($champion){ setClassChecked(true)}
 end
 
+rule "Recommend champion based on Class preference, primary SUPPORT CLASS"
+agenda-group "support"
+no-loop
+    when
+        $champion: Champion($name: name, primaryClass == ChampionClass.SUPPORT, classChecked == false)
+        $session: ChampionRecommendSession($championList: championList)
+        $answers: ChampionRecommendAnswers(prefClass == ChampionClass.SUPPORT)
+    then
+        modify($session){ updateScore($champion, 20)}
+        modify($champion){ setClassChecked(true)}
+end
+
 rule "Recommend champion based on Class preference, secondary SUPPORT CLASS"
-agenda-group "bruiser"
+agenda-group "support"
 no-loop
     when
         $champion: Champion($name: name, secondaryClass == ChampionClass.SUPPORT, classChecked == false)
         $session: ChampionRecommendSession($championList: championList)
+        $answers: ChampionRecommendAnswers(prefClass == ChampionClass.SUPPORT)
     then
-        modify($session){ updateScore($champion, 5)}
+        modify($session){ updateScore($champion, 10)}
         modify($champion){ setClassChecked(true)}
 end
 
@@ -129,9 +143,9 @@ no-loop
     when
         $champion: Champion($name: name, primaryClass == ChampionClass.TANK, classChecked == false)
         $session: ChampionRecommendSession($championList: championList)
+        $answers: ChampionRecommendAnswers(prefClass == ChampionClass.TANK)
     then
-
-        modify($session){ updateScore($champion, 10)}
+        modify($session){ updateScore($champion, 20)}
         modify($champion){ setClassChecked(true)}
 end
 
@@ -141,8 +155,10 @@ no-loop
     when
         $champion: Champion($name: name, secondaryClass == ChampionClass.TANK, classChecked == false)
         $session: ChampionRecommendSession($championList: championList)
+        $answers: ChampionRecommendAnswers(prefClass == ChampionClass.TANK)
     then
-        modify($session){ updateScore($champion, 5)}
+
+        modify($session){ updateScore($champion, 10)}
         modify($champion){ setClassChecked(true)}
 end
 

@@ -1,7 +1,7 @@
 package ChampionRecommender.AbilityResourceRules;
 dialect  "mvel"
 
-import com.example.demo.Model.Champion;
+import com.example.demo.Model.*;
 import com.example.demo.Model.ChampionRecommendSession;
 import com.example.demo.Model.Enums.*;
 
@@ -11,8 +11,9 @@ no-loop
     when
         $champion: Champion($name: name, abilityResource == AbilityResource.MANA, abilityResourceChecked == false)
         $session: ChampionRecommendSession($championList: championList)
+        $answers: ChampionRecommendAnswers(prefAbilityResource == AbilityResource.MANA)
     then
-        modify($session){ updateScore($champion, 10)}
+        modify($session){ updateScore($champion, 5)}
         modify($champion){ setAbilityResourceChecked(true)}
 end
 
@@ -23,8 +24,10 @@ no-loop
     when
         $champion: Champion($name: name, abilityResource == AbilityResource.ENERGY, abilityResourceChecked == false)
         $session: ChampionRecommendSession($championList: championList)
+        $answers: ChampionRecommendAnswers(prefAbilityResource == AbilityResource.ENERGY)
     then
-        modify($session){ updateScore($champion, 10)}
+
+        modify($session){ updateScore($champion, 5)}
         modify($champion){ setAbilityResourceChecked(true)}
 end
 
@@ -35,8 +38,10 @@ no-loop
     when
         $champion: Champion($name: name, abilityResource == AbilityResource.NOTHING, abilityResourceChecked == false)
         $session: ChampionRecommendSession($championList: championList)
+        $answers: ChampionRecommendAnswers(prefAbilityResource == AbilityResource.NOTHING)
     then
-        modify($session){ updateScore($champion, 10)}
+
+        modify($session){ updateScore($champion, 5)}
         modify($champion){ setAbilityResourceChecked(true)}
 end
 
@@ -47,7 +52,8 @@ no-loop
     when
         $champion: Champion($name: name, abilityResource == AbilityResource.OTHER, abilityResourceChecked == false)
         $session: ChampionRecommendSession($championList: championList)
+        $answers: ChampionRecommendAnswers(prefAbilityResource == AbilityResource.OTHER)
     then
-        modify($session){ updateScore($champion, 10)}
+        modify($session){ updateScore($champion, 5)}
         modify($champion){ setAbilityResourceChecked(true)}
 end

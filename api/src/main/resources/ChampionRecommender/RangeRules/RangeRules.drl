@@ -1,7 +1,7 @@
 package ChampionRecommender.RangeRules;
 dialect  "mvel"
 
-import com.example.demo.Model.Champion;
+import com.example.demo.Model.*;
 import com.example.demo.Model.ChampionRecommendSession;
 import com.example.demo.Model.Enums.*;
 
@@ -11,8 +11,9 @@ no-loop
     when
         $champion: Champion($name: name, attackRange == Range.MELEE, rangeChecked == false)
         $session: ChampionRecommendSession($championList: championList)
+        $answers: ChampionRecommendAnswers(prefAttackRange == Range.MELEE)
     then
-        modify($session){ updateScore($champion, 10)}
+        modify($session){ updateScore($champion, 15)}
         modify($champion){ setRangeChecked(true)}
 end
 
@@ -22,8 +23,10 @@ no-loop
     when
         $champion: Champion($name: name, attackRange == Range.RANGED, rangeChecked == false)
         $session: ChampionRecommendSession($championList: championList)
+        $answers: ChampionRecommendAnswers(prefAttackRange == Range.RANGED)
+
     then
-        modify($session){ updateScore($champion, 10)}
+        modify($session){ updateScore($champion, 15)}
         modify($champion){ setRangeChecked(true)}
 end
 
@@ -33,7 +36,8 @@ no-loop
     when
         $champion: Champion($name: name, attackRange == Range.MIDRANGE, rangeChecked == false)
         $session: ChampionRecommendSession($championList: championList)
+         $answers: ChampionRecommendAnswers(prefAttackRange == Range.MIDRANGE)
     then
-        modify($session){ updateScore($champion, 10)}
+        modify($session){ updateScore($champion, 15)}
         modify($champion){ setRangeChecked(true)}
 end

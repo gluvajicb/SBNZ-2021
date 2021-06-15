@@ -1,6 +1,6 @@
 package ChampionRecommender.LaneRules;
 dialect  "mvel"
-import com.example.demo.Model.Champion;
+import com.example.demo.Model.*;
 import com.example.demo.Model.ChampionRecommendSession;
 import com.example.demo.Model.Enums.*;
 
@@ -11,14 +11,9 @@ no-loop
     when
         $champion: Champion($name: name, primaryLane == Lane.MID, laneChecked == false)
         $session: ChampionRecommendSession($championList: championList)
+        $answers: ChampionRecommendAnswers(prefLane == Lane.MID)
     then
-        System.out.println("---------------------------------------");
-        System.out.println("Rule for lanes: \n");
-
-        System.out.println($champion.getName() + " has primary lane MID and gets 10 points ");
-        System.out.println("---------------------------------------");
-
-        modify($session){ updateScore($champion, 10)}
+        modify($session){ updateScore($champion, 20)}
         modify($champion){ setLaneChecked(true)}
 
 end
@@ -29,14 +24,10 @@ no-loop
     when
         $champion: Champion($name: name, secondaryLane == Lane.MID, laneChecked == false)
         $session: ChampionRecommendSession($championList: championList)
+        $answers: ChampionRecommendAnswers(prefLane == Lane.MID)
+
     then
-        System.out.println("---------------------------------------");
-        System.out.println("Rule for lanes: \n");
-
-        System.out.println($champion.getName() + " has secondary lane MID and gets 5 points ");
-        System.out.println("---------------------------------------");
-
-        modify($session){ updateScore($champion, 5)}
+        modify($session){ updateScore($champion, 10)}
         modify($champion){ setLaneChecked(true)}
 
 end
@@ -48,8 +39,10 @@ agenda-group "jungle"
     when
         $champion: Champion($name: name, primaryLane == Lane.JUNGLE, laneChecked == false)
         $session: ChampionRecommendSession($championList: championList)
+        $answers: ChampionRecommendAnswers(prefLane == Lane.JUNGLE)
+
     then
-        modify($session){ updateScore($champion, 10)}
+        modify($session){ updateScore($champion, 20)}
         modify($champion){ setLaneChecked(true)}
 
 end
@@ -60,8 +53,9 @@ no-loop
     when
         $champion: Champion($name: name, secondaryLane == Lane.JUNGLE, laneChecked == false)
         $session: ChampionRecommendSession($championList: championList)
+        $answers: ChampionRecommendAnswers(prefLane == Lane.JUNGLE)
     then
-        modify($session){ updateScore($champion, 5)}
+        modify($session){ updateScore($champion, 10)}
         modify($champion){ setLaneChecked(true)}
 
 end
@@ -73,8 +67,9 @@ no-loop
     when
         $champion: Champion($name: name, primaryLane == Lane.TOP, laneChecked == false)
         $session: ChampionRecommendSession($championList: championList)
+        $answers: ChampionRecommendAnswers(prefLane == Lane.TOP)
     then
-        modify($session){ updateScore($champion, 10)}
+        modify($session){ updateScore($champion, 20)}
         modify($champion){ setLaneChecked(true)}
 
 end
@@ -85,8 +80,9 @@ no-loop
     when
         $champion: Champion($name: name, secondaryLane == Lane.TOP, laneChecked == false)
         $session: ChampionRecommendSession($championList: championList)
+        $answers: ChampionRecommendAnswers(prefLane == Lane.TOP)
     then
-        modify($session){ updateScore($champion, 5)}
+        modify($session){ updateScore($champion, 10)}
         modify($champion){ setLaneChecked(true)}
 
 end
@@ -98,8 +94,9 @@ no-loop
     when
         $champion: Champion($name: name, primaryLane == Lane.BOT, laneChecked == false)
         $session: ChampionRecommendSession($championList: championList)
+        $answers: ChampionRecommendAnswers(prefLane == Lane.BOT)
     then
-        modify($session){ updateScore($champion, 10)}
+        modify($session){ updateScore($champion, 20)}
         modify($champion){ setLaneChecked(true)}
 
 end
@@ -110,8 +107,9 @@ no-loop
     when
         $champion: Champion($name: name, secondaryLane == Lane.BOT, laneChecked == false)
         $session: ChampionRecommendSession($championList: championList)
+        $answers: ChampionRecommendAnswers(prefLane == Lane.BOT)
     then
-        modify($session){ updateScore($champion, 5)}
+        modify($session){ updateScore($champion, 10)}
         modify($champion){ setLaneChecked(true)}
 
 end
@@ -123,8 +121,9 @@ no-loop
     when
         $champion: Champion($name: name, primaryLane == Lane.SUPPORT, laneChecked == false)
         $session: ChampionRecommendSession($championList: championList)
+        $answers: ChampionRecommendAnswers(prefLane == Lane.SUPPORT)
     then
-        modify($session){ updateScore($champion, 10)}
+        modify($session){ updateScore($champion, 20)}
         modify($champion){ setLaneChecked(true)}
 
 end
@@ -135,8 +134,9 @@ no-loop
     when
         $champion: Champion($name: name, secondaryLane == Lane.SUPPORT, laneChecked == false)
         $session: ChampionRecommendSession($championList: championList)
+        $answers: ChampionRecommendAnswers(prefLane == Lane.SUPPORT)
     then
-        modify($session){ updateScore($champion, 5)}
+        modify($session){ updateScore($champion, 10)}
         modify($champion){ setLaneChecked(true)}
 
 end

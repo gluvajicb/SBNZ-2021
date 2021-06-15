@@ -11,8 +11,9 @@ no-loop
     when
         $champion: Champion($name: name, strength == Strength.EARLY_GAME, strengthChecked == false)
         $session: ChampionRecommendSession($championList: championList)
+        $answers: ChampionRecommendAnswers(prefStrength == Strength.EARLY_GAME)
     then
-        modify($session){ updateScore($champion, 10)}
+        modify($session){ updateScore($champion, 5)}
         modify($champion){ setStrengthChecked(true)}
 
 end
@@ -23,13 +24,11 @@ no-loop
     when
         $champion: Champion($name: name, strength == Strength.MID_GAME, strengthChecked == false )
         $session: ChampionRecommendSession($championList: championList)
-    then
-        System.out.println("---------------------------------------");
-        System.out.println("Rule for strength: \n");
+        $answers: ChampionRecommendAnswers(prefStrength == Strength.MID_GAME)
 
-        System.out.println($champion.getName() + " is the strongest during MID GAME and gets 10 points ");
-        System.out.println("---------------------------------------");
-        modify($session){ updateScore($champion, 10)}
+    then
+
+        modify($session){ updateScore($champion, 5)}
         modify($champion){ setStrengthChecked(true)}
 
 
@@ -41,8 +40,10 @@ no-loop
     when
         $champion: Champion($name: name, strength == Strength.LATE_GAME, strengthChecked == false )
         $session: ChampionRecommendSession($championList: championList)
+        $answers: ChampionRecommendAnswers(prefStrength == Strength.LATE_GAME)
+
     then
-        modify($session){ updateScore($champion, 10)}
+        modify($session){ updateScore($champion, 5)}
         modify($champion){ setStrengthChecked(true)}
 
 end
