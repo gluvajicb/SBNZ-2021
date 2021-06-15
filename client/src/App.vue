@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Home from './components/Home.vue'
+import Home from './pages/Home.vue'
 
 export default {
   name: 'App',
@@ -19,8 +19,12 @@ export default {
 body {
   background-image: url("./assets/background.jpg");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; 
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
