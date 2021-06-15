@@ -1,83 +1,91 @@
 package ChampionRecommender.DamageTypeRules;
 dialect  "mvel"
 
-import com.example.demo.Model.Champion;
+import com.example.demo.Model.*;
 import com.example.demo.Model.ChampionRecommendSession;
 import com.example.demo.Model.Enums.*;
 import com.example.demo.Model.DamageType;
 
 /* AD */
 
-rule "Recommend champion based on Damage type, AD between 30 and 50"
+rule "Recommend champion based on Damage type, AD between 40 and 60"
 agenda-group "physical"
 no-loop
     when
         $champion: Champion($name: name, damageTypeChecked == false)
         $session: ChampionRecommendSession($championList: championList)
-        $damageType: DamageType(physicalDamage > 30 && physicalDamage < 50) from $champion.damageType
+        $damageType: DamageType(physicalDamage >= 40, physicalDamage < 60) from $champion.damageType
+        $answers: ChampionRecommendAnswers(prefDamageType == "physical")
     then
         modify($session){ updateScore($champion, 5)}
         modify($champion){ setDamageTypeChecked(true)}
 end
 
-rule "Recommend champion based on Damage type, AD between 50 and 70"
+rule "Recommend champion based on Damage type, AD between 60 and 80"
 agenda-group "physical"
 no-loop
     when
         $champion: Champion($name: name, damageTypeChecked == false)
         $session: ChampionRecommendSession($championList: championList)
-        $damageType: DamageType(physicalDamage > 50 && physicalDamage < 70) from $champion.damageType
+        $damageType: DamageType(physicalDamage >= 60, physicalDamage < 80) from $champion.damageType
+        $answers: ChampionRecommendAnswers(prefDamageType == "physical")
     then
         modify($session){ updateScore($champion, 10)}
         modify($champion){ setDamageTypeChecked(true)}
 end
 
-rule "Recommend champion based on Damage type, AD over 70"
+rule "Recommend champion based on Damage type, AD over 80"
 agenda-group "physical"
 no-loop
     when
         $champion: Champion($name: name, damageTypeChecked == false)
         $session: ChampionRecommendSession($championList: championList)
-        $damageType: DamageType(physicalDamage > 70) from $champion.damageType
+        $damageType: DamageType(physicalDamage >= 80) from $champion.damageType
+        $answers: ChampionRecommendAnswers(prefDamageType == "physical")
     then
-        modify($session){ updateScore($champion, 15)}
+        modify($session){ updateScore($champion, 20)}
         modify($champion){ setDamageTypeChecked(true)}
 end
 
 /* AP */
 
-rule "Recommend champion based on Damage type, AP between 30 and 50"
-agenda-group "magical"
+rule "Recommend champion based on Damage type, AP between 40 and 60"
+agenda-group "magic"
 no-loop
     when
         $champion: Champion($name: name, damageTypeChecked == false)
         $session: ChampionRecommendSession($championList: championList)
-        $damageType: DamageType(magicDamage > 30 && magicDamage < 50) from $champion.damageType
+        $damageType: DamageType(magicDamage >= 40 ,magicDamage < 60) from $champion.damageType
+        $answers: ChampionRecommendAnswers(prefDamageType == "magic")
     then
         modify($session){ updateScore($champion, 5)}
         modify($champion){ setDamageTypeChecked(true)}
 end
 
-rule "Recommend champion based on Damage type, AP between 50 and 70"
-agenda-group "magical"
+rule "Recommend champion based on Damage type, AP between 60 and 80"
+agenda-group "magic"
 no-loop
     when
         $champion: Champion($name: name, damageTypeChecked == false)
         $session: ChampionRecommendSession($championList: championList)
-        $damageType: DamageType(magicDamage > 50 && magicDamage < 70) from $champion.damageType
+        $damageType: DamageType(magicDamage >= 60, magicDamage < 80) from $champion.damageType
+        $answers: ChampionRecommendAnswers(prefDamageType == "magic")
     then
         modify($session){ updateScore($champion, 10)}
         modify($champion){ setDamageTypeChecked(true)}
 end
 
-rule "Recommend champion based on Damage type, AP over 70"
-agenda-group "magical"
+rule "Recommend champion based on Damage type, AP over 80"
+agenda-group "magic"
 no-loop
     when
+
         $champion: Champion($name: name, damageTypeChecked == false)
         $session: ChampionRecommendSession($championList: championList)
-        $damageType: DamageType(magicDamage > 70) from $champion.damageType
+        $damageType: DamageType(magicDamage >= 80) from $champion.damageType
+                $answers: ChampionRecommendAnswers(prefDamageType == "magic")
+
     then
-        modify($session){ updateScore($champion, 15)}
+        modify($session){ updateScore($champion, 20)}
         modify($champion){ setDamageTypeChecked(true)}
 end

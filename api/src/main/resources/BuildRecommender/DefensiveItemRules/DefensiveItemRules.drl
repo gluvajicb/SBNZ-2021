@@ -13,7 +13,8 @@ rule "Recommend defansive item based enemy Champions Damage total ARMOR"
 no-loop
     when
         $item: Item( itemSlot == ItemSlot.DEFENSIVE, isDefensive(), isArmor(), $forClass: forClass) // def item protiv heavy physical damage teama
-        $session: ItemRecommendSession($fullBuild: fullBuild, $enemyChampions: allEnemyChampions, pickedChampion.getPrimaryClass()  == $forClass, defensiveItemGiven == false)
+        $session: ItemRecommendSession($fullBuild: fullBuild, $enemyChampions: allEnemyChampions, $pickedChampion: pickedChampion, defensiveItemGiven == false)
+        $champion: Champion(primaryClass == $forClass) from $pickedChampion
         Number($sumDamage: intValue >= 250) from accumulate(
             Champion($physDmg: damageType.getPhysicalDamage()) from $enemyChampions,
             sum($physDmg)
@@ -27,7 +28,8 @@ rule "Recommend defansive item based enemy Champions Damage total MAGIC RESIST"
 no-loop
     when
         $item: Item( itemSlot == ItemSlot.DEFENSIVE, isDefensive(), isMagicResist(), $forClass: forClass)  //  def item protiv heavy magic damage teama
-        $session: ItemRecommendSession($fullBuild: fullBuild, $enemyChampions: allEnemyChampions, pickedChampion.getPrimaryClass()  == $forClass, defensiveItemGiven == false)
+        $session: ItemRecommendSession($fullBuild: fullBuild, $enemyChampions: allEnemyChampions, $pickedChampion: pickedChampion, defensiveItemGiven == false)
+                $champion: Champion(primaryClass == $forClass) from $pickedChampion
         Number($sumDamage: intValue >= 250) from accumulate(
             Champion($magicalDmg: damageType.getMagicDamage()) from $enemyChampions,
             sum($magicalDmg)

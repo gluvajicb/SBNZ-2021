@@ -3,6 +3,7 @@ package com.example.demo.Controller;
 import com.example.demo.Model.*;
 import com.example.demo.RulesHandler.ChampionRecommendHandler;
 import com.example.demo.Service.ChampionService;
+import com.example.demo.dto.ChampionRecommenderDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,8 +19,8 @@ import java.util.stream.Collectors;
 @RestController
 public class ChampionRecommenderController {
 
-    private ChampionService championService;
-    private ChampionRecommendHandler championRecommendHandler;
+    private final ChampionService championService;
+    private final ChampionRecommendHandler championRecommendHandler;
 
     @Autowired
     public ChampionRecommenderController(ChampionService championService, ChampionRecommendHandler championRecommendHandler){
@@ -28,7 +29,7 @@ public class ChampionRecommenderController {
     }
 
     @PostMapping(value = "/champion-recommender")
-    public ResponseEntity<List<ChampionScore>> recommendChampions(@RequestBody ChampionRecommendAnswers answers){
+    public ResponseEntity<ChampionRecommenderDTO> recommendChampions(@RequestBody ChampionRecommendAnswers answers){
         // answers is a class that contains all the answers a user made on the client
         // and every answer is passed to a specific handler to handle the rules
         List<Champion> allChampions = championService.getAllChampions();
@@ -40,16 +41,14 @@ public class ChampionRecommenderController {
         for(ChampionScore cs: crs.getChampionList()){
             System.out.println(cs.getChampion().getName() + " has : "  + cs.getScore() + " points!");
         }
-        List<ChampionScore> top3championScores = crs.getChampionList().stream()
+        List<ChampionScore> top3 = crs.getChampionList().stream()
                 .sorted(Comparator.comparing(ChampionScore::getScore).reversed())
                 .limit(3)
                 .collect(Collectors.toList());
 
-        //skurblares za damage type jer branja kasni sa jsonom krip
-        for(ChampionScore championScore: top3championScores){
-            DamageType dt = new DamageType(50,50);
-            championScore.getChampion().setDamageType(dt);
-        }
-        return new ResponseEntity<>(top3championScores, HttpStatus.OK);
+        ChampionRecommenderDTO finalRecommendations = new ChampionRecommenderDTO(top3.get(0).getChampion().getName(),
+                                                                                top3.get(1).getChampion().getName(),
+                                                                                top3.get(2).getChampion().getName());
+        return new ResponseEntity<>(finalRecommendations, HttpStatus.OK);
     }
 }

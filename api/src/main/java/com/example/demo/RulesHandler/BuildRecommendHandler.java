@@ -26,7 +26,6 @@ public class BuildRecommendHandler {
     }
 
     public void buildRecommendRules(BuildRecommendAnswers answers, ItemRecommendSession irs){
-
         List<Item> startingItems = itemService.findAllItemsByItemSlot(ItemSlot.STARTING);
         List<Item> bootItems = itemService.findAllItemsByItemSlot(ItemSlot.BOOTS);
         List<Item> situationalItems = itemService.findAllItemsByItemSlot(ItemSlot.SITUATIONAL);
@@ -39,22 +38,15 @@ public class BuildRecommendHandler {
         irs.setPickedChampion(championService.getChampionByName(answers.getPickedChampion()));
         irs.setEnemyChampion(championService.getChampionByName(answers.getEnemyChampionName()));
 
-        //opet damage type jer branja troluje sa json fajlom sa champovima
-        DamageType dt = new DamageType(80,20);
-        irs.getPickedChampion().setDamageType(new DamageType(60,40));
-        irs.getEnemyChampion().setDamageType(dt);
-        ////////////////////////////////////////////////
 
         String[] enemyChampionsNamesList = answers.getEnemyChampionsList().split(",");
         List<Champion> enemyChampions = new ArrayList<>();
 
         for(String name: enemyChampionsNamesList) {
-            // ovo isto nepotrebno kasnije
             Champion ch = championService.getChampionByName(name);
-            ch.setDamageType(dt);
-            /////////////////////////
             enemyChampions.add(ch);
         }
+        enemyChampions.add(irs.getEnemyChampion());
         irs.setAllEnemyChampions(enemyChampions);
 
         startingItemRules(answers.getEarlyGamePlaystyle(), startingItems, irs);
@@ -85,7 +77,6 @@ public class BuildRecommendHandler {
         }
 
         for(Item i: startingItems) {
-            System.out.println(i.toString());
             kSession.insert(i);
         }
         kSession.insert(irs);
@@ -155,6 +146,7 @@ public class BuildRecommendHandler {
         KieContainer kContainer = ks.newKieClasspathContainer();
         KieSession kSession = kContainer.newKieSession("defensive-item-recommend-rules");
 
+        for(Champion ch: irs.getAllEnemyChampions())
         for(Item i: defensiveItems) {
             kSession.insert(i);
         }

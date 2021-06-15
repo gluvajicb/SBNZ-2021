@@ -26,11 +26,18 @@ public class BuildRecommenderController {
     }
 
     @PostMapping(value = "/build-recommender")
-    public ResponseEntity<FullBuild> recommendBuild(@RequestBody BuildRecommendAnswers answers) {
+    public ResponseEntity<String[]> recommendBuild(@RequestBody BuildRecommendAnswers answers) {
         ItemRecommendSession irs = new ItemRecommendSession();
         buildRecommendHandler.buildRecommendRules(answers, irs);
 
-        return new ResponseEntity<>(irs.getFullBuild(), HttpStatus.OK);
+        String[] fullBuildItems = { irs.getFullBuild().getStartingItem().getName(),
+                                    irs.getFullBuild().getBoots().getName(),
+                                    irs.getFullBuild().getMythicItem().getName(),
+                                    irs.getFullBuild().getSituationalItem().getName(),
+                                    irs.getFullBuild().getOffensiveItem().getName(),
+                                    irs.getFullBuild().getDefensiveItem().getName() };
+
+        return new ResponseEntity<>(fullBuildItems, HttpStatus.OK);
     }
 
 

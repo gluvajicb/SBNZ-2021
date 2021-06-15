@@ -43,7 +43,7 @@ no-loop
     when
         $item: Item($name: name, itemSlot == ItemSlot.STARTING, isOffensive(), isForAD())
         $session: ItemRecommendSession($fullBuild: fullBuild, $pickedChampion: pickedChampion, isStartingItemGiven() == false)
-        $checkingDmg: Champion(damageType.getMagicDamage() > 50) from $pickedChampion
+        $checkingDmg: Champion(damageType.getPhysicalDamage() > 50) from $pickedChampion
     then
 
         modify($session){ fullBuild.setStartingItem($item)}

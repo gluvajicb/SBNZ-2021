@@ -1,7 +1,7 @@
 package ChampionRecommender.PlaystyleRules;
 dialect  "mvel"
 
-import com.example.demo.Model.Champion;
+import com.example.demo.Model.*;
 import com.example.demo.Model.ChampionRecommendSession;
 import com.example.demo.Model.Enums.*;
 
@@ -11,8 +11,9 @@ no-loop
     when
         $champion: Champion($name: name, playstyle == Playstyle.ROAMING, playstyleChecked == false)
         $session: ChampionRecommendSession($championList: championList)
+        $answers: ChampionRecommendAnswers(prefPlaystyle == Playstyle.ROAMING)
     then
-        modify($session){ updateScore($champion, 10)}
+        modify($session){ updateScore($champion, 5)}
         modify($champion){ setPlaystyleChecked(true)}
 
 end
@@ -23,8 +24,9 @@ no-loop
     when
         $champion: Champion($name: name, playstyle == Playstyle.SPLITPUSHING, playstyleChecked == false)
         $session: ChampionRecommendSession($championList: championList)
+        $answers: ChampionRecommendAnswers(prefPlaystyle == Playstyle.SPLITPUSHING)
     then
-        modify($session){ updateScore($champion, 10)}
+        modify($session){ updateScore($champion, 5)}
         modify($champion){ setPlaystyleChecked(true)}
 
 end
@@ -35,13 +37,9 @@ no-loop
     when
         $champion: Champion($name: name, playstyle == Playstyle.TEAMFIGHTING, playstyleChecked == false)
         $session: ChampionRecommendSession($championList: championList)
+        $answers: ChampionRecommendAnswers(prefPlaystyle == Playstyle.TEAMFIGHTING)
     then
-        System.out.println("---------------------------------------");
-        System.out.println("Rule for playstyle: \n");
-
-        System.out.println($champion.getName() + " has playstyle TEAMFIGHTING and gets 10 points ");
-        System.out.println("---------------------------------------");
-        modify($session){ updateScore($champion, 10)}
+        modify($session){ updateScore($champion, 5)}
         modify($champion){ setPlaystyleChecked(true)}
 
 end
