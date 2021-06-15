@@ -16,7 +16,7 @@ export default new Router({
             component: Home
         },
         {
-            path: 'champions',
+            path: '/recommend-champions',
             component: Champions
         }
     ]
