@@ -38,7 +38,6 @@
   width: 100%;
   max-width: 350px;
   height: 600px;
-  background-color: red;
   margin: 0 100px;
   transition: ease-in-out 0.3s;
   display: flex;
