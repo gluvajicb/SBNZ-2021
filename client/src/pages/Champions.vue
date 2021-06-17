@@ -14,6 +14,8 @@
         </b-dropdown-item>
     </b-dropdown>
 
+    <b-form-input class="outputLane" v-model="this.prefLane" id="input-1"></b-form-input>
+
     <p class="strength-question">Pick the time when you want your champion to be the strongest: </p>
 
     <b-dropdown id="dropdown-strength" text="Strength" class="m-md-2">
@@ -24,6 +26,8 @@
                 {{strength}}
         </b-dropdown-item>
     </b-dropdown>
+
+    <b-form-input class="outputStrength" v-model="this.prefStrength" id="input-1"></b-form-input>
 
     <p class="damage-type-question">Pick the damage type of your champion: </p>
 
@@ -36,6 +40,8 @@
         </b-dropdown-item>
     </b-dropdown>
 
+    <b-form-input class="outputDamage" v-model="this.prefDamageType" id="input-1"></b-form-input>
+
     <p class="attack-range-question">Pick attack range that your champion has: </p>
 
     <b-dropdown id="dropdown-attackrange" text="Attack Range" class="m-md-2">
@@ -46,6 +52,8 @@
                 {{attackRange}}
         </b-dropdown-item>
     </b-dropdown>
+
+    <b-form-input class="outputRange" v-model="this.prefAttackRange" id="input-1"></b-form-input>
 
     <p class="ability-resource-question">Pick ability resource of your champion: </p>
 
@@ -58,6 +66,8 @@
         </b-dropdown-item>
     </b-dropdown>
 
+    <b-form-input class="outputResource" v-model="this.prefAbilityResource" id="input-1"></b-form-input>
+
     <p class="playstyle-question">Pick the playstyle that your champion is suited for: </p>
 
     <b-dropdown id="dropdown-playstyle" text="Playstyle" class="m-md-2">
@@ -68,6 +78,12 @@
                 {{playstyle}}
         </b-dropdown-item>
     </b-dropdown>
+
+    <b-form-input class="outputPlaystyle" v-model="this.prefPlaystyle" id="input-1"></b-form-input>
+
+    <b-button @click="submit()" class="submit" variant="success">Submit Answers</b-button>
+
+    <b-button @click="cancel()" class="cancel" variant="secondary">Cancel</b-button>
     
 </div>
 </template>
@@ -120,11 +136,24 @@
             },
 
             handlePlaystyleAnswer(playstyle) {
-                this.playstyle = playstyle
+                this.prefPlaystyle = playstyle
             },
 
             submit() {
-                
+                var championAnswers = {
+                    prefLane: this.prefLane,
+                    prefStrength: this.prefStrength,
+                    prefDamageType: this.prefDamageType,
+                    prefAttackRange: this.prefAttackRange,
+                    prefAbilityResource: this.prefAbilityResource,
+                    prefPlaystyle: this.prefPlaystyle
+                }
+
+                console.log(championAnswers)
+            },
+
+            cancel() {
+                this.$router.push("/home")
             }
         }
     }
@@ -244,6 +273,68 @@
     top: 577px;
     width: 150px;
     left: 740px;
+}
+
+.submit{
+    position:absolute;
+    top: 700px;
+    width: 150px;
+    left: 50px;
+}
+
+.cancel{
+    position:absolute;
+    top: 700px;
+    width: 150px;
+    left: 250px;
+}
+
+.outputLane{
+    position:absolute;
+    top: 185px;
+    max-width: 100px;
+    width: 150px;
+    left: 500px;
+}
+
+.outputStrength{
+    position:absolute;
+    top: 265px;
+    max-width: 135px;
+    width: 150px;
+    left: 1120px;
+}
+
+.outputDamage{
+    position:absolute;
+    top: 345px;
+    max-width: 105px;
+    width: 150px;
+    left: 800px;
+}
+
+.outputRange{
+    position:absolute;
+    top: 425px;
+    max-width: 115px;
+    width: 150px;
+    left: 810px;
+}
+
+.outputResource{
+    position:absolute;
+    top: 505px;
+    max-width: 100px;
+    width: 150px;
+    left: 770px;
+}
+
+.outputPlaystyle{
+    position:absolute;
+    top: 585px;
+    max-width: 150px;
+    width: 150px;
+    left: 910px;
 }
 
 </style>
