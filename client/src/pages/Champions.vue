@@ -14,6 +14,19 @@
         </b-dropdown-item>
     </b-dropdown>
 
+    <b-form-input class="outputClass" v-model="this.prefClass" id="input-1"></b-form-input>
+
+   <p class="class-question">Pick prefered class: </p>
+
+    <b-dropdown id="dropdown-class" text="Class" class="m-md-2">
+        <b-dropdown-item v-for="prefClass in this.classes" 
+                :key="prefClass" 
+                :value="prefClass"
+                @click="handleClassAnswer(prefClass)">
+                {{prefClass}}
+        </b-dropdown-item>
+    </b-dropdown>
+
     <b-form-input class="outputLane" v-model="this.prefLane" id="input-1"></b-form-input>
 
     <p class="strength-question">Pick the time when you want your champion to be the strongest: </p>
@@ -90,6 +103,8 @@
 
 <script>
 
+    import {AXIOS} from '../http-common'
+
     export default {
 
         name: 'Champions',
@@ -101,20 +116,27 @@
             attackRange: ['MELEE', 'RANGED', 'MIDRANGE'],
             abilityResource: ['MANA', 'ENERGY', 'NOTHING', 'OTHER'],
             playstyle: ['SPLITPUSHING', 'TEAMFIGHTING', 'ROAMING'],
-
+            classes: ['BRUISER', 'MARKSMAN', 'MAGE', 'ASSASSIN', 'SUPPORT', 'TANK'],
 
             prefLane: '',
+            prefClass: '',
             prefStrength: '',
             prefDamageType: '',
             prefAttackRange: '',
             prefAbilityResource: '',
-            prefPlaystyle: ''
+            prefPlaystyle: '',
+
+            recommendedChampions: []
         }),
 
         methods: {
 
             handleLaneAnswer(lane) {
                 this.prefLane = lane
+            },
+
+            handleClassAnswer(prefClass) {
+                this.prefClass = prefClass
             },
 
             handleStrengthAnswer(strength) {
@@ -142,6 +164,7 @@
             submit() {
                 var championAnswers = {
                     prefLane: this.prefLane,
+                    prefClass: this.prefClass,
                     prefStrength: this.prefStrength,
                     prefDamageType: this.prefDamageType,
                     prefAttackRange: this.prefAttackRange,
@@ -150,6 +173,9 @@
                 }
 
                 console.log(championAnswers)
+
+                AXIOS.post('/champion-recommender', championAnswers)
+                    .then(response => {console.log(response.data)})
             },
 
             cancel() {
@@ -168,7 +194,7 @@
   background-color: darkslategrey;
   color: white;
   font-size: 35px;
-  height: 70px;
+  height: 55px;
   top: 70px;
   margin: 0 50px;
 }
@@ -183,7 +209,7 @@
     color: white;
 }
 
-.strength-question{
+.class-question{
     position: absolute;
     font-size: 30px;
     margin: 0 50px;
@@ -193,7 +219,7 @@
     color: white;
 }
 
-.damage-type-question{
+.strength-question{
     position: absolute;
     font-size: 30px;
     margin: 0 50px;
@@ -203,7 +229,7 @@
     color: white;
 }
 
-.attack-range-question{
+.damage-type-question{
     position: absolute;
     font-size: 30px;
     margin: 0 50px;
@@ -213,7 +239,7 @@
     color: white;
 }
 
-.ability-resource-question{
+.attack-range-question{
     position: absolute;
     font-size: 30px;
     margin: 0 50px;
@@ -223,11 +249,21 @@
     color: white;
 }
 
-.playstyle-question{
+.ability-resource-question{
     position: absolute;
     font-size: 30px;
     margin: 0 50px;
     top: 580px;
+
+    background-color: darkslategrey;
+    color: white;
+}
+
+.playstyle-question{
+    position: absolute;
+    font-size: 30px;
+    margin: 0 50px;
+    top: 660px;
 
     background-color: darkslategrey;
     color: white;
@@ -240,51 +276,58 @@
     left: 320px;
 }
 
-#dropdown-strength{
+#dropdown-class{
     position:absolute;
     top: 257px;
+    width: 150px;
+    left: 320px;
+}
+
+#dropdown-strength{
+    position:absolute;
+    top: 337px;
     width: 150px;
     left: 930px;
 }
 
 #dropdown-damagetype{
     position:absolute;
-    top: 337px;
+    top: 417px;
     width: 150px;
     left: 610px;
 }
 
 #dropdown-attackrange{
     position:absolute;
-    top: 417px;
+    top: 497px;
     width: 150px;
     left: 630px;
 }
 
 #dropdown-abilityresource{
     position:absolute;
-    top: 497px;
+    top: 577px;
     width: 150px;
     left: 590px;
 }
 
 #dropdown-playstyle{
     position:absolute;
-    top: 577px;
+    top: 657px;
     width: 150px;
     left: 740px;
 }
 
 .submit{
     position:absolute;
-    top: 700px;
+    top: 760px;
     width: 150px;
     left: 50px;
 }
 
 .cancel{
     position:absolute;
-    top: 700px;
+    top: 760px;
     width: 150px;
     left: 250px;
 }
@@ -297,9 +340,17 @@
     left: 500px;
 }
 
-.outputStrength{
+.outputClass{
     position:absolute;
     top: 265px;
+    max-width: 120px;
+    width: 150px;
+    left: 500px;
+}
+
+.outputStrength{
+    position:absolute;
+    top: 345px;
     max-width: 135px;
     width: 150px;
     left: 1120px;
@@ -307,7 +358,7 @@
 
 .outputDamage{
     position:absolute;
-    top: 345px;
+    top: 425px;
     max-width: 105px;
     width: 150px;
     left: 800px;
@@ -315,7 +366,7 @@
 
 .outputRange{
     position:absolute;
-    top: 425px;
+    top: 505px;
     max-width: 115px;
     width: 150px;
     left: 810px;
@@ -323,7 +374,7 @@
 
 .outputResource{
     position:absolute;
-    top: 505px;
+    top: 585px;
     max-width: 100px;
     width: 150px;
     left: 770px;
@@ -331,7 +382,7 @@
 
 .outputPlaystyle{
     position:absolute;
-    top: 585px;
+    top: 665px;
     max-width: 150px;
     width: 150px;
     left: 910px;
