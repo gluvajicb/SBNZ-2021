@@ -161,7 +161,7 @@
 </script>
 
 
-<style>
+<style scoped>
 
 .title{
   position: absolute;
