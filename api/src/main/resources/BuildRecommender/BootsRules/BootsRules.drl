@@ -14,7 +14,7 @@ no-loop
     when
         $item: Item(itemSlot == ItemSlot.BOOTS, isDefensive(), isArmor()) // protiv heavy ad teama Uzimamo plated steelcaps
         $session: ItemRecommendSession($fullBuild: fullBuild, $enemyChampions: allEnemyChampions, bootsItemGiven == false)
-        Number($sumDamage: intValue >= 300) from accumulate(
+        Number($sumDamage: intValue >= 350) from accumulate(
             Champion($physDmg: damageType.getPhysicalDamage()) from $enemyChampions,
             sum($physDmg)
         )

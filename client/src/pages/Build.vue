@@ -66,7 +66,7 @@
 
 <script>
 
-// import {AXIOS} from '../http-common'
+import {AXIOS} from '../http-common';
 
 export default {
 
@@ -99,38 +99,37 @@ export default {
             this.earlyGamePlaystyle = playstyle
         },
 
-        submit() {
-            // var buildAnswers = {
-            //     pickedLane: this.pickedLane,
-            //     pickedChampion: this.pickedChampion,
-            //     enemyChampionName: this.enemyChampionName,
-            //     enemyChampionList: this.firstEnemy + "," + this.secondEnemy + "," + this.thirdEnemy + "," + this.fourthEnemy,
-            //     earlyGamePlaystyle: this.earlyGamePlaystyle
-            // }
+        async submit() {
+          const buildAnswers = {
+            pickedLane: this.pickedLane,
+            pickedChampion: this.pickedChampion,
+            enemyChampionName: this.enemyChampionName,
+            enemyChampionsList: this.firstEnemy + "," + this.secondEnemy + "," + this.thirdEnemy + "," + this.fourthEnemy,
+            earlyGamePlaystyle: this.earlyGamePlaystyle
+          };
 
-            // AXIOS.post('/build-recommender', buildAnswers)
-            //     .then(response => {console.log(response.data)})
+          await AXIOS.post('/build-recommender', buildAnswers)
+                .then(response => {
+                  try{
+                    const startingItem = response.data.startingItem;
+                    const boots = response.data.boots;
+                    const situationalItem = response.data.situationalItem;
+                    const defensiveItem = response.data.defensiveItem;
+                    const offensiveItem = response.data.offensiveItem;
+                    const mythicItem = response.data.mythicItem;
 
-            // var startingItem = response.data.startingItem;
-            // var boots = response.data.boots;
-            // var situationalItem = response.data.situationalItem;
-            // var defensiveItem = response.data.defensiveItem;
-            // var offensiveItem = response.data.offensiveItem;
-            // var mythicItem = response.data.mythicItem;
+                    localStorage.setItem('startingItem', startingItem)
+                    localStorage.setItem('boots', boots)
+                    localStorage.setItem('situationalItem', situationalItem)
+                    localStorage.setItem('defensiveItem', defensiveItem)
+                    localStorage.setItem('offensiveItem', offensiveItem)
+                    localStorage.setItem('mythicItem', mythicItem)
+                  }catch (e) {
+                    console.error(e)
 
-            // localStorage.setItem('startingItem', startingItem)
-            // localStorage.setItem('boots', boots)
-            // localStorage.setItem('situationalItem', situationalItem)
-            // localStorage.setItem('defensiveItem', defensiveItem)
-            // localStorage.setItem('offensiveItem', offensiveItem)
-            // localStorage.setItem('mythicItem', mythicItem)
+                  }
 
-            localStorage.setItem('startingItem', "Abyssal_Mask")
-            localStorage.setItem('boots', "Archangels_Staff")
-            localStorage.setItem('situationalItem', "Banshees_Veil")
-            localStorage.setItem('defensiveItem', "Berserker_Greaves")
-            localStorage.setItem('offensiveItem', "Black_Cleaver")
-            localStorage.setItem('mythicItem', "Thornmail")
+                })
 
             this.$router.push('/build-results')
         },

@@ -38,7 +38,7 @@ public class BuildRecommendHandler {
         irs.setPickedChampion(championService.getChampionByName(answers.getPickedChampion()));
         irs.setEnemyChampion(championService.getChampionByName(answers.getEnemyChampionName()));
 
-
+        System.out.println(answers);
         String[] enemyChampionsNamesList = answers.getEnemyChampionsList().split(",");
         List<Champion> enemyChampions = new ArrayList<>();
 

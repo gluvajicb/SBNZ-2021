@@ -135,7 +135,7 @@
 		"abilityResource" : "MANA"
 	},
 	{
-		"name" : "Aurelion Sol",
+		"name" : "AurelionSol",
 		"primaryClass" : "MAGE",
 		"secondaryClass" : "SUPPORT",
 		"primaryLane" : "MID",
@@ -270,7 +270,7 @@
 		"abilityResource" : "MANA"
 	},
 	{
-		"name" : "ChoGath",
+		"name" : "Chogath",
 		"primaryClass" : "TANK",
 		"secondaryClass" : "MAGE",
 		"primaryLane" : "TOP",
@@ -330,7 +330,7 @@
 		"abilityResource" : "MANA"
 	},
 	{
-		"name" : "Dr.Mundo",
+		"name" : "DrMundo",
 		"primaryClass" : "TANK",
 		"secondaryClass" : "BRUISER",
 		"primaryLane" : "TOP",
@@ -660,7 +660,7 @@
 		"abilityResource" : "MANA"
 	},
 	{
-		"name" : "Jarvan IV",
+		"name" : "JarvanIV",
 		"primaryClass" : "BRUISER",
 		"secondaryClass" : "TANK",
 		"primaryLane" : "JUNGLE",
@@ -870,7 +870,7 @@
 		"abilityResource" : "ENERGY"
 	},
 	{
-		"name" : "KhaZix",
+		"name" : "Khazix",
 		"primaryClass" : "ASSASSIN",
 		"secondaryClass" : null,
 		"primaryLane" : "JUNGLE",
@@ -886,8 +886,8 @@
 	},
 	{
 		"name" : "Kindred",
-		"primaryClass" : "MARKSMAN",
-		"secondaryClass" : null,
+		"primaryClass" : "BRUISER",
+		"secondaryClass" : "MARKSMAN",
 		"primaryLane" : "JUNGLE",
 		"secondaryLane" : "BOT",
 		"damageType" : {
@@ -930,7 +930,7 @@
 		"abilityResource" : "MANA"
 	},
 	{
-		"name" : "LeBlanc",
+		"name" : "Leblanc",
 		"primaryClass" : "ASSASSIN",
 		"secondaryClass" : "MAGE",
 		"primaryLane" : "MID",
@@ -945,7 +945,7 @@
 		"abilityResource" : "MANA"
 	},
 	{
-		"name" : "Lee Sin",
+		"name" : "LeeSin",
 		"primaryClass" : "BRUISER",
 		"secondaryClass" : "TANK",
 		"primaryLane" : "JUNGLE",
@@ -1095,7 +1095,7 @@
 		"abilityResource" : "MANA"
 	},
 	{
-		"name" : "Master Yi",
+		"name" : "MasterYi",
 		"primaryClass" : "ASSASSIN",
 		"secondaryClass" : "BRUISER",
 		"primaryLane" : "JUNGLE",
@@ -1110,7 +1110,7 @@
 		"abilityResource" : "ENERGY"
 	},
 	{
-		"name" : "Miss Fortune",
+		"name" : "MissFortune",
 		"primaryClass" : "MARKSMAN",
 		"secondaryClass" : null,
 		"primaryLane" : "BOT",
@@ -1245,7 +1245,7 @@
 		"abilityResource" : "MANA"
 	},
 	{
-		"name" : "Nunu & Willump",
+		"name" : "Nunu",
 		"primaryClass" : "TANK",
 		"secondaryClass" : "MAGE",
 		"primaryLane" : "JUNGLE",
@@ -1740,7 +1740,7 @@
 		"abilityResource" : "MANA"
 	},
 	{
-		"name" : "Tahm Kench",
+		"name" : "TahmKench",
 		"primaryClass" : "SUPPORT",
 		"secondaryClass" : "TANK",
 		"primaryLane" : "SUPPORT",
@@ -1965,7 +1965,7 @@
 		"abilityResource" : "MANA"
 	},
 	{
-		"name" : "VelKoz",
+		"name" : "Velkoz",
 		"primaryClass" : "MAGE",
 		"secondaryClass" : "SUPPORT",
 		"primaryLane" : "MID",
@@ -2115,7 +2115,7 @@
 		"abilityResource" : "MANA"
 	},
 	{
-		"name" : "Xin Zhao",
+		"name" : "XinZhao",
 		"primaryClass" : "BRUISER",
 		"secondaryClass" : "TANK",
 		"primaryLane" : "JUNGLE",

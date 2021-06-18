@@ -63,7 +63,7 @@ insert into items (id, name, is_offensive, is_defensive, is_for_ap, is_for_ad, i
 insert into items (id, name, is_offensive, is_defensive, is_for_ap, is_for_ad, is_armor, is_magic_resist, item_slot, for_class, good_against_class)
     values (25, "Maw_of_Malmortius", false, true, false, true, false, true, 3, 0, 1);
 insert into items (id, name, is_offensive, is_defensive, is_for_ap, is_for_ad, is_armor, is_magic_resist, item_slot, for_class, good_against_class)
-    values (26, "Zhonya's Hourglass", false, true, true, false, true, false, 3, 0, 0);
+    values (26, "Zhonyas_Hourglass", false, true, true, false, true, false, 3, 0, 0);
 insert into items (id, name, is_offensive, is_defensive, is_for_ap, is_for_ad, is_armor, is_magic_resist, item_slot, for_class, good_against_class)
     values (27, "Edge_of_Night", true, true, false, true, false, true, 3, 0, 0);
 insert into items (id, name, is_offensive, is_defensive, is_for_ap, is_for_ad, is_armor, is_magic_resist, item_slot, for_class, good_against_class)

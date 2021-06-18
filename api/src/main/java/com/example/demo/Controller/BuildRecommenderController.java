@@ -33,7 +33,7 @@ public class BuildRecommenderController {
         System.out.println(answers.toString());
         ItemRecommendSession irs = new ItemRecommendSession();
         buildRecommendHandler.buildRecommendRules(answers, irs);
-
+        System.out.println(irs.getFullBuild());
         BuildRecommenderDTO fullBuildItems = new BuildRecommenderDTO(irs.getFullBuild().getStartingItem().getName(),
                                     irs.getFullBuild().getBoots().getName(),
                                     irs.getFullBuild().getMythicItem().getName(),
