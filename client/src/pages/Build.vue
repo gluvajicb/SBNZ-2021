@@ -66,6 +66,8 @@
 
 <script>
 
+// import {AXIOS} from '../http-common'
+
 export default {
 
     name: 'Build',
@@ -98,15 +100,39 @@ export default {
         },
 
         submit() {
-            var buildAnswers = {
-                pickedLane: this.pickedLane,
-                pickedChampion: this.pickedChampion,
-                enemyChampionName: this.enemyChampionName,
-                enemyChampionList: this.firstEnemy + "," + this.secondEnemy + "," + this.thirdEnemy + "," + this.fourthEnemy,
-                earlyGamePlaystyle: this.earlyGamePlaystyle
-            }
+            // var buildAnswers = {
+            //     pickedLane: this.pickedLane,
+            //     pickedChampion: this.pickedChampion,
+            //     enemyChampionName: this.enemyChampionName,
+            //     enemyChampionList: this.firstEnemy + "," + this.secondEnemy + "," + this.thirdEnemy + "," + this.fourthEnemy,
+            //     earlyGamePlaystyle: this.earlyGamePlaystyle
+            // }
 
-            console.log(buildAnswers)
+            // AXIOS.post('/build-recommender', buildAnswers)
+            //     .then(response => {console.log(response.data)})
+
+            // var startingItem = response.data.startingItem;
+            // var boots = response.data.boots;
+            // var situationalItem = response.data.situationalItem;
+            // var defensiveItem = response.data.defensiveItem;
+            // var offensiveItem = response.data.offensiveItem;
+            // var mythicItem = response.data.mythicItem;
+
+            // localStorage.setItem('startingItem', startingItem)
+            // localStorage.setItem('boots', boots)
+            // localStorage.setItem('situationalItem', situationalItem)
+            // localStorage.setItem('defensiveItem', defensiveItem)
+            // localStorage.setItem('offensiveItem', offensiveItem)
+            // localStorage.setItem('mythicItem', mythicItem)
+
+            localStorage.setItem('startingItem', "Abyssal_Mask")
+            localStorage.setItem('boots', "Archangels_Staff")
+            localStorage.setItem('situationalItem', "Banshees_Veil")
+            localStorage.setItem('defensiveItem', "Berserker_Greaves")
+            localStorage.setItem('offensiveItem', "Black_Cleaver")
+            localStorage.setItem('mythicItem', "Thornmail")
+
+            this.$router.push('/build-results')
         },
 
         cancel() {

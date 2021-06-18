@@ -5,6 +5,7 @@ import Home from '@/pages/Home'
 import Champions from '@/pages/Champions'
 import Build from '@/pages/Build'
 import ChampionResults from '@/pages/ChampionResults'
+import BuildResults from '@/pages/BuildResults'
 
 
 Vue.use(Router)
@@ -28,6 +29,10 @@ export default new Router({
         {
             path: '/champion-results',
             component: ChampionResults
+        },
+        {
+            path: '/build-results',
+            component: BuildResults
         }
     ]
 })
