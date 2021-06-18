@@ -103,7 +103,7 @@
 
 <script>
 
-    import {AXIOS} from '../http-common'
+    // import {AXIOS} from '../http-common'
 
     export default {
 
@@ -162,20 +162,34 @@
             },
 
             submit() {
-                var championAnswers = {
-                    prefLane: this.prefLane,
-                    prefClass: this.prefClass,
-                    prefStrength: this.prefStrength,
-                    prefDamageType: this.prefDamageType,
-                    prefAttackRange: this.prefAttackRange,
-                    prefAbilityResource: this.prefAbilityResource,
-                    prefPlaystyle: this.prefPlaystyle
-                }
+                // var championAnswers = {
+                //     prefLane: this.prefLane,
+                //     prefClass: this.prefClass,
+                //     prefStrength: this.prefStrength,
+                //     prefDamageType: this.prefDamageType,
+                //     prefAttackRange: this.prefAttackRange,
+                //     prefAbilityResource: this.prefAbilityResource,
+                //     prefPlaystyle: this.prefPlaystyle
+                // }
 
-                console.log(championAnswers)
+                // AXIOS.post('/champion-recommender', championAnswers)
+                //     .then(response => {console.log(response.data)})
 
-                AXIOS.post('/champion-recommender', championAnswers)
-                    .then(response => {console.log(response.data)})
+
+                // var firstPick = response.data.firstPick;
+                // var secondPick = response.data.secondPick;
+                // var thirdPick = response.data.thirdpick;
+
+                // localStorage.setItem('firstPick', firstPick)
+                // localStorage.setItem('secondPick', secondPick)
+                // localStorage.setItem('thirdPick', thirdPick)
+
+                // Ovo su mock podaci ispod, samo otkomentarisi ovo iznad i to bi trebalo da radi live sa backom
+                localStorage.setItem('firstPick', "Jinx")
+                localStorage.setItem('secondPick', "Karthus")
+                localStorage.setItem('thirdPick', "Maokai")
+
+                this.$router.push("/champion-results")
             },
 
             cancel() {
