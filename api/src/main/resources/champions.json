@@ -270,7 +270,7 @@
 		"abilityResource" : "MANA"
 	},
 	{
-		"name" : "Cho'Gath",
+		"name" : "ChoGath",
 		"primaryClass" : "TANK",
 		"secondaryClass" : "MAGE",
 		"primaryLane" : "TOP",
@@ -466,17 +466,17 @@
 	},
 	{
 		"name" : "Galio",
-		"primaryClass" : "TANK",
-		"secondaryClass" : "MAGE",
+		"primaryClass" : "MAGE",
+		"secondaryClass" : "TANK",
 		"primaryLane" : "MID",
 		"secondaryLane" : "TOP",
 		"damageType" : {
-			"physicalDamage" : 0,
-			"magicDamage" : 100
+			"physicalDamage" : 10,
+			"magicDamage" : 90
 		},
 		"attackRange" : "MELEE",
 		"playstyle" : "TEAMFIGHTING",
-		"strength" : "LATE_GAME",
+		"strength" : "MID_GAME",
 		"abilityResource" : "MANA"
 	},
 	{
@@ -735,7 +735,7 @@
 		"abilityResource" : "MANA"
 	},
 	{
-		"name" : "Kai'sa",
+		"name" : "Kaisa",
 		"primaryClass" : "MARKSMAN",
 		"secondaryClass" : null,
 		"primaryLane" : "BOT",
@@ -870,7 +870,7 @@
 		"abilityResource" : "ENERGY"
 	},
 	{
-		"name" : "Kha'Zix",
+		"name" : "KhaZix",
 		"primaryClass" : "ASSASSIN",
 		"secondaryClass" : null,
 		"primaryLane" : "JUNGLE",
@@ -915,7 +915,7 @@
 		"abilityResource" : "NOTHING"
 	},
 	{
-		"name" : "Kog'Maw",
+		"name" : "KogMaw",
 		"primaryClass" : "MARKSMAN",
 		"secondaryClass" : "MAGE",
 		"primaryLane" : "BOT",
@@ -1171,13 +1171,13 @@
 	},
 	{
 		"name" : "Nasus",
-		"primaryClass" : "TANK",
-		"secondaryClass" : null,
+		"primaryClass" : "BRUISER",
+		"secondaryClass" : "TANK",
 		"primaryLane" : "TOP",
 		"secondaryLane" : "JUNGLE",
 		"damageType" : {
-			"physicalDamage" : 80,
-			"magicDamage" : 20
+			"physicalDamage" : 75,
+			"magicDamage" : 25
 		},
 		"attackRange" : "MELEE",
 		"playstyle" : "SPLITPUSHING",
@@ -1296,8 +1296,8 @@
 		"primaryLane" : "TOP",
 		"secondaryLane" : "JUNGLE",
 		"damageType" : {
-			"physicalDamage" : 50,
-			"magicDamage" : 50
+			"physicalDamage" : 40,
+			"magicDamage" : 60
 		},
 		"attackRange" : "MELEE",
 		"playstyle" : "TEAMFIGHTING",
@@ -1965,7 +1965,7 @@
 		"abilityResource" : "MANA"
 	},
 	{
-		"name" : "Vel'Koz",
+		"name" : "VelKoz",
 		"primaryClass" : "MAGE",
 		"secondaryClass" : "SUPPORT",
 		"primaryLane" : "MID",

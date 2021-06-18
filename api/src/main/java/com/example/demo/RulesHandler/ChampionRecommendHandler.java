@@ -194,11 +194,11 @@ public class ChampionRecommendHandler {
         KieServices ks = KieServices.Factory.get();
         KieContainer kContainer = ks.newKieClasspathContainer();
         KieSession kSession = kContainer.newKieSession("damage-type-recommend-rules");
-
+        System.out.println(answers.getPrefDamageType());
         switch(answers.getPrefDamageType()){
-            case "physical":
+            case "PHYSICAL":
                 kSession.getAgenda().getAgendaGroup("physical").setFocus();
-            case "magic":
+            case "MAGIC":
                 kSession.getAgenda().getAgendaGroup("magic").setFocus();
         }
 
