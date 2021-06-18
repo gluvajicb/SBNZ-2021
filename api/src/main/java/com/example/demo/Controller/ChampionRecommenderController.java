@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -17,6 +18,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
+@RequestMapping("/api")
 public class ChampionRecommenderController {
 
     private final ChampionService championService;
@@ -30,6 +32,7 @@ public class ChampionRecommenderController {
 
     @PostMapping(value = "/champion-recommender")
     public ResponseEntity<ChampionRecommenderDTO> recommendChampions(@RequestBody ChampionRecommendAnswers answers){
+        System.out.println(answers.toString());
         // answers is a class that contains all the answers a user made on the client
         // and every answer is passed to a specific handler to handle the rules
         List<Champion> allChampions = championService.getAllChampions();

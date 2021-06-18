@@ -6,9 +6,22 @@ import com.example.demo.Model.Champion
 import com.example.demo.Model.Enums.ItemSlot
 import com.example.demo.Model.ItemRecommendSession
 import com.example.demo.Model.Enums.ItemSlot
-import com.example.demo.Model.Enums.Lane
+import com.example.demo.Model.Enums.*
+
+rule "Recomending situational item that is good against enemy champion's class , for tanks"
+salience 10
+no-loop
+     when
+            $item: Item(itemSlot == ItemSlot.SITUATIONAL, name == "Warmorgs's Armor" ) // dobar protiv protivnicke klase ali za tankove
+            $session: ItemRecommendSession($fullBuild: fullBuild, $pickedChampion: pickedChampion, situationalItemGiven == false)
+            Champion(primaryClass == ChampionClass.TANK) from $pickedChampion
+        then
+            modify($session){ fullBuild.setSituationalItem($item)}
+            modify($session){ setSituationalItemGiven(true)}
+end
 
 rule "Recomending situational item that is good against enemy champion's class , for AD champions"
+salience 1
 no-loop
      when
             $item: Item(itemSlot == ItemSlot.SITUATIONAL, $goodAgainstClass:goodAgainstClass, isForAD()) // dobar protiv protivnicke klase ali za AD champione
@@ -21,6 +34,7 @@ no-loop
 end
 
 rule "Recomending situational item that is good against enemy champion's class , for AP champions"
+salience 1
 no-loop
      when
             $item: Item(itemSlot == ItemSlot.SITUATIONAL, $goodAgainstClass: goodAgainstClass , isForAP()) // dobar protiv protivnicke klase ali za AP champione
@@ -31,3 +45,4 @@ no-loop
             modify($session){ fullBuild.setSituationalItem($item)}
             modify($session){ setSituationalItemGiven(true)}
 end
+

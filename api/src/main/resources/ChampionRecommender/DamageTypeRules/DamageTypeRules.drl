@@ -15,7 +15,7 @@ no-loop
         $champion: Champion($name: name, damageTypeChecked == false)
         $session: ChampionRecommendSession($championList: championList)
         $damageType: DamageType(physicalDamage >= 40, physicalDamage < 60) from $champion.damageType
-        $answers: ChampionRecommendAnswers(prefDamageType == "physical")
+        $answers: ChampionRecommendAnswers(prefDamageType == "PHYSICAL")
     then
         modify($session){ updateScore($champion, 5)}
         modify($champion){ setDamageTypeChecked(true)}
@@ -28,7 +28,7 @@ no-loop
         $champion: Champion($name: name, damageTypeChecked == false)
         $session: ChampionRecommendSession($championList: championList)
         $damageType: DamageType(physicalDamage >= 60, physicalDamage < 80) from $champion.damageType
-        $answers: ChampionRecommendAnswers(prefDamageType == "physical")
+        $answers: ChampionRecommendAnswers(prefDamageType == "PHYSICAL")
     then
         modify($session){ updateScore($champion, 10)}
         modify($champion){ setDamageTypeChecked(true)}
@@ -41,7 +41,7 @@ no-loop
         $champion: Champion($name: name, damageTypeChecked == false)
         $session: ChampionRecommendSession($championList: championList)
         $damageType: DamageType(physicalDamage >= 80) from $champion.damageType
-        $answers: ChampionRecommendAnswers(prefDamageType == "physical")
+        $answers: ChampionRecommendAnswers(prefDamageType == "PHYSICAL")
     then
         modify($session){ updateScore($champion, 20)}
         modify($champion){ setDamageTypeChecked(true)}
@@ -56,7 +56,7 @@ no-loop
         $champion: Champion($name: name, damageTypeChecked == false)
         $session: ChampionRecommendSession($championList: championList)
         $damageType: DamageType(magicDamage >= 40 ,magicDamage < 60) from $champion.damageType
-        $answers: ChampionRecommendAnswers(prefDamageType == "magic")
+        $answers: ChampionRecommendAnswers(prefDamageType == "MAGIC")
     then
         modify($session){ updateScore($champion, 5)}
         modify($champion){ setDamageTypeChecked(true)}
@@ -69,7 +69,7 @@ no-loop
         $champion: Champion($name: name, damageTypeChecked == false)
         $session: ChampionRecommendSession($championList: championList)
         $damageType: DamageType(magicDamage >= 60, magicDamage < 80) from $champion.damageType
-        $answers: ChampionRecommendAnswers(prefDamageType == "magic")
+        $answers: ChampionRecommendAnswers(prefDamageType == "MAGIC")
     then
         modify($session){ updateScore($champion, 10)}
         modify($champion){ setDamageTypeChecked(true)}
@@ -83,9 +83,10 @@ no-loop
         $champion: Champion($name: name, damageTypeChecked == false)
         $session: ChampionRecommendSession($championList: championList)
         $damageType: DamageType(magicDamage >= 80) from $champion.damageType
-                $answers: ChampionRecommendAnswers(prefDamageType == "magic")
+                $answers: ChampionRecommendAnswers(prefDamageType == "MAGIC")
 
     then
+        System.out.println($champion.name + "20 poena ");
         modify($session){ updateScore($champion, 20)}
         modify($champion){ setDamageTypeChecked(true)}
 end

@@ -49,7 +49,7 @@ public class BuildRecommendHandler {
         enemyChampions.add(irs.getEnemyChampion());
         irs.setAllEnemyChampions(enemyChampions);
 
-        startingItemRules(answers.getEarlyGamePlaystyle(), startingItems, irs);
+        startingItemRules(answers, startingItems, irs);
         bootsRules(bootItems, irs);
         mythicItemRules(mythicItems, irs);
         situationalItemRules(situationalItems, irs);
@@ -59,26 +59,27 @@ public class BuildRecommendHandler {
     }
 
 
-    public void startingItemRules(String earlyGamePlaystyle, List<Item> startingItems, ItemRecommendSession irs) {
+    public void startingItemRules(BuildRecommendAnswers answers, List<Item> startingItems, ItemRecommendSession irs) {
 
         KieServices ks = KieServices.Factory.get();
         KieContainer kContainer = ks.newKieClasspathContainer();
         KieSession kSession = kContainer.newKieSession("starting-item-recommend-rules");
 
-        switch(earlyGamePlaystyle) {
-            case "sustain":
+        switch(answers.getEarlyGamePlaystyle()) {
+            case "SUSTAIN":
                 kSession.getAgenda().getAgendaGroup("sustain").setFocus();
-            case "defensive":
+            case "DEFENSIVE":
                 kSession.getAgenda().getAgendaGroup("defensive").setFocus();
-            case "offensive":
+            case "OFFENSIVE":
                 kSession.getAgenda().getAgendaGroup("offensive").setFocus();
-            case "support":
+            case "SUPPORT":
                 kSession.getAgenda().getAgendaGroup("support").setFocus();
         }
 
         for(Item i: startingItems) {
             kSession.insert(i);
         }
+        kSession.insert(answers);
         kSession.insert(irs);
         kSession.fireAllRules();
         kSession.dispose();
