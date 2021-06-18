@@ -10,7 +10,12 @@
     <img class="boots-image" :src="require(`@/assets/items/${boots}.png`)" alt="item">
     <b-form-input disabled class="boots-result" v-model="this.bootsReplaced" id="input-1"></b-form-input>
 
-    <!-- Starting Item -->
+    <!-- Mythic Item -->
+    <p class="mythic-item">Mythic</p>
+    <img class="mythic-item-image" :src="require(`@/assets/items/${mythicItem}.png`)" alt="item">
+    <b-form-input disabled class="mythic-item-result" v-model="this.mythicItemReplaced" id="input-1"></b-form-input>
+
+    <!-- Situational Item -->
     <p class="situational-item">Situational</p>
     <img class="situational-item-image" :src="require(`@/assets/items/${situationalItem}.png`)" alt="item">
     <b-form-input disabled class="situational-item-result" v-model="this.situationalItemReplaced" id="input-1"></b-form-input>
@@ -25,10 +30,7 @@
     <img class="defensive-item-image" :src="require(`@/assets/items/${defensiveItem}.png`)" alt="item">
     <b-form-input disabled class="defensive-item-result" v-model="this.defensiveItemReplaced" id="input-1"></b-form-input>
 
-    <!-- Mythic Item -->
-    <p class="mythic-item">Mythic</p>
-    <img class="mythic-item-image" :src="require(`@/assets/items/${mythicItem}.png`)" alt="item">
-    <b-form-input disabled class="mythic-item-result" v-model="this.mythicItemReplaced" id="input-1"></b-form-input>
+
 
     <b-button @click="back()" class="back" variant="secondary">Go Back</b-button>
 </div>
@@ -144,7 +146,7 @@ export default {
     left: 765px;
 }
 
-.situational-item{
+.mythic-item{
     position: absolute;
     font-size: 30px;
     margin: 0 1300px;
@@ -154,7 +156,7 @@ export default {
     color: white;
 }
 
-.situational-item-image {
+.mythic-item-image {
     position:absolute;
     top: 135px;
     max-width: 300px;
@@ -162,7 +164,7 @@ export default {
     left: 1300px;
 }
 
-.situational-item-result{
+.mythic-item-result{
     position:absolute;
     top: 315px;
     max-width: 300px;
@@ -222,7 +224,7 @@ export default {
     left: 765px;
 }
 
-.mythic-item{
+.situational-item{
     position: absolute;
     font-size: 30px;
     margin: 0 1300px;
@@ -232,7 +234,7 @@ export default {
     color: white;
 }
 
-.mythic-item-image {
+.situational-item-image {
     position:absolute;
     top: 500px;
     max-width: 300px;
@@ -240,7 +242,7 @@ export default {
     left: 1300px;
 }
 
-.mythic-item-result{
+.situational-item-result{
     position:absolute;
     top: 690px;
     max-width: 300px;
